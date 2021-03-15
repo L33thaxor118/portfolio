@@ -3,7 +3,7 @@ import styles from './app.css'
 
 export default function App() {
   return (
-    <div className="app">
+    <div className={styles.app}>
       <h1>
         app!
       </h1>

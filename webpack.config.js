@@ -8,11 +8,19 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-      },
+      }, 
       {
-        test: /\.css/,
-        use: ['style-loader', 'css-loader'],
-        include: __dirname + '/src'
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          }
+        ],
       }
     ]
   },
