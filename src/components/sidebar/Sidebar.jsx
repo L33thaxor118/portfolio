@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import styles from './styles.css'
 import profileImage from '../../assets/alien.jpeg'
+import { Link } from 'react-router-dom'
 
 export default function Sidebar(props) {
   return (
     <div className={styles.sidebar}>
       <img className={styles.profileImg} src={profileImage}/>
-      <h3 className={styles.listItemText} onClick={()=>{props.navigate("whoami")}}>whoami</h3>
-      <h3 className={styles.listItemText} onClick={()=>{props.navigate("projects")}}>projects</h3>
+      <Link className={styles.listItemText} to="/">whoami</Link>
+      <Link className={styles.listItemText} to="/projects">projects</Link>
     </div>
   )
 }
