@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/react'
+import { jsx } from '@emotion/react'
+import * as Style from './styles'
 import React from 'react'
 import Projects from './projects'
 import WhoAmI from './whoami'
@@ -7,7 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 
 export default function Content() {
   return (
-    <div css={content}>
+    <div css={Style.content}>
       <Routes>
         <Route path="/" element={<WhoAmI/>}/>
         <Route path="projects" element={<Projects/>} />
@@ -15,17 +16,3 @@ export default function Content() {
     </div>
   )
 }
-
-const content = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 3;
-  background-color: var(--theme-color-primary);
-  font-family: var(--font-family-title);
-`
-
-const divider = css`
-  margin-top: 10px;
-  margin-bottom: 10px;
-`
