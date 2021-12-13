@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Siphon",
+    "summary": "ETL tool for whatever",
+    "tags": ["Electron", "React"],
+    "imageUrl": "mononoke.jpeg"
+  }, 
+  {
+    "title": "Wexly",
+    "summary": "Communicate and stuff",
+    "tags": ["React Native", "Firebase"],
+    "imageUrl": "ghostintheshell.jpeg"
+  }, 
+  {
+    "title": "Unichat",
+    "summary": "Chat for my apps",
+    "tags": ["Ktor"],
+    "imageUrl": "akiraExplosion.jpeg"
+  },
+  {
+    "title": "Affirmations",
+    "summary": "affirm",
+    "tags": ["Electron"],
+    "imageUrl": "neoTokyo.jpeg"
+  },
+  {
+    "title": "This site",
+    "summary": "my site with projecst n stuff",
+    "tags": ["React", "Webpack"],
+    "imageUrl": "2001.jpeg"
+  }
+]

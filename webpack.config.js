@@ -41,7 +41,10 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
   },
   devServer: {
-    contentBase: path.join(__dirname, './build'),
+    contentBase: [
+      path.join(__dirname, './build'),
+      path.join(__dirname, './servedassets')
+    ],
     port: 9000,
     hot: true,
     historyApiFallback: true
