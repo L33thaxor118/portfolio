@@ -28,5 +28,11 @@
     "summary": "my site with projecst n stuff",
     "tags": ["React", "Webpack"],
     "imageUrl": "2001.jpeg"
+  },
+  {
+    "title": "Sashah gift",
+    "summary": "my site with projecst n stuff",
+    "tags": ["React"],
+    "imageUrl": "2001.jpeg"
   }
 ]
