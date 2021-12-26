@@ -8,13 +8,14 @@ interface PropTypes {
   title: string,
   summary: string,
   imageUrl: string,
-  tags: string[]
+  tags: string[],
+  selected: boolean
 }
 
 export default function ProjectFrame(props: PropTypes) {
 
   return (
-    <div css={Style.frame}>
+    <div css={Style.frame(props.selected)}>
       <img css={Style.image} src={props.imageUrl}/>
     </div>
   )

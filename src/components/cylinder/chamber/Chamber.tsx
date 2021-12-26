@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 import * as Style from './styles'
-import React, {useRef, useLayoutEffect, useState, ReactElement} from 'react'
+import React, {useRef, useLayoutEffect, useState, ReactElement, ReactNode} from 'react'
 
 interface PropTypes {
   x: number, 
   y: number,
   idx: number,
-  children?: React.ReactNode,
+  children?: ReactNode,
 }
 
 export default function Chamber(props: PropTypes) {
@@ -30,7 +30,7 @@ export default function Chamber(props: PropTypes) {
       height: "auto",
       left: props.x - dimensions.width/2,//to place view's center at given x, y 
       top: props.y - dimensions.height/2,//to place view's center at given x, y 
-      transition: "left 2s, top 2s"
+      transition: "left 1s, top 1s"
     }}>
       {props.children}
     </div>

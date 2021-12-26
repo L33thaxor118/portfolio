@@ -1,18 +1,23 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 import * as Style from './styles'
-import React, {useRef, useState, useLayoutEffect} from 'react'
+import React, {useRef, useState, useLayoutEffect, ReactElement, ReactNode} from 'react'
 import Chamber from './chamber'
 
 interface PropTypes {
-  radius: number,
-  children?: JSX.Element[]
+  radius: number
+  onSelect?: (idx: number) => void
+  children?: CylinderViewable[]
+}
+export interface CylinderViewable {
+  preview: (selected: boolean)=>ReactNode
+  info: ReactNode
 }
 
 export default function Cylinder(props: PropTypes) {
   const container = useRef(null);
   const [centerCoords, setCenterCoords] = useState({ x:0, y: 0 });
-  const [currentSelected, setCurrentSelected] = useState(0);
+  const [selectedIdx, setSelectedIdx] = useState(0);
   const circumference = 2 * Math.PI * props.radius
 
   useLayoutEffect(() => {
@@ -35,7 +40,7 @@ export default function Cylinder(props: PropTypes) {
     const arcLengthBetweenElements = circumference / numElements
     const angleBetweenElementsInRadians = arcLengthBetweenElements / props.radius
     //offset by 90 degrees because otherwise first item will be drawn to the right instead of to the top
-    const offsetRadians = degreesToRadians(90) + angleBetweenElementsInRadians*currentSelected;
+    const offsetRadians = degreesToRadians(90) - angleBetweenElementsInRadians*selectedIdx;
     for (let i = 0; i <= numElements; i++) {
       const x = props.radius * Math.cos(angleBetweenElementsInRadians*i+offsetRadians)
       const y = props.radius * Math.sin(angleBetweenElementsInRadians*i+offsetRadians)
@@ -47,23 +52,28 @@ export default function Cylinder(props: PropTypes) {
   const framePositions = getFramePositions(props.children.length)
 
   function handleKeyPress() {
-    setCurrentSelected(currentSelected+1)
+    setSelectedIdx((selectedIdx + 1) % props.children.length)
   }
 
   return (
     <div css={Style.container} ref={container} onClick={()=>{handleKeyPress()}}>
       {
-        props.children?.map((child: any, index: number) =>
+        props.children?.map((child: CylinderViewable, index: number) =>
           <Chamber
             key={index}
             idx={index}
             x={centerCoords.x + framePositions[index][0]} //translate by centerCoords.x
             y={centerCoords.y + (framePositions[index][1] * -1)} // translate by centerCoords.y, invert axis
           >
-            {child}
+            {child.preview(index === selectedIdx)}
           </Chamber>
         )
       }
+      <div style={{position: "absolute", left: centerCoords.x, top: centerCoords.y, borderStyle: 'solid'}}>
+        {
+          props.children[selectedIdx].info
+        }
+      </div>
     </div>
   )
 }
