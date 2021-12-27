@@ -34,7 +34,7 @@ export default function Chamber(props: PropTypes) {
       top: props.y - dimensions.height,//to place view's center at given x, y
       transform: `rotate(${-1*props.rotationDegrees}deg)`,
       transformOrigin: `center`,
-      opacity: props.selected ? "100%" : "50%",
+      opacity: props.selected ? "100%" : "40%",
       transition: 'transform 1s, opacity 1s'
     }}>
       {props.children}

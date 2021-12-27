@@ -1,38 +1,38 @@
 [
   {
     "title": "Siphon",
-    "summary": "ETL tool for whatever",
+    "summary": "Configure Extract-Transform-Load operations visually without writing code.",
     "tags": ["Electron", "React"],
     "imageUrl": "mononoke.jpeg"
   }, 
   {
     "title": "Wexly",
-    "summary": "Communicate and stuff",
+    "summary": "Helps people communicate better.",
     "tags": ["React Native", "Firebase"],
     "imageUrl": "ghostintheshell.jpeg"
   }, 
   {
     "title": "Unichat",
-    "summary": "Chat for my apps",
+    "summary": "Instant chat library for my apps.",
     "tags": ["Ktor"],
     "imageUrl": "akiraExplosion.jpeg"
   },
   {
     "title": "Affirmations",
-    "summary": "affirm",
+    "summary": "Tiny app to remind myself of things.",
     "tags": ["Electron"],
     "imageUrl": "neoTokyo.jpeg"
   },
   {
-    "title": "This site",
-    "summary": "my site with projecst n stuff",
+    "title": "This Site",
+    "summary": "The website you are looking at. Cool cylinder layout and stuff.",
     "tags": ["React", "Webpack"],
     "imageUrl": "2001.jpeg"
   },
   {
-    "title": "Sashah gift",
-    "summary": "my site with projecst n stuff",
+    "title": "Gift for Girlfriend",
+    "summary": "Website I made for my girlfriend on her birthday.",
     "tags": ["React"],
-    "imageUrl": "2001.jpeg"
+    "imageUrl": "https://usercontent.hkiff.org.hk/cinefan/yoKlVd7aSt-Perfect%20Blue%20%20(1).jpg"
   }
 ]

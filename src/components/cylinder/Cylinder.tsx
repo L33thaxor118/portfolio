@@ -90,38 +90,46 @@ export default function Cylinder(props: PropTypes) {
     <div style={{
       position: "relative",
       width: "100%",
-      height: "100%",
-      transform: `rotate(${offsetDegrees}deg)`,
-      transitionProperty: 'transform',
-      transitionDuration: '1s',
-      transformOrigin: `center`,
-    }} ref={container}>
-      {
-        props.children?.map((child: CylinderViewable, index: number) =>
-          <Chamber
-            key={index}
-            idx={selectedIdx}
-            rotationDegrees={offsetDegrees}
-            selected={index === selectedIdx}
-            x={centerCoords.x + chamberPositions[index][0]} //translate by centerCoords.x
-            y={centerCoords.y + (chamberPositions[index][1] * -1)} // translate by centerCoords.y, invert axis
-          >
-            <div onClick={()=>{handleSelectedIdx(index)}}>
-              {child.preview(index === selectedIdx)}
-            </div>
-          </Chamber>
-        )
-      }
-      {/* <div style={{
-          width: '100px',
+      height: "100%"
+    }}>
+      <div style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        transform: `rotate(${offsetDegrees}deg)`,
+        transitionProperty: 'transform',
+        transitionDuration: '1s',
+        transformOrigin: `center`,
+      }} ref={container}>
+        {
+          props.children?.map((child: CylinderViewable, index: number) =>
+            <Chamber
+              key={index}
+              idx={selectedIdx}
+              rotationDegrees={offsetDegrees}
+              selected={index === selectedIdx}
+              x={centerCoords.x + chamberPositions[index][0]} //translate by centerCoords.x
+              y={centerCoords.y + (chamberPositions[index][1] * -1)} // translate by centerCoords.y, invert axis
+            >
+              <div onClick={()=>{handleSelectedIdx(index)}}>
+                {child.preview(index === selectedIdx)}
+              </div>
+            </Chamber>
+          )
+        }
+      </div>
+      <div style={{
+          width: '250px',
+          height: '250px',
+          margin: 'auto',
           position: "absolute", 
-          left: centerCoords.x, 
-          top: centerCoords.y, 
-          borderStyle: 'solid'}}>
+          left: `${centerCoords.x - 125}px`, 
+          top: `${centerCoords.y - 125}px`, 
+          borderStyle: "solid",}}>
         {
           props.children[selectedIdx].info
         }
-      </div> */}
+      </div>
     </div>
   )
 }
