@@ -7,6 +7,8 @@ interface PropTypes {
   x: number, 
   y: number,
   idx: number,
+  selected: boolean,
+  rotationDegrees: number,
   children?: ReactNode,
 }
 
@@ -28,9 +30,12 @@ export default function Chamber(props: PropTypes) {
       position:"absolute",
       width: "auto",
       height: "auto",
-      left: props.x - dimensions.width/2,//to place view's center at given x, y 
-      top: props.y - dimensions.height/2,//to place view's center at given x, y 
-      transition: "left 1s, top 1s"
+      left: props.x - dimensions.width,//to place view's center at given x, y 
+      top: props.y - dimensions.height,//to place view's center at given x, y
+      transform: `rotate(${-1*props.rotationDegrees}deg)`,
+      transformOrigin: `center`,
+      opacity: props.selected ? "100%" : "50%",
+      transition: 'transform 1s, opacity 1s'
     }}>
       {props.children}
     </div>
