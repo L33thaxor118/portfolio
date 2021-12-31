@@ -119,12 +119,12 @@ export default function Cylinder(props: PropTypes) {
         }
       </div>
       <div style={{
-          width: '250px',
+          width: '250px', //Due to 3px border, actually is 256x256 px.
           height: '250px',
           margin: 'auto',
           position: "absolute", 
-          left: `${centerCoords.x - 125}px`, 
-          top: `${centerCoords.y - 125}px`, 
+          left: `${centerCoords.x - 128}px`, //so 256/2 is 128.
+          top: `${centerCoords.y - 128}px`, 
           borderStyle: "solid",}}>
         {
           props.children[selectedIdx].info
