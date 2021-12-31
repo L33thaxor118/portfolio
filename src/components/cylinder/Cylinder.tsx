@@ -22,9 +22,13 @@ export default function Cylinder(props: PropTypes) {
   const container = useRef(null)
   const [centerCoords, setCenterCoords] = useState({ x:0, y: 0 })
 
+  //Positions for each chamber in coordinates relative to center of circle
   const [chamberPositions] = useState<Array<[number, number]>>(getChamberPositions())
+
   const [selectedIdx, setSelectedIdx] = useState(0)
   const [prevSelectedIdx, setPrevSelectedIdx] = useState(0)
+
+  //Degrees away from initial position of circle (can be + or -)
   const [offsetDegrees, setOffsetDegrees] = useState(0)
 
   useLayoutEffect(() => {
@@ -35,6 +39,16 @@ export default function Cylinder(props: PropTypes) {
       });
     }
   }, []);
+
+  const handleSelectedIdx = (idx: number) => {
+    setSelectedIdx(prev => {
+      setPrevSelectedIdx(prev)
+      return idx
+    })
+    if (props.onSelect) {
+      props.onSelect(idx)
+    }
+  }
   
   useEffect(()=>{
     setOffsetDegrees(prev => {
@@ -65,42 +79,23 @@ export default function Cylinder(props: PropTypes) {
   }
 
   function getChamberPositions(): Array<[number, number]> {
-    //all coords within this function assume center of view is 0,0 and up is +y, right is +x
-    //we can convert them later
+    //First assume center of view coordinates are [0,0], up is +y, right is +x
     const positions: Array<[number, number]> = []
     const angleBetweenElementsInRadians = getAngleBetweenChambers(false)
-    //offset by 90 degrees because otherwise first item will be drawn to the right instead of at the top
+    //Offset by 90 degrees because otherwise first item will be drawn to the right instead of at the top
     const offsetRadians = degreesToRadians(90);
     for (let i = 0; i <= numChambers; i++) {
       const x = props.radius * Math.cos(angleBetweenElementsInRadians*i+offsetRadians)
       const y = props.radius * Math.sin(angleBetweenElementsInRadians*i+offsetRadians)
+      //We will convert these to absolute coords during render (invert Y axis and translate)
       positions.push([x, y])
     }
     return positions
   }
-  
-  const handleSelectedIdx = (idx: number) => {
-    setSelectedIdx(prev => {
-      setPrevSelectedIdx(prev)
-      return idx
-    })
-  }
 
   return (
-    <div style={{
-      position: "relative",
-      width: "100%",
-      height: "100%"
-    }}>
-      <div style={{
-        position: "relative",
-        width: "100%",
-        height: "100%",
-        transform: `rotate(${offsetDegrees}deg)`,
-        transitionProperty: 'transform',
-        transitionDuration: '1s',
-        transformOrigin: `center`,
-      }} ref={container}>
+    <div css={Style.container}>
+      <div css={Style.cylinderContainer(offsetDegrees)} ref={container}>
         {
           props.children?.map((child: CylinderViewable, index: number) =>
             <Chamber
@@ -108,9 +103,8 @@ export default function Cylinder(props: PropTypes) {
               idx={selectedIdx}
               rotationDegrees={offsetDegrees}
               selected={index === selectedIdx}
-              x={centerCoords.x + chamberPositions[index][0]} //translate by centerCoords.x
-              y={centerCoords.y + (chamberPositions[index][1] * -1)} // translate by centerCoords.y, invert axis
-            >
+              x={centerCoords.x + chamberPositions[index][0]}
+              y={centerCoords.y + (-1*chamberPositions[index][1])}>
               <div onClick={()=>{handleSelectedIdx(index)}}>
                 {child.preview(index === selectedIdx)}
               </div>
@@ -118,14 +112,7 @@ export default function Cylinder(props: PropTypes) {
           )
         }
       </div>
-      <div style={{
-          width: '250px', //Due to 3px border, actually is 256x256 px.
-          height: '250px',
-          margin: 'auto',
-          position: "absolute", 
-          left: `${centerCoords.x - 128}px`, //so 256/2 is 128.
-          top: `${centerCoords.y - 128}px`, 
-          borderStyle: "solid",}}>
+      <div css={Style.selectedFrame(centerCoords.x, centerCoords.y)}>
         {
           props.children[selectedIdx].info
         }

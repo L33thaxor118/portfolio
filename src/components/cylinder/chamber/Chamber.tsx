@@ -27,6 +27,8 @@ export default function Chamber(props: PropTypes) {
 
   return (
     <div ref={container} style={{
+      cursor: "pointer",
+      userSelect: "none",
       position:"absolute",
       width: "auto",
       height: "auto",
