@@ -2,8 +2,11 @@ import { css } from '@emotion/react'
 
 export const container = css`
   position: relative;
+  display: flex;
   width: 100%;
   height: 100%;
+  justify-content: center;
+  align-items: center;
 `
 
 export const cylinderContainer = (rotationDeg: number) => css`
@@ -14,13 +17,17 @@ export const cylinderContainer = (rotationDeg: number) => css`
   transition: transform 1s;
 `
 
-export const selectedFrame = (x: number, y: number) => css`
+export const selectedFrame = (expanded: boolean) => css`
   cursor: pointer;
-  width: 250px;
-  height: 250px;
+  width: ${expanded ? "100%" : "250px"};
+  height: ${expanded ? "100%" : "250px"};
+  background-color: ${expanded ? 'var(--theme-color-primary)' : 'none'};
+  z-index: 0;
   margin: auto;
   position: absolute;
-  left: calc(${x}px - 128px);
-  top: calc(${y}px - 128px);
   border-style: solid;
+  transition: padding 0.5s, width 0.5s, height 0.5s;
+  &:hover {
+    padding: ${expanded ? "0px" : "10px"};
+  }
 `

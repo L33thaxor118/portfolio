@@ -20,7 +20,14 @@ export default function ProjectFrame(props: PropTypes) {
         ${Style.image}; 
         filter: blur(${props.selected ? 0 : 2}px);
         border-style: ${props.selected ? 'solid' : 'none'};
-        border-color: black;` //white also looks really nice
+        border-color: black;
+        opacity: ${props.selected ? 100 : 40}%;
+        transition: opacity 2s;
+        &:hover {
+          transition: opacity 0.5s;
+          filter: none;
+          opacity: 100%;
+        }`
         } 
         src={props.imageUrl}/>
     </div>

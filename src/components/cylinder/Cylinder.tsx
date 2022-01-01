@@ -31,6 +31,8 @@ export default function Cylinder(props: PropTypes) {
   //Degrees away from initial position of circle (can be + or -)
   const [offsetDegrees, setOffsetDegrees] = useState(0)
 
+  const [expanded, setExpanded] = useState(false)
+
   useLayoutEffect(() => {
     if (container.current) {
       setCenterCoords({
@@ -112,7 +114,7 @@ export default function Cylinder(props: PropTypes) {
           )
         }
       </div>
-      <div css={Style.selectedFrame(centerCoords.x, centerCoords.y)}>
+      <div css={Style.selectedFrame(expanded)} onClick={()=>{setExpanded(true)}}>
         {
           props.children[selectedIdx].info
         }
