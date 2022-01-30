@@ -20,6 +20,7 @@ export const profileImg = css`
 `
 
 export const profileImgContainer = css`
+  margin-top: 15%;
   display: flex;
   flex-direction: column;
 `
