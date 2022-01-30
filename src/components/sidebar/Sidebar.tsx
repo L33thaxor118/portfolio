@@ -6,29 +6,34 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
-  const [currImage, setCurrImage] = useState("alien.jpeg")
+  const [currImage, setCurrImage] = useState<number>(0)
 
-  function meOrBlue(): "me" | "blue" {
-    return (Math.random()*100)>50 ? "me" : "blue"
+  function getCurrentImageUrl(): string {
+    switch(currImage) {
+      case 1: return `alien_blue.png`
+      case 2: return `alien_me.png`
+      default: return `alien.jpeg`
+    }
   }
+
   return (
     <div css={Style.sidebar}>
-      <div style={{display: 'flex'}}>
-        {
-          currImage === "alien_blue.png" && <p>That's my dog</p>
-        }
+      <div css={Style.profileImgContainer}>
         <img 
           css={Style.profileImg} 
-          src={currImage} 
-          onMouseEnter={()=>{setCurrImage(`alien_${meOrBlue()}.png`)}}
-          onMouseLeave={()=>{setCurrImage("alien.jpeg")}}
+          src={getCurrentImageUrl()}
+          onClick={()=>{setCurrImage(prev=>(prev+1)%3)}}
           />
-        {
-          currImage === "alien_me.png" && <p>That's me</p>
-        }
+        <p css={Style.imageNote}>
+          {currImage === 1 ? "(my dog)" : currImage === 2 ? "(me)" : ""}
+        </p>
       </div>
       <Link css={Style.listItemText} to="/">whoami</Link>
       <Link css={Style.listItemText} to="/projects">projects</Link>
+      <a href="resume.pdf" style={{textDecoration: 'none'}} download>
+        <p css={Style.listItemText}>resume</p>
+      </a>
+      <Link css={Style.listItemText} to="/log">log</Link>
     </div>
   )
 }

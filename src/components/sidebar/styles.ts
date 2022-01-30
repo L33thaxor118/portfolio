@@ -13,7 +13,22 @@ export const profileImg = css`
   width: 200px;
   height: 200px;
   border-radius: 25%;
-  padding: 20px;
+  margin: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+export const profileImgContainer = css`
+  display: flex;
+  flex-direction: column;
+`
+
+export const imageNote = css`
+  margin-top: -15px;
+  margin-bottom: 25px;
+  height: 10px;
+  text-align: center;
 `
 
 export const listItemText = css`
