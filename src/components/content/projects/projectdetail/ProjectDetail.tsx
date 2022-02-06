@@ -2,8 +2,12 @@
 import { jsx } from '@emotion/react'
 import React from 'react'
 
-export default function ProjectDetail() {
+interface PropTypes {
+  project: any,
+}
+
+export default function ProjectDetail(props: PropTypes) {
   return (
-    <div>hi</div>
+    <div>{props.project?.title}</div>
   )
 }

@@ -7,8 +7,11 @@ import ProjectFrame from './projectframe/ProjectFrame'
 import projectsJson from '../../../assets/projects.json'
 import Cylinder, {CylinderViewable} from '../../cylinder/Cylinder'
 import Chip from '../../chip'
+import { Route, Routes, useParams } from 'react-router-dom'
+import ProjectDetail from './projectdetail'
 
 export default function Projects() {
+  let routeParams = useParams()
 
   const projects: CylinderViewable[] = projectsJson.map((project, idx)=>{
     return {
@@ -40,11 +43,20 @@ export default function Projects() {
   })
   return (
     <div css={Style.container}>
-      <Cylinder radius={300}>
-        {
-          projects
-        }
-      </Cylinder>
+      <Routes>
+        <Route path="/" element={
+          <Cylinder radius={300}>
+            {
+              projects
+            }
+          </Cylinder>
+        }/>
+        <Route path=":projectName" element={
+          <ProjectDetail project={
+            projectsJson.find(item => item.title.toLowerCase() === routeParams["*"])
+          }/>
+        }/>
+      </Routes>
     </div>
   )
 }

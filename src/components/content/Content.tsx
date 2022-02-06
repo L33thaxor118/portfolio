@@ -11,7 +11,7 @@ export default function Content() {
     <div css={Style.content}>
       <Routes>
         <Route path="/" element={<WhoAmI/>}/>
-        <Route path="projects" element={<Projects/>} />
+        <Route path="projects/*" element={<Projects/>} />
       </Routes>
     </div>
   )

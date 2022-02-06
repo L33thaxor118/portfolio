@@ -10,9 +10,9 @@ export default function Sidebar() {
 
   function getCurrentImageUrl(): string {
     switch(currImage) {
-      case 1: return `alien_blue.png`
-      case 2: return `alien_me.png`
-      default: return `alien.jpeg`
+      case 1: return `/alien_blue.png`
+      case 2: return `/alien_me.png`
+      default: return `/alien.jpeg`
     }
   }
 
@@ -33,7 +33,7 @@ export default function Sidebar() {
       <a href="resume.pdf" style={{textDecoration: 'none'}} download>
         <p css={Style.listItemText}>resume</p>
       </a>
-      <Link css={Style.listItemText} to="/log">log</Link>
+      <Link css={Style.listItemText} to="/projects/one">log</Link>
     </div>
   )
 }
