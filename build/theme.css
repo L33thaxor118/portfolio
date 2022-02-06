@@ -1,0 +1,18 @@
+:root {
+  /* Creating a variable */
+  --theme-color-primary: #3F6F8C;
+  --theme-color-secondary: #ffffff;
+  --theme-color-tertiary: #ffffff;
+
+  --font-family-title: 'Roboto', sans-serif;
+  
+  /* Variables can have any value allowed in CSS */
+  --border: .1rem silver solid;
+  
+  /* Variable nesting is possible */
+  --family: Arial, Helvetica, sans-serif; 
+  --variant: small-caps;
+  --size: 1.5rem;
+  
+  --font: var(--variant) var(--size)/1.5 var(--family);
+}
