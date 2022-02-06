@@ -2,11 +2,11 @@ import { css } from '@emotion/react'
 
 export const content = css`
   display: flex;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: var(--default-padding-sides);
+  padding-right: var(--default-padding-sides);
   flex-direction: column;
   align-items: center;
-  margin-top: 7%;
+  margin-top: var(--default-padding-top);
 `
 
 export const title = css`

@@ -15,4 +15,7 @@
   --size: 1.5rem;
   
   --font: var(--variant) var(--size)/1.5 var(--family);
+
+  --default-padding-top: 7%;
+  --default-padding-sides: 10%;
 }

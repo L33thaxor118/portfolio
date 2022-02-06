@@ -114,7 +114,7 @@ export default function Cylinder(props: PropTypes) {
           )
         }
       </div>
-      <div css={Style.selectedFrame(expanded)} onClick={()=>{setExpanded(true)}}>
+      <div css={Style.selectedFrame(expanded)}>
         {
           props.children[selectedIdx].info
         }

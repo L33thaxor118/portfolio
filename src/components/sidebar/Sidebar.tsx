@@ -33,7 +33,7 @@ export default function Sidebar() {
       <a href="resume.pdf" style={{textDecoration: 'none'}} download>
         <p css={Style.listItemText}>resume</p>
       </a>
-      <Link css={Style.listItemText} to="/projects/one">log</Link>
+      <Link css={Style.listItemText} to="/log">log</Link>
     </div>
   )
 }

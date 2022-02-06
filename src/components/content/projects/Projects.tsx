@@ -7,11 +7,12 @@ import ProjectFrame from './projectframe/ProjectFrame'
 import projectsJson from '../../../assets/projects.json'
 import Cylinder, {CylinderViewable} from '../../cylinder/Cylinder'
 import Chip from '../../chip'
-import { Route, Routes, useParams } from 'react-router-dom'
+import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import ProjectDetail from './projectdetail'
 
 export default function Projects() {
   let routeParams = useParams()
+  let navigate = useNavigate()
 
   const projects: CylinderViewable[] = projectsJson.map((project, idx)=>{
     return {
@@ -27,7 +28,9 @@ export default function Projects() {
           display: "flex", 
           flexDirection: "column",
           alignItems: "center"
-          }}>
+          }}
+          onClick={()=>{navigate(`/projects/${project.title.toLowerCase()}`)}}
+          >
           <h1 style={{alignContent: 'center', margin: '10px'}}>{project.title}</h1>
           <p style={{padding: '10px'}}>{project.summary}</p>
           <div style={{width: '100px', height: '100px', marginTop: '20px'}}>
