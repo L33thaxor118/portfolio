@@ -17,7 +17,7 @@
         "React doesn't pick up on deeply nested state!",
         "Test in real scenarios early on."
       ],
-      "images": []
+      "images": ["/siphon_1.png", "/siphon_2.png", "/siphon_1.png"]
     }
   }, 
   {
