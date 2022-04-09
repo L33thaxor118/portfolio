@@ -33,13 +33,20 @@ export default function Cylinder(props: PropTypes) {
 
   const [expanded, setExpanded] = useState(false)
 
+  function getCenterCoords(): {x: number, y: number} {
+    return {
+      x: container.current.clientWidth / 2,
+      y: container.current.clientHeight / 2
+    }
+  }
+  const resizeListener = ()=>setCenterCoords(getCenterCoords())
+
   useLayoutEffect(() => {
     if (container.current) {
-      setCenterCoords({
-        x: container.current.clientWidth / 2,
-        y: container.current.clientHeight / 2
-      });
+      setCenterCoords(getCenterCoords())
+      window.addEventListener('resize', resizeListener)
     }
+    return ()=>window.removeEventListener('resize', resizeListener)
   }, []);
 
   const handleSelectedIdx = (idx: number) => {
