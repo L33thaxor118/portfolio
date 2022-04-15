@@ -2,38 +2,47 @@ import { css } from '@emotion/react'
 
 export const sidebar = css`
   display: flex;
-  flex: 1;
-  flex-direction: column;
+  flex: 0;
+  flex-direction: row;
+  @media (max-width: 485px) {
+    flex-direction: column;
+    flex: 0;
+  }
   align-items: center;
   background-color: var(--theme-color-secondary);
   font-family: var(--font-family-title);
 `
 
 export const profileImg = css`
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border-radius: 25%;
   margin: 20px;
   &:hover {
     cursor: pointer;
   }
+  @media (max-width: 485px) {
+    margin: 5px;
+    width: 80px;
+    height: 80px;
+  }
 `
 
 export const profileImgContainer = css`
-  margin-top: 15%;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
 `
 
 export const imageNote = css`
-  margin-top: -15px;
-  margin-bottom: 25px;
-  height: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 0px;
   text-align: center;
 `
 
 export const listItemText = css`
-  margin-bottom: 10px;
+  margin: 10px;
   text-decoration: none;
   color: black;
   font-size: 20px;
@@ -41,4 +50,8 @@ export const listItemText = css`
     cursor: pointer;
     color: green;
   }
+`
+
+export const listItemContainer = css`
+  display: flex;
 `

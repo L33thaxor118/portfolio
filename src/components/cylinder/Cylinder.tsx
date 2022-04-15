@@ -20,7 +20,6 @@ export default function Cylinder(props: PropTypes) {
   const circumference = 2 * Math.PI * props.radius
 
   const container = useRef(null)
-  const [centerCoords, setCenterCoords] = useState({ x:0, y: 0 })
 
   //Positions for each chamber in coordinates relative to center of circle
   const [chamberPositions] = useState<Array<[number, number]>>(getChamberPositions())
@@ -32,22 +31,6 @@ export default function Cylinder(props: PropTypes) {
   const [offsetDegrees, setOffsetDegrees] = useState(0)
 
   const [expanded, setExpanded] = useState(false)
-
-  function getCenterCoords(): {x: number, y: number} {
-    return {
-      x: container.current.clientWidth / 2,
-      y: container.current.clientHeight / 2
-    }
-  }
-  const resizeListener = ()=>setCenterCoords(getCenterCoords())
-
-  useLayoutEffect(() => {
-    if (container.current) {
-      setCenterCoords(getCenterCoords())
-      window.addEventListener('resize', resizeListener)
-    }
-    return ()=>window.removeEventListener('resize', resizeListener)
-  }, []);
 
   const handleSelectedIdx = (idx: number) => {
     setSelectedIdx(prev => {
@@ -103,7 +86,7 @@ export default function Cylinder(props: PropTypes) {
   }
 
   return (
-    <div css={Style.container}>
+    <div css={Style.container(0)}>
       <div css={Style.cylinderContainer(offsetDegrees)} ref={container}>
         {
           props.children?.map((child: CylinderViewable, index: number) =>
@@ -112,8 +95,8 @@ export default function Cylinder(props: PropTypes) {
               idx={selectedIdx}
               rotationDegrees={offsetDegrees}
               selected={index === selectedIdx}
-              x={centerCoords.x + chamberPositions[index][0]}
-              y={centerCoords.y + (-1*chamberPositions[index][1])}>
+              x={chamberPositions[index][0]}
+              y={(-1*chamberPositions[index][1])}>
               <div onClick={()=>{handleSelectedIdx(index)}}>
                 {child.preview(index === selectedIdx)}
               </div>

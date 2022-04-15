@@ -9,10 +9,13 @@ import Cylinder, {CylinderViewable} from '../../cylinder/Cylinder'
 import Chip from '../../chip'
 import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import ProjectDetail from './projectdetail'
+import { useMediaQuery } from 'react-responsive'
 
 export default function Projects() {
   let routeParams = useParams()
   let navigate = useNavigate()
+
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 840px)' })
 
   const projects: CylinderViewable[] = projectsJson.map((project, idx)=>{
     return {
@@ -48,11 +51,15 @@ export default function Projects() {
     <div css={Style.container}>
       <Routes>
         <Route path="/" element={
-          <Cylinder radius={300}>
-            {
-              projects
+          <div css={Style.container}>
+            {isLargeScreen ? 
+            <Cylinder radius={300}>
+              {
+                projects
+              }
+            </Cylinder> : <div>this is mobile</div>
             }
-          </Cylinder>
+          </div>
         }/>
         <Route path=":projectName" element={
           <ProjectDetail project={

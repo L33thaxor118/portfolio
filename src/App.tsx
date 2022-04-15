@@ -17,6 +17,6 @@ const style = css`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: var(--theme-color-primary);
 `
