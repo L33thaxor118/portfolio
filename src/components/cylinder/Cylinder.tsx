@@ -19,8 +19,6 @@ export default function Cylinder(props: PropTypes) {
   const numChambers = props.children.length
   const circumference = 2 * Math.PI * props.radius
 
-  const container = useRef(null)
-
   //Positions for each chamber in coordinates relative to center of circle
   const [chamberPositions] = useState<Array<[number, number]>>(getChamberPositions())
 
@@ -86,8 +84,8 @@ export default function Cylinder(props: PropTypes) {
   }
 
   return (
-    <div css={Style.container(0)}>
-      <div css={Style.cylinderContainer(offsetDegrees)} ref={container}>
+    <div css={Style.container}>
+      <div css={Style.cylinderContainer(offsetDegrees)}>
         {
           props.children?.map((child: CylinderViewable, index: number) =>
             <Chamber
