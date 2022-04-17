@@ -19,6 +19,10 @@ export default function Cylinder(props: PropTypes) {
   const numChambers = props.children.length
   const circumference = 2 * Math.PI * props.radius
 
+  const [centerCoords, setCenterCoords] = useState({ x:0, y: 0 })
+
+  const container = useRef(null)
+
   //Positions for each chamber in coordinates relative to center of circle
   const [chamberPositions] = useState<Array<[number, number]>>(getChamberPositions())
 
@@ -39,6 +43,23 @@ export default function Cylinder(props: PropTypes) {
       props.onSelect(idx)
     }
   }
+
+  function getCenterCoords(): {x: number, y: number} {
+    return {
+      x: container.current.clientWidth / 2,
+      y: container.current.clientHeight / 2
+    }
+  }
+  
+  const resizeListener = ()=>setCenterCoords(getCenterCoords())
+
+  useLayoutEffect(() => {
+    if (container.current) {
+      setCenterCoords(getCenterCoords())
+      window.addEventListener('resize', resizeListener)
+    }
+    return ()=>window.removeEventListener('resize', resizeListener)
+  }, []);
   
   useEffect(()=>{
     setOffsetDegrees(prev => {
@@ -84,7 +105,7 @@ export default function Cylinder(props: PropTypes) {
   }
 
   return (
-    <div css={Style.container}>
+    <div css={Style.container} ref={container}>
       <div css={Style.cylinderContainer(offsetDegrees)}>
         {
           props.children?.map((child: CylinderViewable, index: number) =>
