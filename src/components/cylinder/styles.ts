@@ -3,26 +3,14 @@ import { css } from '@emotion/react'
 export const container = css`
   position: relative;
   display: flex;
-  width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
-  @media (max-height: 910px) {
-    margin-top: 50px;
-  }
-  @media (max-height: 810px) {
-    margin-top: 100px;
-  }
-  @media (max-height: 710px) {
-    margin-top: 150px;
-  }
-  @media (max-height: 610px) {
-    margin-top: 200px;
-  }
 `
 
 export const cylinderContainer = (rotationDeg: number) => css`
   position: relative;
+  width: 850px;
+  height: 850px;
   transform: rotate(${rotationDeg}deg);
   transition: transform 1s;
 `

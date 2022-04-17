@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 import * as Style from './styles'
+import { css } from '@emotion/react'
 import React, {useRef, useState, useLayoutEffect, ReactElement, ReactNode, useEffect, WheelEvent, useCallback, useMemo, Children} from 'react'
 import Chamber from './chamber'
 import { radiansToDegrees, degreesToRadians, mod } from '../../utils/mathutils'
@@ -105,23 +106,25 @@ export default function Cylinder(props: PropTypes) {
   }
 
   return (
-    <div css={Style.container} ref={container}>
-      <div css={Style.cylinderContainer(offsetDegrees)}>
-        {
-          props.children?.map((child: CylinderViewable, index: number) =>
-            <Chamber
-              key={index}
-              idx={selectedIdx}
-              rotationDegrees={offsetDegrees}
-              selected={index === selectedIdx}
-              x={chamberPositions[index][0]}
-              y={(-1*chamberPositions[index][1])}>
-              <div onClick={()=>{handleSelectedIdx(index)}}>
-                {child.preview(index === selectedIdx)}
-              </div>
-            </Chamber>
-          )
-        }
+    <div css={Style.container}>
+      <div css={css`overflow:hidden;`}>
+        <div css={Style.cylinderContainer(offsetDegrees)} ref={container}>
+          {
+            props.children?.map((child: CylinderViewable, index: number) =>
+              <Chamber
+                key={index}
+                idx={selectedIdx}
+                rotationDegrees={offsetDegrees}
+                selected={index === selectedIdx}
+                x={centerCoords.x + chamberPositions[index][0]}
+                y={centerCoords.y + (-1*chamberPositions[index][1])}>
+                <div onClick={()=>{handleSelectedIdx(index)}}>
+                  {child.preview(index === selectedIdx)}
+                </div>
+              </Chamber>
+            )
+          }
+        </div>
       </div>
       <div css={Style.selectedFrame(expanded)}>
         {
