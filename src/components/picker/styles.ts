@@ -8,7 +8,6 @@ export const container = css`
   width: 100%;
   height: 100%;
   overflow-y: hidden;
-  background-color: gold;
 `
 
 export const list = css`
@@ -16,12 +15,13 @@ export const list = css`
   flex-direction: column;
   width: 50%;
   height: 89vh;
+  @media (max-width: 485px) {
+    height: 83vh;
+  }
   align-items: center;
-  border-style: solid;
-  border-width: 4px;
   overflow-y: scroll;
-  background-color: red;
   scroll-snap-type: y mandatory;
+  ::-webkit-scrollbar {display:none;}
 `
 
 export const focus = css`
