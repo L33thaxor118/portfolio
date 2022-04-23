@@ -1,12 +1,17 @@
 import { css } from '@emotion/react'
 
 export const container = css`
-  position: relative;
+  position: absolute;
+  top: -10%;
+  height: 110%;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  @media (max-width: 485px) {
+    top: -15%;
+    height: 115%;
+  }
   overflow-y: hidden;
 `
 
@@ -14,10 +19,7 @@ export const list = css`
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 89vh;
-  @media (max-width: 485px) {
-    height: 83vh;
-  }
+  height: 100vh;
   align-items: center;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -31,6 +33,22 @@ export const focus = css`
   padding-top: 50%;
   border-style: solid;
   border-radius: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+`
+
+
+export const focusTop = css`
+  background-color: red;
+  width: 10px;
+  height: 10px;
+`
+
+export const focusBottom = css`
+  background-color: blue;
+  width: 10px;
+  height: 10px;
 `
 
 export const preview = (first: Boolean = false, last: Boolean = false) => css`
@@ -42,7 +60,7 @@ export const preview = (first: Boolean = false, last: Boolean = false) => css`
   border-radius: 100%;
   display: flex;
   align-items: center; 
-  margin-top: ${first ? 150 : 20}%;
-  margin-bottom: ${last ? 150 : 20}%;
+  margin-top: ${first ? 250 : 20}%;
+  margin-bottom: ${last ? 250 : 20}%;
   justify-content: center;
 `

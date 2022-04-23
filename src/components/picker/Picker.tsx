@@ -19,7 +19,6 @@ export default function Cylinder(props: PropTypes) {
   return (
     <div css={Style.container}>
       <div css={Style.focus}>
-
       </div>
       <div css={Style.list}>
         {displayItems}
