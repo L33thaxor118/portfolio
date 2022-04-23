@@ -10,6 +10,7 @@ import Chip from '../../chip'
 import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import ProjectDetail from './projectdetail'
 import { useMediaQuery } from 'react-responsive'
+import Picker from '../../picker'
 
 export default function Projects() {
   let routeParams = useParams()
@@ -57,7 +58,8 @@ export default function Projects() {
               {
                 projects
               }
-            </Cylinder> : <div>this is mobile</div>
+            </Cylinder> : 
+            <Picker/>
             }
           </div>
         }/>
