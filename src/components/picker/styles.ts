@@ -36,31 +36,36 @@ export const focus = css`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 
-export const focusTop = css`
-  background-color: red;
-  width: 10px;
-  height: 10px;
-`
-
-export const focusBottom = css`
-  background-color: blue;
-  width: 10px;
-  height: 10px;
-`
-
-export const preview = (first: Boolean = false, last: Boolean = false) => css`
+export const preview = (first: Boolean = false, last: Boolean = false, selected: boolean) => css`
   scroll-snap-align: center;
   width: 40%;
   height: auto;
   padding-top: 40%;
   border-style: solid;
   border-radius: 100%;
+  background-color: ${selected ? "red" : "none"};
+  transition: width height 1s;
   display: flex;
   align-items: center; 
   margin-top: ${first ? 250 : 20}%;
   margin-bottom: ${last ? 250 : 20}%;
+  justify-content: center;
+`
+
+
+export const inner = () => css`
+  scroll-snap-align: center;
+  margin-top: -100%;
+  width: 100%;
+  border-style: solid;
+  border-radius: 100%;
+  background-color: tan;
+  transition: width height 1s;
+  display: flex;
+  align-items: center; 
   justify-content: center;
 `
