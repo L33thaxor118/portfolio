@@ -8,7 +8,7 @@
   "scripts": {
     "serve": "webpack serve --mode development",
     "build": "webpack",
-    "prestart": "yes | yarn build && rsync -avz \"servedassets\"/ \"build\"",
+    "prestart": "yarn && yes | yarn build && rsync -avz \"servedassets\"/ \"build\"",
     "start": "node server/server.js"
   },
   "babel": {
