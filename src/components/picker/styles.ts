@@ -37,6 +37,7 @@ export const focus = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  pointer-events: none;
 `
 
 
