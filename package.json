@@ -5,10 +5,12 @@
   "main": "index.js",
   "author": "Azriel Alvarado <aalvarado@fulcrumgt.com>",
   "license": "MIT",
+  "engines": {
+    "yarn": "1.22.18"
+  },
   "scripts": {
     "serve": "webpack serve --mode development",
-    "build": "webpack",
-    "prestart": "yarn && yes | yarn build && rsync -avz \"servedassets\"/ \"build\"",
+    "build": "webpack && rsync -avz \"servedassets\"/ \"build\"",
     "start": "node server/server.js"
   },
   "babel": {
