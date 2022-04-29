@@ -26,7 +26,7 @@ export const list = css`
   ::-webkit-scrollbar {display:none;}
 `
 
-export const focus = css`
+export const focus = (rotationDeg: number)=>css`
   position: absolute;
   width: 50%;
   height: auto;
@@ -38,6 +38,7 @@ export const focus = css`
   flex-direction: column;
   align-items: center;
   pointer-events: none;
+  transform: rotate(${rotationDeg}deg);
 `
 
 
@@ -69,4 +70,12 @@ export const inner = () => css`
   display: flex;
   align-items: center; 
   justify-content: center;
+`
+
+export const projectTitle = css`
+  font-size: 38px;
+  font-weight: bold;
+  fill: black;
+  text-align: center;
+  text-anchor: middle;
 `
