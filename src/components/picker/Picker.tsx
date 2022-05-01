@@ -64,7 +64,7 @@ export default function Picker(props: PropTypes) {
   return (
     <div css={Style.container}>
       <div css={Style.focus(scrollPos*1.5 + 140)} ref={focusRef}>
-        <svg viewBox="0 0 500 500" css={css`margin-top:-100%;`}>
+        <svg viewBox="0 -10 500 500" css={css`margin-top:-100%;`}>
           <path fill="transparent" id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
           <text css={Style.projectTitle} width="500">
             <textPath startOffset="50%" href="#curve">
