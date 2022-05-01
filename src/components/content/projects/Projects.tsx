@@ -11,6 +11,7 @@ import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import ProjectDetail from './projectdetail'
 import { useMediaQuery } from 'react-responsive'
 import Picker from '../../picker'
+import { PickerViewable } from '../../picker/Picker'
 
 export default function Projects() {
   let routeParams = useParams()
@@ -48,18 +49,26 @@ export default function Projects() {
       )
     }
   })
+ 
   return (
     <div css={Style.container}>
       <Routes>
         <Route path="/" element={
           <div css={Style.container}>
-            {isLargeScreen ? 
-            <Cylinder radius={300}>
-              {
-                projects
-              }
-            </Cylinder> : 
-            <Picker/>
+            { isLargeScreen ? 
+              <Cylinder radius={300}>
+                {
+                  projects
+                }
+              </Cylinder> : 
+              <Picker projects={projectsJson.map((project)=>{ 
+                return {
+                  title: project.title,
+                  topics: project.tags,
+                  description: project.summary,
+                  imgSrc: project.imageUrl
+                }
+              })}/>
             }
           </div>
         }/>

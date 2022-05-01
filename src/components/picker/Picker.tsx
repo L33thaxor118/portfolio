@@ -5,12 +5,18 @@ import { css } from '@emotion/react'
 import React, {useState, ReactElement, ReactNode, useEffect, useRef, useLayoutEffect} from 'react'
 
 interface PropTypes {
-  children?: ReactNode
+  projects: Array<PickerViewable>
+}
+
+export interface PickerViewable {
+  title: string,
+  topics: Array<string>,
+  description: string,
+  imgSrc: string
 }
 
 export default function Picker(props: PropTypes) {
-
-  const [items, setItems] = useState(["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve"])
+  const {projects} = props
 
   const focusRef = useRef(null)
   const [scrollPos, setScrollPos] = useState(0)
@@ -34,13 +40,14 @@ export default function Picker(props: PropTypes) {
     }
   }
 
-  const displayItems = items.map((item, idx)=>
+  const displayItems = projects.map((project, idx)=>
     <Item 
       idx={idx} 
       onFocusChange={handleFocusChange}
       focusBounds={focusBounds}
-      isLast={idx === items.length-1} 
-      key={item.toString()}/>
+      isLast={idx === projects.length-1}
+      imgUrl={project.imgSrc} 
+      key={project.title}/>
   )
 
   const handleScroll = (e: any) => {
@@ -61,7 +68,7 @@ export default function Picker(props: PropTypes) {
           <path fill="transparent" id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
           <text css={Style.projectTitle} width="500">
             <textPath startOffset="50%" href="#curve">
-              {showTitle ? items[focusedIdx] : ""}
+              {showTitle ? projects[focusedIdx].title : ""}
             </textPath>
           </text>
         </svg>
@@ -76,6 +83,7 @@ export default function Picker(props: PropTypes) {
 enum FocusType { Full="full", Partial="partial", None="none" }
 
 interface ItemPropTypes {
+  imgUrl: string,
   idx: number,
   isLast: Boolean,
   focusBounds: {start: number, end: number} | undefined
@@ -108,6 +116,16 @@ function Item(props: ItemPropTypes) {
 
   return (
     <div ref={ref} css={Style.preview(props.idx===0, props.isLast, focusType===FocusType.Full)}>
+      <img css={css`
+        margin-top: -100%;
+        @media (max-width: 485px) {
+          width: 100px;
+          height: 100px;
+        }
+        width: 200px;
+        height: 200px;
+      `} 
+      src={props.imgUrl} />
     </div>
   )
 }

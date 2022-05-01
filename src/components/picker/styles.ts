@@ -47,6 +47,7 @@ export const preview = (first: Boolean = false, last: Boolean = false, selected:
   height: auto;
   padding-top: 40%;
   border-style: solid;
+  border-color: ${selected ? 'black' : 'rgba(0,0,0,0)'};
   border-radius: 100%;
   background-color: ${selected ? "red" : "none"};
   transition: width height 1s;
@@ -55,6 +56,8 @@ export const preview = (first: Boolean = false, last: Boolean = false, selected:
   margin-top: ${first ? 250 : 20}%;
   margin-bottom: ${last ? 250 : 20}%;
   justify-content: center;
+  overflow: hidden;
+  opacity: ${selected ? 100 : 40}%;
 `
 
 
