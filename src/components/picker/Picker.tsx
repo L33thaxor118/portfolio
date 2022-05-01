@@ -2,23 +2,42 @@
 import { jsx } from '@emotion/react'
 import * as Style from './styles'
 import { css } from '@emotion/react'
-import React, {useState, ReactElement, ReactNode, useEffect, useRef} from 'react'
+import React, {useState, ReactElement, ReactNode, useEffect, useRef, useLayoutEffect} from 'react'
 
 interface PropTypes {
   children?: ReactNode
 }
 
-export default function Cylinder(props: PropTypes) {
+export default function Picker(props: PropTypes) {
 
-  const [items, setItems] = useState([1,2,3,4,5,6,7,8,9,10,11,12])
+  const [items, setItems] = useState(["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve"])
 
   const focusRef = useRef(null)
   const [scrollPos, setScrollPos] = useState(0)
   const [focusBounds, setFocusBounds] = useState({start: 0, end: 0})
+  const [focusedIdx, setFocusedIdx] = useState(0)
+  const [showTitle, setShowTitle] = useState(true)
+
+  function handleFocusChange(newType: FocusType, idx: number) {
+    if (newType === FocusType.Full) {
+      setFocusedIdx(idx)
+    }
+    if (newType === FocusType.Partial) {
+      if (idx != focusedIdx) {
+        setShowTitle(false)
+      }
+    }
+    if (newType === FocusType.None) {
+      if (idx != focusedIdx) {
+        setShowTitle(true)
+      }
+    }
+  }
 
   const displayItems = items.map((item, idx)=>
     <Item 
       idx={idx} 
+      onFocusChange={handleFocusChange}
       focusBounds={focusBounds}
       isLast={idx === items.length-1} 
       key={item.toString()}/>
@@ -42,7 +61,7 @@ export default function Cylinder(props: PropTypes) {
           <path fill="transparent" id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
           <text css={Style.projectTitle} width="500">
             <textPath startOffset="50%" href="#curve">
-              Dangerous
+              {showTitle ? items[focusedIdx] : ""}
             </textPath>
           </text>
         </svg>
@@ -54,10 +73,13 @@ export default function Cylinder(props: PropTypes) {
   )
 }
 
+enum FocusType { Full="full", Partial="partial", None="none" }
+
 interface ItemPropTypes {
   idx: number,
   isLast: Boolean,
   focusBounds: {start: number, end: number} | undefined
+  onFocusChange: (newType: FocusType, idx: number)=>void
 }
 
 function Item(props: ItemPropTypes) {
@@ -65,15 +87,27 @@ function Item(props: ItemPropTypes) {
   const bounds = ref.current?.getBoundingClientRect()
   const start = bounds?.top
   const end = bounds?.bottom
+  const [latestFocus, setLatestFocus] = useState(FocusType.None)
 
-  function isFocused(): boolean {
-    if (start >= props.focusBounds?.start && end <= props.focusBounds?.end) {
-      return true
-    }
-    return false
+  var focusType = FocusType.None
+  if (start < props.focusBounds?.start && end > props.focusBounds?.start) {
+    focusType = FocusType.Partial
+  } else if (start < props.focusBounds?.end && end > props.focusBounds?.end) {
+    focusType = FocusType.Partial
+  } else if (start >= props.focusBounds?.start && end <= props.focusBounds?.end) {
+    focusType = FocusType.Full
   }
+
+  if (focusType !== latestFocus) {
+    setLatestFocus(focusType)
+  }
+
+  useLayoutEffect(()=>{
+    props.onFocusChange(latestFocus, props.idx)
+  }, [latestFocus])
+
   return (
-    <div ref={ref} css={Style.preview(props.idx===0, props.isLast, isFocused())}>
+    <div ref={ref} css={Style.preview(props.idx===0, props.isLast, focusType===FocusType.Full)}>
     </div>
   )
 }

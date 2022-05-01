@@ -38,7 +38,6 @@ export const focus = (rotationDeg: number)=>css`
   flex-direction: column;
   align-items: center;
   pointer-events: none;
-  transform: rotate(${rotationDeg}deg);
 `
 
 
