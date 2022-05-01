@@ -58,6 +58,9 @@ export const preview = (first: Boolean = false, last: Boolean = false, selected:
   justify-content: center;
   overflow: hidden;
   opacity: ${selected ? 100 : 40}%;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 

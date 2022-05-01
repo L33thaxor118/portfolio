@@ -3,6 +3,7 @@ import { jsx } from '@emotion/react'
 import * as Style from './styles'
 import { css } from '@emotion/react'
 import React, {useState, ReactElement, ReactNode, useEffect, useRef, useLayoutEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface PropTypes {
   projects: Array<PickerViewable>
@@ -46,6 +47,7 @@ export default function Picker(props: PropTypes) {
       onFocusChange={handleFocusChange}
       focusBounds={focusBounds}
       isLast={idx === projects.length-1}
+      title={project.title}
       imgUrl={project.imgSrc} 
       key={project.title}/>
   )
@@ -91,6 +93,7 @@ enum FocusType { Full="full", Partial="partial", None="none" }
 
 interface ItemPropTypes {
   imgUrl: string,
+  title: String,
   idx: number,
   isLast: Boolean,
   focusBounds: {start: number, end: number} | undefined
@@ -99,6 +102,7 @@ interface ItemPropTypes {
 
 function Item(props: ItemPropTypes) {
   const ref = useRef(null)
+  const navigate = useNavigate()
   const bounds = ref.current?.getBoundingClientRect()
   const start = bounds?.top
   const end = bounds?.bottom
@@ -122,7 +126,10 @@ function Item(props: ItemPropTypes) {
   }, [latestFocus])
 
   return (
-    <div ref={ref} css={Style.preview(props.idx===0, props.isLast, focusType===FocusType.Full)}>
+    <div 
+      ref={ref} 
+      css={Style.preview(props.idx===0, props.isLast, focusType===FocusType.Full)}
+      onClick={()=>{navigate(`/projects/${props.title.toLowerCase()}`)}}>
       <img css={css`
         margin-top: -100%;
         @media (max-width: 485px) {
