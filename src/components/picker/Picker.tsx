@@ -60,6 +60,7 @@ export default function Picker(props: PropTypes) {
       setFocusBounds({start: rect?.top, end: rect?.bottom})
     }
   }, [scrollPos])
+  //M 25 300 L 25 300 A 281 500, 0, 0 0, 300 300,
 
   return (
     <div css={Style.container}>
@@ -69,6 +70,12 @@ export default function Picker(props: PropTypes) {
           <text css={Style.projectTitle} width="500">
             <textPath startOffset="50%" href="#curve">
               {showTitle ? projects[focusedIdx].title : ""}
+            </textPath>
+          </text>
+          <path fill="transparent" id="bottomcurve" transform="translate(12 20)" d="M 25 300 L 25 300 A 310 460, 0, 0 0, 450 300,"></path>
+          <text css={Style.projectTitle} width="600">
+            <textPath startOffset="50%" href="#bottomcurve">
+              {showTitle ? projects[focusedIdx].topics.reduce((prev, curr)=>prev + " - " + curr) : ""}
             </textPath>
           </text>
         </svg>

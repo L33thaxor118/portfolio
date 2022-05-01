@@ -75,7 +75,7 @@ export const inner = () => css`
 `
 
 export const projectTitle = css`
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
   fill: black;
   text-align: center;
