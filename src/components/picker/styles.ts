@@ -24,6 +24,7 @@ export const list = css`
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   ::-webkit-scrollbar {display:none;}
+  scrollbar-width: none;
 `
 
 export const focus = (rotationDeg: number)=>css`
@@ -32,6 +33,7 @@ export const focus = (rotationDeg: number)=>css`
   height: auto;
   padding-top: 50%;
   border-style: solid;
+  border-width: 1.5px;
   border-radius: 100%;
   overflow: hidden;
   display: flex;
@@ -47,6 +49,7 @@ export const preview = (first: Boolean = false, last: Boolean = false, selected:
   height: auto;
   padding-top: 40%;
   border-style: solid;
+  border-width: 1.5px;
   border-color: ${selected ? 'black' : 'rgba(0,0,0,0)'};
   border-radius: 100%;
   background-color: ${selected ? "red" : "none"};

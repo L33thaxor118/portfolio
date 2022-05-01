@@ -24,6 +24,7 @@ export const selectedFrame = (expanded: boolean) => css`
   margin: auto;
   position: absolute;
   border-style: solid;
+  border-width: 1.5px;
   transition: padding 0.5s, width 0.5s, height 0.5s;
   &:hover {
     padding: ${expanded ? "0px" : "10px"};

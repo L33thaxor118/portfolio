@@ -21,6 +21,7 @@ export default function ProjectFrame(props: PropTypes) {
         filter: blur(${props.selected ? 0 : 2}px);
         border-style: ${props.selected ? 'solid' : 'none'};
         border-color: black;
+        border-width: 1.5px;
         opacity: ${props.selected ? 100 : 40}%;
         transition: opacity 2s;
         &:hover {
