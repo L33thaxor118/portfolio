@@ -82,6 +82,8 @@ export default function Picker(props: PropTypes) {
           </text>
         </svg>
       </div>
+      <div css={css`background-color: black;height: 1.5px; width: 25%; position: absolute; top: 50%; left: 0;`}/>
+      <div css={css`background-color: black;height: 1.5px; width: 25%; position: absolute; top: 50%; right: 0;`}/>
       <div css={Style.list} onScroll={handleScroll}>
         {displayItems}
       </div>
