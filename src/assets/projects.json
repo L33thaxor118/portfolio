@@ -24,7 +24,22 @@
     "title": "Wexly",
     "summary": "Helps people communicate better.",
     "tags": ["React Native", "Firebase"],
-    "imageUrl": "ghostintheshell.jpeg"
+    "imageUrl": "ghostintheshell.jpeg",
+    "details": {
+      "description":"Hybrid app I worked on casually for a few months. The app provides instant messaging with a twist: messages are guided. They have a series of steps which suggest how to structure a difficult conversation with a loved one.",
+      "repoUrl": null,
+      "features": [
+        "Instant messaging: Implemented with Firebase",
+        "Local persistence: Messages are only held in Firebase until they are delivered. After that they are persisted locally on the client-side.",
+        "Multi-Platform: Implemented in React Native which compiles to Android & iOS.",
+        "Simple SMS authentication: All that is needed is SMS verification to gain access to the app."
+      ],
+      "learnings": [
+        "Pay attention to React Native version migration requirements!",
+        "Leveraged architecture and Firebase services to avoid mounting costs: Firestore to hold and distribute messages, client to mark as received, cloud Functions to remove received messages from Firestore."
+      ],
+      "images": []
+    }
   }, 
   {
     "title": "Unichat",
