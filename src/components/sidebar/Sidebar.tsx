@@ -30,7 +30,7 @@ export default function Sidebar() {
   const navLinks = [
     <Link key={1} css={Style.listItemText} to="/">whoami</Link>,
     <Link key={2} css={Style.listItemText} to="/projects">projects</Link>,
-    <a key={3} href="resume.pdf" style={{textDecoration: 'none'}} download>
+    <a key={3} href="resume.pdf" style={{textDecoration: 'none'}} type={'application/pdf'} target="_blank">
       <p css={Style.listItemText}>resume</p>
     </a>,
     <Link key={4} css={Style.listItemText} to="/log">log</Link>
