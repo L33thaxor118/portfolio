@@ -4,21 +4,36 @@
     "summary": "Configure Extract-Transform-Load operations visually without writing code.",
     "tags": ["Electron", "React"],
     "imageUrl": "mononoke.jpeg",
-    "details": {
-      "description":"Project I worked on for about 5 months as an intern at Fulcrum-GT. The intent was to create a tool which allowed for easy ETL configuration without the need for any coding knowledge so that our config teams could rely less on engineers for new client setup. Worked on this with only one other intern.",
-      "repoUrl": null,
-      "features": [
-        "Type Safety: will check that transformation chains have compatible types from start to finish based on declared schema",
-        "Transform Library: implemented a variety of transforms",
-        "Mappings from a variety of sources: perform mappings based on database queries, etc",
-        "Performance: Leverage Electron's IPC to run transformations on a separate process running in a Node environment which allowed for easy file IO."
-      ],
-      "learnings": [
-        "React doesn't pick up on deeply nested state!",
-        "Test in real scenarios early on."
-      ],
-      "images": ["/siphon_1.png", "/siphon_2.png", "/siphon_1.png"]
-    }
+    "demoUrl": "use this for video demo",
+    "repoUrl": null,
+    "sections": [
+      {
+        "subtitle": null,
+        "text": "Project I worked on for about 5 months as an intern at Fulcrum-GT. The intent was to create a tool which allowed for easy ETL configuration without the need for any coding knowledge so that our config teams could rely less on engineers for new client setup. Worked on this with only one other intern.",
+        "list": null,
+        "imageUrls": ["/siphon_1.png", "/siphon_2.png", "/siphon_1.png"]
+      },
+      {
+        "subtitle": "Features",
+        "text": "",
+        "list": [
+          "Type Safety: will check that transformation chains have compatible types from start to finish based on declared schema",
+          "Transform Library: implemented a variety of transforms",
+          "Mappings from a variety of sources: perform mappings based on database queries, etc",
+          "Performance: Leverage Electron's IPC to run transformations on a separate process running in a Node environment which allowed for easy file IO."
+        ],
+        "imageUrls": null
+      },
+      {
+        "subtitle": "What I learned",
+        "text": "",
+        "list": [
+          "React doesn't pick up on deeply nested state!",
+          "Test in real scenarios early on."
+        ],
+        "imageUrls": null
+      }
+    ]
   }, 
   {
     "title": "Wexly",

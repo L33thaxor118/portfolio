@@ -10,8 +10,8 @@ interface PropTypes {
   style?: SerializedStyles
 }
 export default function Carousel(props: PropTypes) {
-  const images = props.imageUrls.map((url)=>(
-    <a css = {Style.carouselItem} href={url}>
+  const images = props.imageUrls.map((url, idx)=>(
+    <a key={idx} css = {Style.carouselItem} href={url}>
       <img css={Style.img} src={url}/>
     </a>
   ))

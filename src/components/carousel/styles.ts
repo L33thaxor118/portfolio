@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
 
 export const container = css`
-  width: 65%;
   height: auto;
   display: flex;
   flex-direction: row;
