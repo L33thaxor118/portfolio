@@ -15,6 +15,7 @@ export const sectionContainer = css`
   margin-bottom: 30px;
 `
 export const title = css`
+  font-family: var(--font-family-secondary);
   color: white;
   font-size: 45px;
   margin-bottom: 30px;
@@ -22,6 +23,7 @@ export const title = css`
 export const subtitle = css`
   color: white;
   font-size: 30px;
+  font-weight: bold;
   margin-bottom: 30px;
 `
 export const text = css`

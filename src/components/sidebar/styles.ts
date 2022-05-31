@@ -10,7 +10,7 @@ export const sidebar = css`
   }
   align-items: center;
   background-color: var(--theme-color-secondary);
-  font-family: var(--font-family-title);
+  font-family: var(--font-family-primary);
 `
 
 export const profileImg = css`

@@ -6,7 +6,7 @@ export const content = css`
   align-items: center;
   flex: 3;
   background-color: var(--theme-color-primary);
-  font-family: var(--font-family-title);
+  font-family: var(--font-family-primary);
 `
 
 export const divider = css`

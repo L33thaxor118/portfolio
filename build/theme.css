@@ -4,7 +4,8 @@
   --theme-color-secondary: #ffffff;
   --theme-color-tertiary: #ffffff;
 
-  --font-family-title: 'Roboto', sans-serif;
+  --font-family-primary: 'Roboto', sans-serif;
+  --font-family-secondary: 'Space Mono', monospace;
   
   /* Variables can have any value allowed in CSS */
   --border: .1rem silver solid;
