@@ -36,7 +36,7 @@ export default function Projects() {
           }}
           onClick={()=>{navigate(`/projects/${project.title.toLowerCase()}`)}}
           >
-          <h1 style={{alignContent: 'center', margin: '10px'}}>{project.title}</h1>
+          <h1 style={{alignContent: 'center', margin: '10px', fontFamily: 'var(--font-family-secondary)'}}>{project.title}</h1>
           <p style={{padding: '10px'}}>{project.summary}</p>
           <div style={{width: '100px', height: '100px', marginTop: '20px'}}>
             {

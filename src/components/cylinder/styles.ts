@@ -17,6 +17,7 @@ export const cylinderContainer = (rotationDeg: number) => css`
 
 export const selectedFrame = (expanded: boolean) => css`
   cursor: pointer;
+  color: white;
   width: ${expanded ? "100%" : "250px"};
   height: ${expanded ? "100%" : "250px"};
   background-color: ${expanded ? 'var(--theme-color-primary)' : 'none'};
@@ -24,6 +25,7 @@ export const selectedFrame = (expanded: boolean) => css`
   margin: auto;
   position: absolute;
   border-style: solid;
+  border-color: black;
   border-width: 1.5px;
   transition: padding 0.5s, width 0.5s, height 0.5s;
   &:hover {
