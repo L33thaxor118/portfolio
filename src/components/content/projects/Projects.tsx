@@ -34,14 +34,13 @@ export default function Projects() {
           flexDirection: "column",
           alignItems: "center"
           }}
-          onClick={()=>{navigate(`/projects/${project.title.toLowerCase()}`)}}
-          >
-          <h1 style={{alignContent: 'center', margin: '10px', fontFamily: 'var(--font-family-secondary)'}}>{project.title}</h1>
-          <p style={{padding: '10px'}}>{project.summary}</p>
-          <div style={{width: '100px', height: '100px', marginTop: '20px'}}>
+          onClick={()=>{navigate(`/projects/${project.title.toLowerCase()}`)}}>
+          <h1 style={{alignContent: 'center', margin: '5px', fontFamily: 'var(--font-family-secondary)'}}>{project.title}</h1>
+          <p style={{padding: '0px 15px 15px 15px', textAlign: 'center'}}>{project.summary}</p>
+          <div css={Style.tagsContainer}>
             {
               project.tags.map((tag)=>
-                <Chip style={css`margin: 2px`} key={tag} text={tag}/>
+                <Chip style={css`margin: 0px 2px`} key={tag} text={tag}/>
               )
             }
           </div>
