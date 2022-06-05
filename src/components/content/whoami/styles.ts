@@ -6,7 +6,7 @@ export const content = css`
   padding-right: var(--default-padding-sides);
   flex-direction: column;
   align-items: center;
-  margin-top: var(--default-padding-top);
+  margin-top: 3vh;
   max-width: var(--text-content-max-width);
 `
 export const title = css`
@@ -27,8 +27,8 @@ export const body = css`
 `
 export const icon1 = css`
   color: white;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   opacity: 80%;
   &:hover {
     transition: opacity 0.2s;
@@ -40,8 +40,8 @@ export const icon1 = css`
 `
 export const icon2 = css`
   color: white;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   opacity: 80%;
   &:hover {
     transition: opacity 0.2s;
@@ -51,7 +51,15 @@ export const icon2 = css`
   margin-right: 10px;
   cursor: pointer;
 `
+export const roots = css`
+  color: #cdeb34;
+  opacity: 85%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 3vh;
+`
 export const contact = css`
   display: flex;
   align-items: center;
+  padding-bottom: 3vh;
 `
