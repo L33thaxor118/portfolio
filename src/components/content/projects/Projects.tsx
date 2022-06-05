@@ -17,7 +17,7 @@ export default function Projects() {
   let routeParams = useParams()
   let navigate = useNavigate()
 
-  const isLargeScreen = useMediaQuery({ query: '(min-width: 840px)' })
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 850px)' })
 
   const projects: CylinderViewable[] = projectsJson.map((project, idx)=>{
     return {
