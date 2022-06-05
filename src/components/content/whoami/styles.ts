@@ -22,7 +22,7 @@ export const title2 = css`
 `
 export const body = css`
   color: white;
-  font-size: 2.5vh;
+  font-size: var(--font-size-medium);
   line-height: var(--text-line-height);
 `
 export const icon1 = css`

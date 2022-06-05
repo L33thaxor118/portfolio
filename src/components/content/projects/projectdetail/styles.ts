@@ -17,12 +17,12 @@ export const sectionContainer = css`
 export const title = css`
   font-family: var(--font-family-secondary);
   color: white;
-  font-size: 45px;
+  font-size: var(--font-size-xlarge);
   margin-bottom: 30px;
 `
 export const subtitle = css`
   color: white;
-  font-size: 30px;
+  font-size: var(--font-size-large);
   font-weight: bold;
   margin-bottom: 30px;
 `

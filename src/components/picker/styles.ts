@@ -81,7 +81,7 @@ export const inner = () => css`
 `
 
 export const projectTitle = css`
-  font-size: 40px;
+  font-size: var(--font-size-xlarge);
   font-weight: bold;
   fill: black;
   text-align: center;

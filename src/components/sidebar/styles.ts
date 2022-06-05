@@ -50,7 +50,7 @@ export const listItemText = css`
   margin: 10px;
   text-decoration: none;
   color: black;
-  font-size: 20px;
+  font-size: var(--font-size-medium);
   &:hover {
     cursor: pointer;
     color: green;

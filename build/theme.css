@@ -6,6 +6,11 @@
 
   --font-family-primary: 'Roboto', sans-serif;
   --font-family-secondary: 'Space Mono', monospace;
+
+  --font-size-small: 16px;
+  --font-size-medium: 24px;
+  --font-size-large: 32px;
+  --font-size-xlarge: 40px;
   
   /* Variables can have any value allowed in CSS */
   --border: .1rem silver solid;
