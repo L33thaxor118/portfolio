@@ -10,8 +10,8 @@ import Chip from '../../chip'
 import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import ProjectDetail from './projectdetail'
 import { useMediaQuery } from 'react-responsive'
-import Picker from '../../picker'
-import { PickerViewable } from '../../picker/Picker'
+import Grid from '../../grid'
+import { GridViewable } from '../../grid/Grid'
 
 export default function Projects() {
   let routeParams = useParams()
@@ -60,10 +60,10 @@ export default function Projects() {
                   projects
                 }
               </Cylinder> : 
-              <Picker projects={projectsJson.map((project)=>{ 
+              <Grid projects={projectsJson.map((project)=>{ 
                 return {
                   title: project.title,
-                  topics: project.tags,
+                  tags: project.tags,
                   description: project.summary,
                   imgSrc: project.imageUrl
                 }
