@@ -4,7 +4,7 @@ export const container = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 20px 100px 20px;
+  padding: 20px 20px 60px 20px;
 `
 export const sectionContainer = css`
   width: 100%;
@@ -21,9 +21,9 @@ export const title = css`
   margin-bottom: 30px;
 `
 export const subtitle = css`
+font-family: var(--font-family-secondary);
   color: white;
   font-size: var(--font-size-large);
-  font-weight: bold;
   margin-bottom: 30px;
 `
 export const text = css`
