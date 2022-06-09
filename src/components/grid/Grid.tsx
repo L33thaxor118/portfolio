@@ -24,8 +24,11 @@ export default function Grid(props: PropTypes) {
     <div css={Style.container}>
       {props.projects.map((project, idx)=>
         <div key={idx} css={Style.projectContainer(project.imgSrc)} onClick={()=>{navigate(`/projects/${project.title.toLowerCase()}`)}}>
-          <h1 style={{alignContent: 'center', margin: '5px', fontFamily: 'var(--font-family-secondary)'}}>{project.title}</h1>
-          <p style={{padding: '0px 15px 15px 15px', textAlign: 'center'}}>{project.description}</p>
+          <div css={Style.imageContainer(project.imgSrc)}/>
+          <div css={Style.textContainer}>
+            <h1 style={{alignContent: 'center', margin: '5px', fontFamily: 'var(--font-family-secondary)'}}>{project.title}</h1>
+            <p css={Style.text}>{project.description}</p>
+          </div>
           <div css={Style.tagsContainer}>
             {
               project.tags.map((tag)=>
