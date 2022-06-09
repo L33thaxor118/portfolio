@@ -1,7 +1,7 @@
 [
   {
     "title": "Siphon",
-    "summary": "Configure Extract-Transform-Load operations visually without writing code.",
+    "summary": "Configure ETL operations via GUI. No scripting required.",
     "tags": ["Electron", "React"],
     "imageUrl": "mononoke.jpeg",
     "demoUrl": "use this for video demo",
@@ -32,12 +32,20 @@
           "Test in real scenarios early on."
         ],
         "imageUrls": null
+      },
+      {
+        "subtitle": "Challenges",
+        "text": "",
+        "list": [
+          "CPU intensive operations and concurrency with javascript."
+        ],
+        "imageUrls": null
       }
     ]
   }, 
   {
     "title": "Wexly",
-    "summary": "Helps people communicate better.",
+    "summary": "Might help couples communicate better.",
     "tags": ["React Native", "Firebase"],
     "imageUrl": "ghostintheshell.jpeg",
     "details": {
@@ -57,27 +65,27 @@
     }
   }, 
   {
-    "title": "Unichat",
-    "summary": "Instant chat library for my apps.",
-    "tags": ["Ktor"],
+    "title": "Pixel Canvas",
+    "summary": "LED matrix controlled over the internet.",
+    "tags": ["NodeJs", "Arduino"],
     "imageUrl": "akiraExplosion.jpeg"
   },
   {
-    "title": "Affirmations",
-    "summary": "Tiny app to remind myself of things.",
+    "title": "Dev Wellness",
+    "summary": "Coding in excess can be a health hazard.",
     "tags": ["Electron"],
     "imageUrl": "neoTokyo.jpeg"
   },
   {
     "title": "This Site",
-    "summary": "The website you are looking at. Cool cylinder layout and stuff.",
+    "summary": "The website you are looking at.",
     "tags": ["React", "Webpack"],
     "imageUrl": "2001.jpeg"
   },
   {
-    "title": "Gift",
-    "summary": "Website I made for my girlfriend on her birthday.",
-    "tags": ["React"],
+    "title": "IlliniHub",
+    "summary": "Really bad, unfinished school project.",
+    "tags": ["Android"],
     "imageUrl": "perfect-blue.jpeg"
   }
 ]
