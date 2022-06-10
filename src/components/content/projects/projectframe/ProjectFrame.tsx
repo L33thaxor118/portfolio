@@ -23,9 +23,8 @@ export default function ProjectFrame(props: PropTypes) {
         border-color: black;
         border-width: 1.5px;
         opacity: ${props.selected ? 100 : 40}%;
-        transition: opacity 2s;
+        transition: opacity 0.5s;
         &:hover {
-          transition: opacity 0.5s;
           filter: none;
           opacity: 100%;
         }`
