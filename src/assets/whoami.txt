@@ -1,1 +1,0 @@
-primary: full stack mobile and web dev with experience in hybrid frameworks (rn and electron). also a bit of devops in the mix
