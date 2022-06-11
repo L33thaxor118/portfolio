@@ -44,48 +44,81 @@
     ]
   }, 
   {
+    "title": "This website",
+    "summary": "The website you are looking at.",
+    "tags": ["React", "Webpack"],
+    "imageUrl": "2001.jpeg",
+    "sections": [
+      {
+        "text": "The fabled Personal Website. I finally went through with it after about 4 years of procrastination. I used this project as an opportunity to challenge myself with some interesting UI components like the 'Cylinder' projects view (only visible on larger screens)."
+      },
+      {
+        "subtitle": "The Cylinder view",
+        "text": "One of my favorite parts of this site is the large-screen Cylinder view for my projects. I tried to make this component as flexible as possible."
+      },
+      {
+        "subtitle": "No more CRA",
+        "text": "I decided to take off the training wheels for this one. I built this site from scratch without create-react-app. Setting things up took a bit longer but its nice to have full control of my build."
+      },
+      {
+        "subtitle": "What I learned",
+        "list": [
+          "CSS box-sizing. I dreaded adding padding until I discovered this property.",
+          "CSS transforms are visual, not literal... See this: https://stackoverflow.com/questions/21248111/overflow-behavior-after-using-css3-transform",
+          "Media queries. First time making a responsive website."
+        ]
+      }
+    ]
+  },
+  {
     "title": "Wexly",
     "summary": "Might help couples communicate better.",
     "tags": ["React Native", "Firebase"],
     "imageUrl": "ghostintheshell.jpeg",
-    "details": {
-      "description":"Hybrid app I worked on casually for a few months. The app provides instant messaging with a twist: messages are guided. They have a series of steps which suggest how to structure a difficult conversation with a loved one.",
-      "repoUrl": null,
-      "features": [
-        "Instant messaging: Implemented with Firebase",
-        "Local persistence: Messages are only held in Firebase until they are delivered. After that they are persisted locally on the client-side.",
-        "Multi-Platform: Implemented in React Native which compiles to Android & iOS.",
-        "Simple SMS authentication: All that is needed is SMS verification to gain access to the app."
-      ],
-      "learnings": [
-        "Pay attention to React Native version migration requirements!",
-        "Leveraged architecture and Firebase services to avoid mounting costs: Firestore to hold and distribute messages, client to mark as received, cloud Functions to remove received messages from Firestore."
-      ],
-      "images": []
-    }
+    "sections": [
+      {
+        "text": "Hybrid app I worked on casually for a few months. The app provides instant messaging with a twist: messages are guided. They have a series of steps which suggest how to structure a difficult conversation with a loved one."
+      },
+      {
+        "subtitle": "Features",
+        "list": [
+          "Instant messaging: Implemented with Firebase",
+          "Local persistence: Messages are only held in Firebase until they are delivered. After that they are persisted locally on the client-side.",
+          "Multi-Platform: Implemented in React Native which compiles to Android & iOS.",
+          "Simple SMS authentication: All that is needed is SMS verification to gain access to the app."
+        ]
+      },
+      {
+        "subtitle": "What I learned",
+        "list":[
+          "Pay attention to React Native version migration requirements!",
+          "Leveraged architecture and Firebase services to avoid mounting costs: Firestore to hold and distribute messages, client to mark as received, cloud Functions to remove received messages from Firestore."
+        ]
+      }
+    ]
   }, 
   {
     "title": "Pixel Canvas",
     "summary": "LED matrix controlled over the internet.",
     "tags": ["NodeJs", "Arduino"],
-    "imageUrl": "akiraExplosion.jpeg"
+    "imageUrl": "akiraExplosion.jpeg",
+    "sections": [
+    ]
   },
   {
     "title": "Dev Wellness",
     "summary": "Coding in excess can be a health hazard.",
     "tags": ["Electron"],
-    "imageUrl": "neoTokyo.jpeg"
-  },
-  {
-    "title": "This Site",
-    "summary": "The website you are looking at.",
-    "tags": ["React", "Webpack"],
-    "imageUrl": "2001.jpeg"
+    "imageUrl": "neoTokyo.jpeg",
+    "sections": [
+    ]
   },
   {
     "title": "IlliniHub",
     "summary": "Really bad, unfinished school project.",
     "tags": ["Android"],
-    "imageUrl": "perfect-blue.jpeg"
+    "imageUrl": "perfect-blue.jpeg",
+    "sections": [
+    ]
   }
 ]
