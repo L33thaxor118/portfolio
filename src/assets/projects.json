@@ -54,7 +54,8 @@
       },
       {
         "subtitle": "The Cylinder view",
-        "text": "One of my favorite parts of this site is the large-screen Cylinder view for my projects. I tried to make this component as flexible as possible."
+        "text": "One of my favorite parts of this site is the large-screen Cylinder view for my projects. I tried to make this component as flexible as possible.",
+        "imageUrls": ["/CylinderPreview.gif"]
       },
       {
         "subtitle": "No more CRA",
