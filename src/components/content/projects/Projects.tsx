@@ -39,7 +39,7 @@ export default function Projects() {
           <div css={Style.tagsContainer}>
             {
               project.tags.map((tag)=>
-                <Chip style={Style.tag(tag)} key={tag} text={tag}/>
+                <Chip style={Style.tag(tag)} key={tag}>{tag}</Chip>
               )
             }
           </div>

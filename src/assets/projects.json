@@ -48,6 +48,7 @@
     "summary": "The website you are looking at.",
     "tags": ["React", "Webpack"],
     "imageUrl": "2001.jpeg",
+    "repoUrl": "https://github.com/L33thaxor118/portfolio",
     "sections": [
       {
         "text": "The fabled Personal Website. I finally went through with it after about 4 years of procrastination. I used this project as an opportunity to challenge myself with some interesting UI components like the 'Cylinder' projects view (only visible on larger screens)."

@@ -14,11 +14,15 @@ export const sectionContainer = css`
   align-items: center;
   margin-bottom: 30px;
 `
+export const titleContainer = css`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+`
 export const title = css`
   font-family: var(--font-family-secondary);
   color: white;
   font-size: var(--font-size-xlarge);
-  margin-bottom: 30px;
 `
 export const subtitle = css`
 font-family: var(--font-family-secondary);
@@ -46,4 +50,14 @@ export const list = css`
   font-size: 1.125rem;
   line-height: var(--text-line-height);
   align-self: start;
+`
+export const githubLinkContainer = css`
+  display: flex;
+  align-items: center;
+  background-color: red;
+`
+export const githubicon = css`
+  color: white;
+  width: 20px;
+  height: 20px;
 `

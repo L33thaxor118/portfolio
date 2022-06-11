@@ -8,8 +8,5 @@ export const container = css`
   align-items: center;
   justify-content: center;
   border-radius: 2px;
-`
-
-export const text = css`
   color: white;
 `

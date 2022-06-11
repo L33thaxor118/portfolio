@@ -32,7 +32,7 @@ export default function Grid(props: PropTypes) {
           <div css={Style.tagsContainer}>
             {
               project.tags.map((tag)=>
-                <Chip style={css`margin: 0px 2px`} key={tag} text={tag}/>
+                <Chip style={css`margin: 0px 2px`} key={tag}>{tag}</Chip>
               )
             }
           </div>

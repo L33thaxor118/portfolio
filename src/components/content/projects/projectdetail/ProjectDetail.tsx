@@ -3,6 +3,8 @@ import { css, jsx } from '@emotion/react'
 import * as Style from './styles'
 import React from 'react'
 import Carousel from '../../../carousel'
+import { DiGithubAlt } from 'react-icons/di'
+import Chip from '../../../chip'
 
 interface PropTypes {
   project: any,
@@ -33,7 +35,18 @@ function Section(props: SectionPropTypes) {
 export default function ProjectDetail(props: PropTypes) {
   return (
     <div css={Style.container}>
-      <h1 css={Style.title}>{props.project?.title}</h1>
+      <div css={Style.titleContainer}>
+        <h1 css={Style.title}>{props.project?.title}</h1>
+        {
+          props.project?.repoUrl && 
+          <a style={{textDecoration: 'none'}} href={props.project?.repoUrl} target="_blank">
+            <Chip>
+              <DiGithubAlt css={Style.githubicon}/>
+              <p>Code</p>
+            </Chip>
+          </a>
+        }
+      </div>
       {
         props.project.sections.map((section: any, idx: number)=><Section key={idx} section={section}/>)
       }
