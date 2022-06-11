@@ -10,7 +10,7 @@ interface PropTypes {
 }
 export default function Chip(props: PropTypes) {
   return (
-    <div css={css` ${props.style}; ${Style.container};`}>
+    <div css={css`${Style.container}; ${props.style};`}>
       <p css={Style.text}>{props.text}</p>
     </div>
   )

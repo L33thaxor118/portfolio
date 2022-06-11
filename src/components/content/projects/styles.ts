@@ -17,3 +17,7 @@ export const tagsContainer = css`
   justify-content: center;
   flex-wrap: wrap;
 `
+
+export const tag = (tag: string) => css`
+  margin: 0px 2px;
+`

@@ -11,7 +11,6 @@ import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import ProjectDetail from './projectdetail'
 import { useMediaQuery } from 'react-responsive'
 import Grid from '../../grid'
-import { GridViewable } from '../../grid/Grid'
 
 export default function Projects() {
   let routeParams = useParams()
@@ -40,7 +39,7 @@ export default function Projects() {
           <div css={Style.tagsContainer}>
             {
               project.tags.map((tag)=>
-                <Chip style={css`margin: 0px 2px`} key={tag} text={tag}/>
+                <Chip style={Style.tag(tag)} key={tag} text={tag}/>
               )
             }
           </div>
