@@ -37,6 +37,7 @@ export const textContainer = css`
 
 export const imageContainer = (src: string) => css`
   background-image: url(${src});  
+  background-size: 100%;
   width: 110%;
   height: 110%;
   margin-top: -10px;
