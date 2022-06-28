@@ -106,7 +106,7 @@
     "title": "Pixel Canvas",
     "summary": "LED matrix controlled over the internet.",
     "tags": ["NodeJs", "Arduino"],
-    "imageUrl": "akiraExplosion.jpg",
+    "imageUrl": "akira.jpg",
     "sections": [
       {
         "subtitle": "More details coming soon...",
@@ -119,7 +119,7 @@
     "title": "Dev Wellness",
     "summary": "Coding in excess can be a health hazard.",
     "tags": ["Electron"],
-    "imageUrl": "neoTokyo.jpg",
+    "imageUrl": "neotokyo.jpg",
     "sections": [
       {
         "subtitle": "More details coming soon..."
@@ -131,7 +131,7 @@
     "repoUrl": "https://github.com/L33thaxor118/Illinihub",
     "summary": "First Android project from my college days (it's horrendous).",
     "tags": ["Android"],
-    "imageUrl": "perfect-blue.jpg",
+    "imageUrl": "perfectblue.jpg",
     "sections": [
       {
         "subtitle": "More details coming soon...",
