@@ -11,7 +11,7 @@
         "subtitle": null,
         "text": "Project I worked on for about 5 months as an intern at Fulcrum-GT. The intent was to create a tool which allowed for easy ETL configuration without the need for any coding knowledge so that our config teams could rely less on engineers for new client setup. Worked on this with only one other intern.",
         "list": null,
-        "imageUrls": ["/siphon_1.png", "/siphon_2.png", "/siphon_1.png"]
+        "imageUrls": ["/siphon_1.png", "/siphon_2.png"]
       },
       {
         "subtitle": "Features",
@@ -79,6 +79,9 @@
     "imageUrl": "ghostintheshell.jpeg",
     "sections": [
       {
+        "subtitle": "This page is incomplete. More details coming soon..."
+      },
+      {
         "text": "Hybrid app I worked on casually for a few months. The app provides instant messaging with a twist: messages are guided. They have a series of steps which suggest how to structure a difficult conversation with a loved one."
       },
       {
@@ -105,6 +108,11 @@
     "tags": ["NodeJs", "Arduino"],
     "imageUrl": "akiraExplosion.jpeg",
     "sections": [
+      {
+        "subtitle": "More details coming soon...",
+        "text": "Here is a sneak peak in the meantime:",
+        "imageUrls": ["/pixel-canvas-alpha-demo.gif"]
+      }
     ]
   },
   {
@@ -113,14 +121,22 @@
     "tags": ["Electron"],
     "imageUrl": "neoTokyo.jpeg",
     "sections": [
+      {
+        "subtitle": "More details coming soon..."
+      }
     ]
   },
   {
     "title": "IlliniHub",
-    "summary": "Really bad, unfinished school project.",
+    "repoUrl": "https://github.com/L33thaxor118/Illinihub",
+    "summary": "First Android project from my college days (it's horrendous).",
     "tags": ["Android"],
     "imageUrl": "perfect-blue.jpeg",
     "sections": [
+      {
+        "subtitle": "More details coming soon...",
+        "text": "The repo README has some screenshots and feature descriptions if you are curious."
+      }
     ]
   }
 ]
