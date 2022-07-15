@@ -116,17 +116,6 @@
     ]
   },
   {
-    "title": "Dev Wellness",
-    "summary": "Coding in excess can be a health hazard.",
-    "tags": ["Electron"],
-    "imageUrl": "neoTokyo.jpg",
-    "sections": [
-      {
-        "subtitle": "More details coming soon..."
-      }
-    ]
-  },
-  {
     "title": "IlliniHub",
     "repoUrl": "https://github.com/L33thaxor118/Illinihub",
     "summary": "First Android project from my college days (it's horrendous).",
@@ -136,6 +125,22 @@
       {
         "subtitle": "More details coming soon...",
         "text": "The repo README has some screenshots and feature descriptions if you are curious."
+      }
+    ]
+  },
+  {
+    "title": "Composite build helper",
+    "summary": "IntelliJ plugin to assist with composing Gradle builds.",
+    "tags": ["IntelliJ Platform"],
+    "imageUrl": "neoTokyo.jpg",
+    "repoUrl": "https://github.com/L33thaxor118/composite-build-helper",
+    "sections": [
+      {
+        "text": "I once worked on a very large mobile banking app which consisted of a main app module which consumed over 15 library modules. Each library module was held in a separate repository and built independently. Integrating library module changes into the app was a painful process. I would often work on 3+ modules at a time to implement a large feature or refactor, each on a separate android studio window. Until I discovered composite Gradle builds.",
+        "imageUrls": ["/composite-build-helper-screen.png"]
+      },
+      {
+        "subtitle": "More details coming soon..."
       }
     ]
   }
