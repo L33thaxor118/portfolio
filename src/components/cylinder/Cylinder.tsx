@@ -16,6 +16,11 @@ export interface CylinderViewable {
   info: ReactNode
 }
 
+interface Selection {
+  prev: number
+  curr: number
+}
+
 export default function Cylinder(props: PropTypes) {
   const numChambers = props.children.length
   const circumference = 2 * Math.PI * props.radius
@@ -26,9 +31,7 @@ export default function Cylinder(props: PropTypes) {
 
   //Positions for each chamber in coordinates relative to center of circle
   const [chamberPositions] = useState<Array<[number, number]>>(getChamberPositions())
-
-  const [selectedIdx, setSelectedIdx] = useState(0)
-  const [prevSelectedIdx, setPrevSelectedIdx] = useState(0)
+  const [selection, setSelection] = useState<Selection>({prev: 0, curr: 0})
 
   //Degrees away from initial position of circle (can be + or -)
   const [offsetDegrees, setOffsetDegrees] = useState(0)
@@ -36,9 +39,8 @@ export default function Cylinder(props: PropTypes) {
   const [expanded, setExpanded] = useState(false)
 
   const handleSelectedIdx = (idx: number) => {
-    setSelectedIdx(prev => {
-      setPrevSelectedIdx(prev)
-      return idx
+    setSelection(prev => {
+      return {prev: prev.curr, curr: idx}
     })
     if (props.onSelect) {
       props.onSelect(idx)
@@ -66,13 +68,13 @@ export default function Cylinder(props: PropTypes) {
     setOffsetDegrees(prev => {
       let distanceClockwise = 0
       let distanceCounterClockwise = 0
-      let newIdx = selectedIdx
-      while (newIdx !== prevSelectedIdx) {
+      let newIdx = selection.curr
+      while (newIdx !== selection.prev) {
         distanceCounterClockwise++
         newIdx = mod((newIdx + 1),numChambers)
       }
-      newIdx = selectedIdx
-      while (newIdx !== prevSelectedIdx) {
+      newIdx = selection.curr
+      while (newIdx !== selection.prev) {
         distanceClockwise++
         newIdx = mod((newIdx - 1), numChambers)
       }
@@ -82,7 +84,7 @@ export default function Cylinder(props: PropTypes) {
         return prev - distanceCounterClockwise*getAngleBetweenChambers(true)
       }
     })
-  }, [selectedIdx])
+  }, [selection])
 
   function getAngleBetweenChambers(inDegrees: boolean): number {
     const arcLengthBetweenElements = circumference / numChambers
@@ -113,13 +115,13 @@ export default function Cylinder(props: PropTypes) {
             props.children?.map((child: CylinderViewable, index: number) =>
               <Chamber
                 key={index}
-                idx={selectedIdx}
+                idx={selection.curr}
                 rotationDegrees={offsetDegrees}
-                selected={index === selectedIdx}
+                selected={index === selection.curr}
                 x={centerCoords.x + chamberPositions[index][0]}
                 y={centerCoords.y + (-1*chamberPositions[index][1])}>
                 <div onClick={()=>{handleSelectedIdx(index)}}>
-                  {child.preview(index === selectedIdx)}
+                  {child.preview(index === selection.curr)}
                 </div>
               </Chamber>
             )
@@ -128,7 +130,7 @@ export default function Cylinder(props: PropTypes) {
       </div>
       <div css={Style.selectedFrame(expanded)}>
         {
-          props.children[selectedIdx].info
+          props.children[selection.curr].info
         }
       </div>
     </div>
