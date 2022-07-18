@@ -22,9 +22,6 @@ export default function Sidebar() {
         src={getCurrentImageUrl()}
         onClick={()=>{setCurrImage(prev=>(prev+1)%3)}}
         />
-      <p css={Style.imageNote}>
-        {currImage === 1 ? "(my dog)" : currImage === 2 ? "(me)" : ""}
-      </p>
     </div>
 
   const navLinks = [
