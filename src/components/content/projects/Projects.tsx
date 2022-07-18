@@ -20,7 +20,7 @@ export default function Projects() {
   const isLargeScreen = useMediaQuery({ query: '(min-width: 850px)' })
   
   // We shift in order to mantain previous selection
-  const prevSelectedIdx = parseInt(window.sessionStorage.getItem("prevProjIdx"))
+  const prevSelectedIdx = parseInt(window.sessionStorage.getItem("prevSelectedIdx"))
   const shiftedProjects = projectsJson.slice(prevSelectedIdx).concat(projectsJson.slice(0, prevSelectedIdx))
 
   const projects: CylinderViewable[] = shiftedProjects.map((project, idx)=>{
@@ -60,9 +60,9 @@ export default function Projects() {
           <div css={Style.container}>
             { isLargeScreen ? 
               <Cylinder radius={300} onSelect={(idx)=>{
-                const prev = prevSelectedIdx ?? 0
+                const prev = (prevSelectedIdx >= 0) ? prevSelectedIdx : 0
                 const next = mod((prev + idx), projectsJson.length)
-                window.sessionStorage.setItem("prevProjIdx", next.toString())
+                window.sessionStorage.setItem("prevSelectedIdx", next.toString())
                 }}>
                 {
                   projects
