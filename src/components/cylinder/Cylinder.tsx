@@ -11,6 +11,7 @@ interface PropTypes {
   onSelect?: (idx: number) => void
   children?: CylinderViewable[]
 }
+
 export interface CylinderViewable {
   preview: (selected: boolean)=>ReactNode
   info: ReactNode
@@ -24,19 +25,17 @@ interface Selection {
 export default function Cylinder(props: PropTypes) {
   const numChambers = props.children.length
   const circumference = 2 * Math.PI * props.radius
+  const container = useRef(null)
 
   const [centerCoords, setCenterCoords] = useState({ x:0, y: 0 })
 
-  const container = useRef(null)
-
   //Positions for each chamber in coordinates relative to center of circle
   const [chamberPositions] = useState<Array<[number, number]>>(getChamberPositions())
+
   const [selection, setSelection] = useState<Selection>({prev: 0, curr: 0})
 
   //Degrees away from initial position of circle (can be + or -)
   const [offsetDegrees, setOffsetDegrees] = useState(0)
-
-  const [expanded, setExpanded] = useState(false)
 
   const handleSelectedIdx = (idx: number) => {
     setSelection(prev => {
@@ -128,7 +127,7 @@ export default function Cylinder(props: PropTypes) {
           }
         </div>
       </div>
-      <div css={Style.selectedFrame(expanded)}>
+      <div css={Style.selectedFrame(false)}>
         {
           props.children[selection.curr].info
         }

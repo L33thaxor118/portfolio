@@ -11,14 +11,19 @@ import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import ProjectDetail from './projectdetail'
 import { useMediaQuery } from 'react-responsive'
 import Grid from '../../grid'
+import { mod } from '../../../utils/mathutils'
 
 export default function Projects() {
   let routeParams = useParams()
   let navigate = useNavigate()
 
   const isLargeScreen = useMediaQuery({ query: '(min-width: 850px)' })
+  
+  // We shift in order to mantain previous selection
+  const prevSelectedIdx = parseInt(window.sessionStorage.getItem("prevProjIdx"))
+  const shiftedProjects = projectsJson.slice(prevSelectedIdx).concat(projectsJson.slice(0, prevSelectedIdx))
 
-  const projects: CylinderViewable[] = projectsJson.map((project, idx)=>{
+  const projects: CylinderViewable[] = shiftedProjects.map((project, idx)=>{
     return {
       preview: (selected) => <ProjectFrame 
         key={project.title}
@@ -54,7 +59,11 @@ export default function Projects() {
         <Route path="/" element={
           <div css={Style.container}>
             { isLargeScreen ? 
-              <Cylinder radius={300}>
+              <Cylinder radius={300} onSelect={(idx)=>{
+                const prev = prevSelectedIdx ?? 0
+                const next = mod((prev + idx), projectsJson.length)
+                window.sessionStorage.setItem("prevProjIdx", next.toString())
+                }}>
                 {
                   projects
                 }
