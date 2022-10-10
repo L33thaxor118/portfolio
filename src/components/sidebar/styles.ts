@@ -14,15 +14,10 @@ export const sidebar = css`
 `
 
 export const profileImg = css`
-  width: 100px;
-  height: 100px;
-  @media (max-height: 960px) {
-    width: 70px;
-    height: 70px;
-    margin: 10px;
-  }
+  width: 70px;
+  height: 70px;
+  margin: 10px;
   border-radius: 25%;
-  margin: 20px;
   &:hover {
     cursor: pointer;
   }
