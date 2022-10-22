@@ -4,7 +4,7 @@ import * as Style from './styles'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Sidebar() {
+export default function Navbar() {
 
   const profileImage =
     <div css={Style.profileImgContainer}>

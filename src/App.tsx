@@ -2,12 +2,12 @@
 import { jsx, css } from '@emotion/react'
 import * as React from 'react'
 import Content from './components/content'
-import Sidebar from './components/sidebar'
+import Navbar from './components/navbar'
 
 export default function App() {
   return (
     <div css={style}>
-      <Sidebar/>
+      <Navbar/>
       <Content/>
     </div>
   )
