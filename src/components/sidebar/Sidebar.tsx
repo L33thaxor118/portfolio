@@ -5,23 +5,15 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
-  const [currImage, setCurrImage] = useState<number>(0)
-
-  function getCurrentImageUrl(): string {
-    switch(currImage) {
-      case 1: return `/alien_blue.png`
-      case 2: return `/alien_me.png`
-      default: return `/alien.jpeg`
-    }
-  }
 
   const profileImage =
     <div css={Style.profileImgContainer}>
       <img
         css={Style.profileImg} 
-        src={getCurrentImageUrl()}
-        onClick={()=>{setCurrImage(prev=>(prev+1)%3)}}
+        src={'/logo.svg'}
+        onClick={()=>{}}
         />
+        <h1>Azriel Alvarado</h1>
     </div>
 
   const navLinks = [

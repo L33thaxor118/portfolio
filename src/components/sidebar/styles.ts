@@ -9,15 +9,15 @@ export const sidebar = css`
     flex: 0;
   }
   align-items: center;
-  background-color: var(--theme-color-secondary);
+  justify-content: space-between;
+  background-color: var(--theme-color-primary);
   font-family: var(--font-family-primary);
 `
 
 export const profileImg = css`
-  width: 70px;
-  height: 70px;
-  margin: 10px;
-  border-radius: 25%;
+  width: 40px;
+  height: 40px;
+  margin: 10px 10px 10px 30px;
   &:hover {
     cursor: pointer;
   }
@@ -31,7 +31,12 @@ export const profileImg = css`
 export const profileImgContainer = css`
   margin-top: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-family: var(--font-family-secondary);
+  font-size: 12px;
+  margin-left: 10px;
 `
 
 export const imageNote = css`
@@ -44,7 +49,7 @@ export const imageNote = css`
 export const listItemText = css`
   margin: 10px;
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: var(--font-size-medium);
   &:hover {
     cursor: pointer;
@@ -54,4 +59,5 @@ export const listItemText = css`
 
 export const listItemContainer = css`
   display: flex;
+  margin-right: 30px;
 `

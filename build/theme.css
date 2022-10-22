@@ -1,11 +1,11 @@
 :root {
   /* Creating a variable */
-  --theme-color-primary: #164461;
+  --theme-color-primary: #282A3E;
   --theme-color-secondary: #ffffff;
   --theme-color-tertiary: #ffffff;
 
-  --font-family-primary: 'Roboto', sans-serif;
-  --font-family-secondary: 'Space Mono', monospace;
+  --font-family-primary: 'Quicksand', sans-serif;
+  --font-family-secondary: 'Cairo', sans-serif;
 
   --font-size-small: 16px;
   --font-size-medium: 24px;
