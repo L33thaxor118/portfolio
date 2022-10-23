@@ -12,6 +12,7 @@ export enum TextStyle {
 
 interface PropTypesText {
   style: TextStyle
+  useAltColor?: Boolean,
   children?: ReactNode
 }
 
@@ -19,15 +20,15 @@ export function Text(props: PropTypesText) {
   let style
   switch(props.style) {
     case TextStyle.h1: {
-      style = Style.h1Style
+      style = Style.h1Style(props.useAltColor ?? false)
       break
     }
     case TextStyle.h2: {
-      style = Style.h2Style
+      style = Style.h2Style(props.useAltColor ?? false)
       break
     }
     case TextStyle.body: {
-      style = Style.bodyStyle
+      style = Style.bodyStyle(props.useAltColor ?? false)
       break
     }
   }
