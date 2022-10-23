@@ -7,6 +7,8 @@ export const content = css`
   flex: 3;
   background-color: var(--theme-color-primary);
   font-family: var(--font-family-primary);
+  max-width: 1000px;
+  align-self: center;
 `
 
 export const divider = css`
