@@ -57,8 +57,7 @@ export const innerPoint = (isSelected: boolean) => css`
   background-color: var(--theme-color-accent);
   opacity: ${isSelected ? '1' : '0'};
   transition-property: opacity;
-  transition-delay: ${isSelected ? '1' : '0'}s;
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
 `
 
 export const line = css`
@@ -66,13 +65,14 @@ export const line = css`
   height: 85%;
   background-color: white;
   border-radius: 10px;
+  position: relative;
 `
 
-export const progressline = (finished: boolean) => css`
+export const progressline = (finished: boolean, selected: boolean, height: number) => css`
   width: 3px;
-  height: ${finished ? 100 : 0}%;
+  position: absolute;
+  height: ${finished ? '100%' : selected ? height + 'px' : 0 + 'px'};
+  max-height: 100%;
   background-color: var(--theme-color-accent);
   border-radius: 10px;
-  transition-property: height;
-  transition-duration: 1s;
 `
