@@ -7,22 +7,32 @@ import { TextStyle, Text } from '../text'
 import Spacer from '../spacer'
 import useScrollPosition from '../../hooks/useScrollPosition'
 
+interface TimelineEvent {
+  title: string,
+  description: string,
+  imageUrl?: string
+}
+
 interface PropTypes {
+  events: Array<TimelineEvent>
 }
 
 export default function Timeline(props: PropTypes) {
-  const pointRefs = [useRef(null), useRef(null), useRef(null)]
+  const pointRefs = props.events.map(()=>useRef(null))
   const [focusState, setFocusState] = useState<Array<boolean>>(pointRefs.map(()=>false))
   const [focusIdx, setFocusIdx] = useState<number>(null)
   const {scrollPosition, isScrollingDown} = useScrollPosition()
-  const [offsets, setOffsets] = useState<Array<number>>([-1,-1,-1])
+  const [scrollOffset, setScrollOffset] = useState(0)
 
   useEffect(()=>{
     const observerOptions = {
       rootMargin: '-30%',
-      threshold: 0.5
+      threshold: 0
     }
     const observer = new IntersectionObserver((entries) => {
+      if (scrollOffset === 0) {
+        setScrollOffset(entries[0].rootBounds.bottom)
+      }
       entries.forEach((entry, idx)=>{
         const changedItemIdx = pointRefs.findIndex((ref)=>ref.current==entry.target)
         setFocusState((prev) => {
@@ -34,6 +44,8 @@ export default function Timeline(props: PropTypes) {
     }, observerOptions)
     pointRefs.forEach((ref)=>observer.observe(ref.current))
   }, [])
+
+  const scroll = scrollOffset + scrollPosition
 
   useEffect(()=>{
     const prevIdx = focusIdx
@@ -49,48 +61,25 @@ export default function Timeline(props: PropTypes) {
     }
   }, [focusState])
 
-  useEffect(()=>{
-    if (offsets[focusIdx] === -1) {  
-      offsets[focusIdx] = scrollPosition
-    }
-  }, [focusIdx])
-
   return (
     <div css={Style.container}>
-      <div css={Style.sectionContainer}>
-        <EventContent title='' content=''/>
-        <div css={Style.lineContainer}>
-          <Point ref={pointRefs[0]} isSelected={0 == focusIdx}/>
-          <Spacer y={10}/>
-          <Line finished={focusState[1]} selected={0 == focusIdx } height={scrollPosition - offsets[0]}/>
-          <Spacer y={10}/>
-        </div>
-        <EventContent isFocused={focusIdx == 0} title='Im a Title!' content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation'/>
-      </div>
-      <div css={Style.container}>
-        <div css={Style.sectionContainer}>
-          <EventContent isLeft isFocused={focusIdx == 1} title='Im a Title!' content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation.'/>
-          <div css={Style.lineContainer}>
-            <Point ref={pointRefs[1]} isSelected={1 == focusIdx}/>
-            <Spacer y={10}/>
-            <Line finished={focusState[2]} selected={1 == focusIdx } height={scrollPosition - offsets[1]}/>
-            <Spacer y={10}/>
+      {
+        props.events.map((event, idx)=>
+          <div key={idx} css={Style.sectionContainer}>
+            {
+              (idx % 2) === 0 ? <EventContent isLeft event={event} isFocused={focusIdx === idx}/> : <EventSpacer/>
+            }
+            <div css={Style.lineContainer}>
+              <Point ref={pointRefs[idx]} isSelected={idx == focusIdx}/>
+              <Spacer y={12}/>
+              <Line finished={focusIdx > idx} selected={idx == focusIdx } progress={scroll - pointRefs[idx].current?.offsetTop}/>
+            </div>
+            {
+              (idx % 2) === 0 ? <EventSpacer/> : <EventContent event={event} isFocused={focusIdx === idx}/>
+            }
           </div>
-          <EventContent title='' content=''/>
-        </div>
-      </div>
-      <div css={Style.container}>
-        <div css={Style.sectionContainer}>
-        <EventContent title='' content=''/>
-          <div css={Style.lineContainer}>
-            <Point ref={pointRefs[2]} isSelected={2 == focusIdx}/>
-            <Spacer y={10}/>
-            <Line finished={focusState[3]} selected={2 == focusIdx } height={scrollPosition - offsets[2]}/>
-            <Spacer y={10}/>
-          </div>
-          <EventContent isFocused={focusIdx == 2} title='Im a Title!' content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation'/>
-        </div>
-      </div>
+        )
+      }
     </div>
   )
 }
@@ -109,27 +98,33 @@ const Point = forwardRef((props: PointPropTypes, ref: ForwardedRef<HTMLDivElemen
 interface LinePropTypes {
   finished: boolean,
   selected: boolean,
-  height: number
+  progress: number
 }
 function Line(props: LinePropTypes) {
   return (
     <div css={Style.line}>
-      <div css={Style.progressline(props.finished, props.selected, props.height)}/>
+      <div css={Style.progressline(props.finished, props.selected, props.progress)}/>
     </div>
   )
 }
 
 interface EventContentPropTypes {
-  title: string
-  content: string
+  event: TimelineEvent
   isFocused?: boolean
   isLeft?: boolean
 }
 function EventContent(props: EventContentPropTypes) {
   return (
     <div css={Style.eventContentContainer(props.isFocused, props.isLeft)}>
-      <Text style={TextStyle.h2}>{props.title}</Text>
-      <Text style={TextStyle.body}>{props.content}</Text>
+      <Text style={TextStyle.h2}>{props.event.title}</Text>
+      <Text style={TextStyle.body}>{props.event.description}</Text>
+      <img css={Style.eventImage} src={props.event.imageUrl}/>
     </div>
+  )
+}
+
+function EventSpacer() {
+  return (
+    <div css={Style.eventSpacer}/>
   )
 }

@@ -10,6 +10,7 @@ import Greeting from '../greeting'
 import Toolset from '../toolset'
 import Timeline from '../timeline'
 import Spacer from '../spacer'
+import contentJson from '../../assets/content.json'
 
 export default function Content() {
   return (
@@ -19,7 +20,7 @@ export default function Content() {
       <Spacer y={50}/>
       <Toolset/>
       <Spacer y={100}/>
-      <Timeline/>
+      <Timeline events={contentJson.timelineEvents}/>
       <Spacer y={100}/>
     </div>
   )

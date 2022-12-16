@@ -27,6 +27,24 @@ export const eventContentContainer = (isFocused: boolean, isLeft: boolean) => cs
   transition-property: opacity;
   transition-duration: 1s;
   text-align: ${isLeft ? 'right' : 'left'};
+  align-items: ${isLeft ? 'flex-end' : 'flex-start'};
+`
+
+export const eventImage = css`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+`
+
+export const eventSpacer = css`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
 `
 
 export const lineContainer = css`
@@ -62,7 +80,7 @@ export const innerPoint = (isSelected: boolean) => css`
 
 export const line = css`
   width: 3px;
-  height: 85%;
+  height: 100%;
   background-color: white;
   border-radius: 10px;
   position: relative;
