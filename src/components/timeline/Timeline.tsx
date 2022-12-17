@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react'
 import * as Style from './styles'
-import { css } from '@emotion/react'
 import React, {useState, ReactElement, ReactNode, useEffect, useRef, useLayoutEffect, forwardRef, ForwardedRef} from 'react'
 import { TextStyle, Text } from '../text'
 import Spacer from '../spacer'

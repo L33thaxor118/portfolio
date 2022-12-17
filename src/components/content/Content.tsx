@@ -11,6 +11,8 @@ import Toolset from '../toolset'
 import Timeline from '../timeline'
 import Spacer from '../spacer'
 import contentJson from '../../assets/content.json'
+import Values from '../values'
+import Contact from '../contact'
 
 export default function Content() {
   return (
@@ -22,6 +24,9 @@ export default function Content() {
       <Spacer y={100}/>
       <Timeline events={contentJson.timelineEvents}/>
       <Spacer y={100}/>
+      <Values/>
+      <Spacer y={100}/>
+      <Contact/>
     </div>
   )
 }
