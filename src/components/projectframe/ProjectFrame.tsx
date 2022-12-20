@@ -2,7 +2,6 @@
 import { css, jsx } from '@emotion/react'
 import * as Style from './styles'
 import React, {useRef, useLayoutEffect, useState, ReactElement} from 'react'
-import Chip from '../../../chip'
 
 interface PropTypes {
   title: string,

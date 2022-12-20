@@ -11,8 +11,11 @@ interface PropTypes {
 }
 
 export default function Spacer(props: PropTypes) {
+  const width = props.x != null ? props.x : 0
+  const height = props.y != null ? props.y : 0
+
   return (
-    <div css={Style.container(props.x, props.y)}>
+    <div css={Style.container(width, height)}>
     </div>
   )
 }

@@ -2,9 +2,9 @@
 import { css, jsx } from '@emotion/react'
 import * as Style from './styles'
 import React from 'react'
-import Carousel from '../../../carousel'
+import Carousel from '../carousel'
 import { DiGithubAlt } from 'react-icons/di'
-import Chip from '../../../chip'
+import Chip from '../chip'
 
 interface PropTypes {
   project: any,

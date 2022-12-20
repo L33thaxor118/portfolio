@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
 import * as React from 'react'
-import Content from './components/content'
+import Home from './components/home'
 import Navbar from './components/navbar'
 
 export default function App() {
   return (
     <div css={style}>
       <Navbar/>
-      <Content/>
+      <Home/>
     </div>
   )
 }
