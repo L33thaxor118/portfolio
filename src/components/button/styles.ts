@@ -8,6 +8,7 @@ export const button = css`
   text-decoration: none;
   color: white;
   padding: 6px 24px;
+  font-size: 16px;
   font-family: var(--font-family-secondary);
   transition: opacity 0.3s;
   &:hover {
