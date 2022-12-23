@@ -4,6 +4,7 @@ import * as Style from './styles'
 import React from 'react'
 import { Text, TextStyle } from '../text'
 import Button from '../button'
+import Spacer from '../spacer'
 
 interface Project {
   title: string,
@@ -19,6 +20,7 @@ export default function Projects(props: PropTypes) {
   return (
     <div css={Style.container}>
       <Text style={TextStyle.h1}>Stuff I've built</Text>
+      <Spacer y={50}/>
       {
         props.projects.map((project, idx)=>
           <ProjectPreview key={idx} project={project}/>
