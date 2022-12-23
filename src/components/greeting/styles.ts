@@ -3,6 +3,7 @@ import { css } from '@emotion/react'
 export const container = css`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `
 
 export const textContainer = css`
@@ -32,4 +33,6 @@ export const body = css`
 export const img = css`
   border-radius: 100%;
   margin-left: 5%;
+  width: 85%;
+  height: 85%;
 `

@@ -15,8 +15,8 @@ export const sidebar = css`
 `
 
 export const profileImg = css`
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin: 10px 10px 10px 30px;
   &:hover {
     cursor: pointer;

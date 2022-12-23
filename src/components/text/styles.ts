@@ -13,6 +13,7 @@ export const h2Style = (altColor: Boolean) => css`
     font-size: 28px;
     color: ${altColor ? 'var(--theme-color-primary)' : 'white'};
   `
+  
 export const bodyStyle = (altColor: Boolean) => css`
     font-family: var(--font-family-primary);
     font-weight: 300;

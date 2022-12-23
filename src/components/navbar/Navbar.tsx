@@ -3,6 +3,7 @@ import { jsx } from '@emotion/react'
 import * as Style from './styles'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Text, TextStyle } from '../text'
 
 export default function Navbar() {
 
@@ -13,7 +14,7 @@ export default function Navbar() {
         src={'/logo.svg'}
         onClick={()=>{}}
         />
-        <h1>Azriel Alvarado</h1>
+        <Text style={TextStyle.h1}>Azriel Alvarado</Text>
     </div>
 
   const navLinks = [
@@ -21,8 +22,7 @@ export default function Navbar() {
     <Link key={2} css={Style.listItemText} to="/projects">projects</Link>,
     <a key={3} href="resume.pdf" style={{textDecoration: 'none'}} type={'application/pdf'} target="_blank">
       <p css={Style.listItemText}>resume</p>
-    </a>,
-    <Link key={4} css={Style.listItemText} to="/log">log</Link>
+    </a>
   ]
   return (
     <div css={Style.sidebar}>
