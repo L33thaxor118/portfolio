@@ -12,6 +12,7 @@ export enum TextStyle {
 
 interface PropTypesText {
   style: TextStyle
+  className?: string,
   useAltColor?: Boolean,
   children?: ReactNode
 }
@@ -33,6 +34,6 @@ export function Text(props: PropTypesText) {
     }
   }
   return (
-    <h1 css={style}>{props.children}</h1>
+    <h1 className={props.className} css={style}>{props.children}</h1>
   )
 }

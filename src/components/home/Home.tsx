@@ -24,7 +24,7 @@ export default function Home() {
       <Spacer y={50}/>
       <Values values={contentJson.values}/>
       <Spacer y={50}/>
-      <Projects/>
+      <Projects projects={contentJson.projects}/>
       <Spacer y={50}/>
       <Contact/>
     </div>
