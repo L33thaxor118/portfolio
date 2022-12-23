@@ -18,4 +18,5 @@ export const bodyStyle = (altColor: Boolean) => css`
     font-weight: 300;
     font-size: 24px;
     color: ${altColor ? 'var(--theme-color-primary)' : 'white'};
+    opacity: 80%;
   `
