@@ -8,12 +8,13 @@ import { TextStyle, Text } from '../text'
 interface PropTypes {
   imgSrc: string
   title: string
+  className?: string
 }
 
 export default function MiniCard(props: PropTypes) {
 
   return (
-    <div css={Style.container}>
+    <div css={Style.container} className={props.className}>
       <img css={Style.toolImage} src={props.imgSrc}/>
       <Text useAltColor style={TextStyle.body}>{props.title}</Text>
     </div>

@@ -15,6 +15,44 @@
       "imageUrl": "./mononoke.jpg"
     }
   ],
+  "tools": {
+    "frontend": [
+      {
+        "name": "Kotlin",
+        "imgSrc": "./kotlin.svg"
+      },
+      {
+        "name": "Kotlin",
+        "imgSrc": "./kotlin.svg"
+      },
+      {
+        "name": "Kotlin",
+        "imgSrc": "./kotlin.svg"
+      },
+      {
+        "name": "Kotlin",
+        "imgSrc": "./kotlin.svg"
+      }
+    ],
+    "backend": [
+      {
+        "name": "Spring",
+        "imgSrc": "./spring.svg"
+      },
+      {
+        "name": "Spring",
+        "imgSrc": "./spring.svg"
+      },
+      {
+        "name": "Spring",
+        "imgSrc": "./spring.svg"
+      },
+      {
+        "name": "Spring",
+        "imgSrc": "./spring.svg"
+      }
+    ]
+  },
   "projects": [
     {
       "title": "Siphon",

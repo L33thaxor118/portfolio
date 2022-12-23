@@ -17,8 +17,8 @@ export default function Home() {
     <div css={Style.container}>
       <Spacer y={50}/>
       <Greeting/>
-      <Spacer y={50}/>
-      <Toolset/>
+      <Spacer y={100}/>
+      <Toolset tools={contentJson.tools}/>
       <Spacer y={100}/>
       <Text style={TextStyle.h1}>Where I've been</Text>
       <Spacer y={50}/>
