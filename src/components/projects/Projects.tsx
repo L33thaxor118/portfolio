@@ -42,6 +42,7 @@ function ProjectPreview(props: PreviewPropTypes) {
         <Text css={{textAlign: 'center', padding: '16px'}} style={TextStyle.body}>{props.project.summary}</Text>
         <Button>More Details</Button>
       </div>
+      <img css={Style.projectPreviewImage} src={props.project.imageUrl}/>
     </div>
   )
 }

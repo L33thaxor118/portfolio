@@ -53,7 +53,7 @@ export const listItemText = css`
   font-size: var(--font-size-medium);
   &:hover {
     cursor: pointer;
-    color: green;
+    color: var(--theme-color-accent);
   }
 `
 

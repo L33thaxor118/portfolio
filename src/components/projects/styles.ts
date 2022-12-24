@@ -8,20 +8,24 @@ export const container = css`
 
 export const projectPreviewContainer = css`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 400px;
   margin-bottom: 100px;
+  width: 865px;
+  height: 350px;
 `
 
 export const projectPreviewDetailsContainer = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 310px;
+  box-sizing: border-box;
+  padding: 10px;
 `
 
 export const projectPreviewImage = css`
-  width: 200px;
-  height: 100px;
-  border-radius: 8px;
+  height: 350px;
+  width: 565px;
+  border-radius: 12px;
 `

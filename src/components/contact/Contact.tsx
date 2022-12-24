@@ -9,6 +9,7 @@ import * as Style from './styles'
 export default function Contact() {
   return (
     <div css={Style.container}>
+      <Text style={TextStyle.body}>Have something cool for me to work on?</Text>
       <Text style={TextStyle.h2}>Get in touch</Text>
       <div css={Style.iconsContainer}>
         <a href='https://www.linkedin.com/in/azriel-alvarado-105894182/' target="_blank">
@@ -21,6 +22,7 @@ export default function Contact() {
           <AiOutlineMail css={Style.icon1}/>
         </a>
       </div>
+      <Text style={TextStyle.body} css={{marginBottom: '5vh'}}>773-968-4988</Text>
     </div>
   )
 }
