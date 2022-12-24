@@ -8,12 +8,13 @@ export const container = css`
   flex-direction: column;
   align-items: center;
   max-width: var(--text-content-max-width);
+  background-color: var(--theme-color-tertiary);
 `
 
 export const iconsContainer = css`
   display: flex;
   align-items: center;
-  padding-bottom: 3vh;
+  padding-bottom: 1vh;
   margin-top: 10px;
 `
 

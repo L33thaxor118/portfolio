@@ -22,7 +22,7 @@ export default function Contact() {
           <AiOutlineMail css={Style.icon1}/>
         </a>
       </div>
-      <Text style={TextStyle.body} css={{marginBottom: '5vh'}}>773-968-4988</Text>
+      <Text style={TextStyle.body} css={{marginBottom: '3vh'}}>773-968-4988</Text>
     </div>
   )
 }

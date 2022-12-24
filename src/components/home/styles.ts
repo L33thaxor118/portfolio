@@ -3,6 +3,11 @@ import { css } from '@emotion/react'
 export const container = css`
   display: flex;
   flex-direction: column;
+`
+
+export const body = css`
+  display: flex;
+  flex-direction: column;
   align-items: center;
   background: linear-gradient(var(--theme-color-tertiary), var(--theme-color-primary));
   font-family: var(--font-family-primary);
@@ -12,5 +17,8 @@ export const container = css`
 
 export const footer = css`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: var(--theme-color-tertiary);
 `
