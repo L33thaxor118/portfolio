@@ -6,16 +6,24 @@ import React, { ReactNode } from 'react'
 import {Text, TextStyle} from '../text'
 
 interface PropTypes {
-  style?: SerializedStyles,
+  data: GreetingData
+  style?: SerializedStyles
   children?: ReactNode
 }
+
+interface GreetingData {
+  intro: string
+  title: string
+  statement: string
+}
+
 export default function Greeting(props: PropTypes) {
   return (
     <div css={css`${Style.container}; ${props.style};`}>
       <div css={Style.textContainer}>
-        <Text style={TextStyle.h2}>Hi, I'm Azriel</Text>
-        <Text style={TextStyle.h1}>I build software</Text>
-        <Text style={TextStyle.body}>I'm a Software Developer with a passion for Android and a burning curiosity for just about everything else. My Android skills pay the bills but I'm a tolerable web dev when I'm in the mood.</Text>
+        <Text style={TextStyle.h2}>{props.data.intro}</Text>
+        <Text style={TextStyle.h1}>{props.data.title}</Text>
+        <Text style={TextStyle.body}>{props.data.statement}</Text>
       </div>
       <img src='./alien_me.png' css={Style.img}/>
     </div>

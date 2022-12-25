@@ -18,9 +18,6 @@ export const profileImg = css`
   width: 60px;
   height: 60px;
   margin: 10px 10px 10px 30px;
-  &:hover {
-    cursor: pointer;
-  }
   @media (max-width: 485px) {
     margin: 5px;
     width: 80px;
@@ -53,7 +50,7 @@ export const listItemText = css`
   font-size: var(--font-size-medium);
   &:hover {
     cursor: pointer;
-    color: var(--theme-color-accent);
+    opacity: 85%;
   }
 `
 

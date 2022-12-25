@@ -58,7 +58,8 @@ export const lineContainer = css`
 
 export const point = (selected: boolean) => css`
   width: 20px;
-  height: 20px;
+  min-height: 20px;
+  max-height: 20px;
   border-radius: 100%;
   border-style: solid;
   border-color: white;

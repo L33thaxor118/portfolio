@@ -27,7 +27,7 @@ export default function Toolset(props: PropTypes) {
     <div css={css`${Style.container}; ${props.style};`}>
       <Text style={TextStyle.h1}>What I use</Text>
       <Spacer y={12}/>
-      <Text style={TextStyle.h2}>Frontend</Text>
+      <Text style={TextStyle.body}>Frontend</Text>
         <div css={Style.skillRow}>
           {
             props.tools.frontend.map((tool, idx)=>
@@ -36,7 +36,7 @@ export default function Toolset(props: PropTypes) {
           }
         </div>
         <Spacer y={12}/>
-        <Text style={TextStyle.h2}>Backend</Text>
+        <Text style={TextStyle.body}>Backend</Text>
         <div css={Style.skillRow}>
           {
             props.tools.backend.map((tool, idx)=>
