@@ -39,7 +39,7 @@ function ProjectPreview(props: PreviewPropTypes) {
     <div css={Style.projectPreviewContainer}>
       <div css={Style.projectPreviewDetailsContainer}>
         <Text style={TextStyle.h2}>{props.project.title}</Text>
-        <Text css={{textAlign: 'center', padding: '16px'}} style={TextStyle.body}>{props.project.summary}</Text>
+        <Text css={{textAlign: 'center', padding: '8px 16px 24px 16px'}} style={TextStyle.body}>{props.project.summary}</Text>
         <Button>More Details</Button>
       </div>
       <img css={Style.projectPreviewImage} src={props.project.imageUrl}/>

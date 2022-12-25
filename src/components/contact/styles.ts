@@ -14,7 +14,6 @@ export const container = css`
 export const iconsContainer = css`
   display: flex;
   align-items: center;
-  padding-bottom: 1vh;
   margin-top: 10px;
 `
 

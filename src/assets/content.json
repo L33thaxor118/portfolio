@@ -78,9 +78,9 @@
   "projects": [
     {
       "title": "This website",
-      "summary": "The website you are looking at.",
+      "summary": "Built from scratch.",
       "tags": ["React", "Webpack"],
-      "imageUrl": "2001.jpg",
+      "imageUrl": "portfolio.png",
       "repoUrl": "https://github.com/L33thaxor118/portfolio",
       "sections": [
         {
@@ -107,9 +107,9 @@
     },
     {
       "title": "Siphon",
-      "summary": "Configure ETL operations via GUI. No scripting required.",
+      "summary": "Configure ETL operations via UI. No scripting required.",
       "tags": ["Electron", "React"],
-      "imageUrl": "mononoke.jpg",
+      "imageUrl": "siphon_1.png",
       "demoUrl": "use this for video demo",
       "repoUrl": null,
       "sections": [
@@ -150,40 +150,10 @@
       ]
     },
     {
-      "title": "Wexly",
-      "summary": "Might help couples communicate better.",
-      "tags": ["React Native", "Firebase"],
-      "imageUrl": "ghostintheshell.jpg",
-      "sections": [
-        {
-          "subtitle": "This page is incomplete. More details coming soon..."
-        },
-        {
-          "text": "Hybrid app I worked on casually for a few months. The app provides instant messaging with a twist: messages are guided. They have a series of steps which suggest how to structure a difficult conversation with a loved one."
-        },
-        {
-          "subtitle": "Features",
-          "list": [
-            "Instant messaging: Implemented with Firebase",
-            "Local persistence: Messages are only held in Firebase until they are delivered. After that they are persisted locally on the client-side.",
-            "Multi-Platform: Implemented in React Native which compiles to Android & iOS.",
-            "Simple SMS authentication: All that is needed is SMS verification to gain access to the app."
-          ]
-        },
-        {
-          "subtitle": "What I learned",
-          "list":[
-            "Pay attention to React Native version migration requirements!",
-            "Leveraged architecture and Firebase services to avoid mounting costs: Firestore to hold and distribute messages, client to mark as received, cloud Functions to remove received messages from Firestore."
-          ]
-        }
-      ]
-    }, 
-    {
       "title": "Pixel Canvas",
       "summary": "LED matrix controlled over the internet.",
       "tags": ["NodeJs", "Arduino"],
-      "imageUrl": "akira.jpg",
+      "imageUrl": "pixel-canvas-alpha-demo.gif",
       "sections": [
         {
           "subtitle": "More details coming soon...",
@@ -196,7 +166,7 @@
       "title": "Composite build helper",
       "summary": "IntelliJ plugin to assist with composing Gradle builds.",
       "tags": ["IntelliJ Platform"],
-      "imageUrl": "neoTokyo.jpg",
+      "imageUrl": "composite-build-helper-screen.png",
       "repoUrl": "https://github.com/L33thaxor118/composite-build-helper",
       "sections": [
         {
@@ -210,9 +180,9 @@
     },
     {
       "title": "Cylinder codepen",
-      "summary": "Fun component I made in a codepen.",
+      "summary": "A fun UI component built with React.",
       "tags": ["React"],
-      "imageUrl": "neoTokyo.jpg",
+      "imageUrl": "CylinderPreview.gif",
       "repoUrl": "",
       "sections": [
       ]

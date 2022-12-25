@@ -33,6 +33,6 @@ export const body = css`
 export const img = css`
   border-radius: 100%;
   margin-left: 5%;
-  width: 85%;
-  height: 85%;
+  width: 260px;
+  height: 250px;
 `
