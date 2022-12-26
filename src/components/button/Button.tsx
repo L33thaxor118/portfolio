@@ -6,11 +6,15 @@ import React, { ReactNode } from 'react'
 
 interface PropTypes {
   className?: string,
-  children?: ReactNode
+  children?: ReactNode,
+  onClick?: ()=>void,
+  url?: string
 }
 
 export default function Button(props: PropTypes) {
   return (
-    <button className={props.className} css={Style.button}>{props.children}</button>
+    <a href={props.url}>
+      <button onClick={()=>{props.onClick()}} className={props.className} css={Style.button}>{props.children}</button>
+    </a>
   )
 }

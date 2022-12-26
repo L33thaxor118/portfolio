@@ -11,5 +11,6 @@ export const container = css`
 export const title = css`
   color: white;
   margin-bottom: 30px;
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-xlarge);
 `

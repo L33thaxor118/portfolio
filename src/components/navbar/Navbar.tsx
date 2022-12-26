@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Text, TextStyle } from '../text'
 import { useMediaQuery } from 'react-responsive'
+import { HashLink } from 'react-router-hash-link'
 
 export default function Navbar() {
   const isLargeScreen = useMediaQuery({ query: '(min-width: 800px)' })
@@ -21,7 +22,7 @@ export default function Navbar() {
 
   const navLinks = [
     <Link key={1} css={Style.listItemText} to="/">whoami</Link>,
-    <Link key={2} css={Style.listItemText} to="/projects">projects</Link>,
+    <HashLink key={2} css={Style.listItemText} to="#projects">projects</HashLink>,
     <a key={3} href="resume.pdf" style={{textDecoration: 'none'}} type={'application/pdf'} target="_blank">
       <p css={Style.listItemText}>resume</p>
     </a>

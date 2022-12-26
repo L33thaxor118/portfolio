@@ -21,7 +21,7 @@ export default function Projects(props: PropTypes) {
   const isLargeScreen = useMediaQuery({ query: '(min-width: 900px)' })
   
   return (
-    <div css={Style.container}>
+    <div id={'projects'} css={Style.container}>
       <Text style={TextStyle.h1}>Stuff I've built</Text>
       <Spacer y={50}/>
       {
@@ -39,12 +39,13 @@ interface PreviewPropTypes {
 }
 
 function ProjectPreview(props: PreviewPropTypes) {
+  const projectPath = props.project.title.toLowerCase().replace(/\s/g, '-')
   return (
     <div css={Style.projectPreviewContainer}>
       <div css={Style.projectPreviewDetailsContainer}>
         <Text style={TextStyle.h2}>{props.project.title}</Text>
         <Text css={{textAlign: 'center', padding: '8px 16px 24px 16px'}} style={TextStyle.body}>{props.project.summary}</Text>
-        <Button>More Details</Button>
+        <Button url={`/${projectPath}`}>More Details</Button>
       </div>
       {props.showImage && <img css={Style.projectPreviewImage} src={props.project.imageUrl}/>}
     </div>
