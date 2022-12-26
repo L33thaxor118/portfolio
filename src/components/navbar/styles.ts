@@ -1,27 +1,24 @@
 import { css } from '@emotion/react'
 
-export const sidebar = css`
+export const container = css`
   display: flex;
   flex: 0;
   flex-direction: row;
-  @media (max-width: 485px) {
-    flex-direction: column;
-    flex: 0;
-  }
   align-items: center;
   justify-content: space-between;
   background-color: var(--theme-color-primary);
   font-family: var(--font-family-primary);
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `
 
 export const profileImg = css`
   width: 60px;
   height: 60px;
   margin: 10px 10px 10px 30px;
-  @media (max-width: 485px) {
-    margin: 5px;
-    width: 80px;
-    height: 80px;
+  @media (max-width: 800px) {
+    margin: 10px 0px 0px 0px;
   }
 `
 
@@ -57,4 +54,13 @@ export const listItemText = css`
 export const listItemContainer = css`
   display: flex;
   margin-right: 30px;
+  @media (max-width: 800px) {
+    margin: 0px;
+  }
+`
+
+export const titleText = css`
+  font-size: 40px;
+  margin-left: 10px;
+  font-family: 'Swanky and Moo Moo', cursive;
 `

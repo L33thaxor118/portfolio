@@ -4,8 +4,10 @@ import * as Style from './styles'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Text, TextStyle } from '../text'
+import { useMediaQuery } from 'react-responsive'
 
 export default function Navbar() {
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 800px)' })
 
   const profileImage =
     <div css={Style.profileImgContainer}>
@@ -14,7 +16,7 @@ export default function Navbar() {
         src={'/logo.svg'}
         onClick={()=>{}}
         />
-        <Text style={TextStyle.h1}>Azriel Alvarado</Text>
+        {isLargeScreen && <Text css={Style.titleText} style={TextStyle.h1}>Azriel Alvarado</Text>}
     </div>
 
   const navLinks = [
@@ -25,7 +27,7 @@ export default function Navbar() {
     </a>
   ]
   return (
-    <div css={Style.sidebar}>
+    <div css={Style.container}>
       {profileImage}
       <div css={Style.listItemContainer}>
         {navLinks}
