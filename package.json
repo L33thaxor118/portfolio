@@ -12,6 +12,7 @@
   "scripts": {
     "serve": "webpack serve --mode development",
     "build": "webpack && rsync -avz \"servedassets\"/ \"build\"",
+    "prestart": "yarn build",
     "start": "node server/server.js"
   },
   "babel": {
