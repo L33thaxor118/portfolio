@@ -6,7 +6,7 @@
   "author": "Azriel Alvarado <aalvarado@fulcrumgt.com>",
   "license": "MIT",
   "engines": {
-    "yarn": "1.22.18"
+    "yarn": "1.22.19"
   },
   "scripts": {
     "serve": "webpack serve --mode development",
