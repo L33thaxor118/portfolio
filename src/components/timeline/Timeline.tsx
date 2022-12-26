@@ -5,6 +5,7 @@ import React, {useState, ReactElement, ReactNode, useEffect, useRef, useLayoutEf
 import { TextStyle, Text } from '../text'
 import Spacer from '../spacer'
 import useScrollPosition from '../../hooks/useScrollPosition'
+import { useMediaQuery } from 'react-responsive'
 
 interface TimelineEvent {
   title: string,
@@ -22,10 +23,11 @@ export default function Timeline(props: PropTypes) {
   const [focusIdx, setFocusIdx] = useState<number>(null)
   const {scrollPosition, isScrollingDown} = useScrollPosition()
   const [scrollOffset, setScrollOffset] = useState(0)
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 800px)' })
 
   useEffect(()=>{
     const observerOptions = {
-      rootMargin: '-30%',
+      rootMargin: '-30% 0%',
       threshold: 0
     }
     const observer = new IntersectionObserver((entries) => {
@@ -63,10 +65,11 @@ export default function Timeline(props: PropTypes) {
   return (
     <div css={Style.container}>
       {
-        props.events.map((event, idx)=>
-          <div key={idx} css={Style.sectionContainer}>
+        props.events.map((event, idx) => {
+          const showOnLeftSide = isSmallScreen ? false : idx % 2 === 0
+          return <div key={idx} css={Style.sectionContainer}>
             {
-              (idx % 2) === 0 ? <EventContent isLeft event={event} isFocused={focusIdx === idx}/> : <EventSpacer/>
+              showOnLeftSide ? <EventContent isLeft event={event} isFocused={focusIdx === idx}/> : !isSmallScreen && <EventSpacer/>
             }
             <div css={Style.lineContainer}>
               <Point ref={pointRefs[idx]} isSelected={idx == focusIdx}/>
@@ -74,9 +77,10 @@ export default function Timeline(props: PropTypes) {
               <Line finished={focusIdx > idx} selected={idx == focusIdx } progress={scroll - pointRefs[idx].current?.offsetTop}/>
             </div>
             {
-              (idx % 2) === 0 ? <EventSpacer/> : <EventContent event={event} isFocused={focusIdx === idx}/>
+              showOnLeftSide ? <EventSpacer/> : <EventContent event={event} isFocused={focusIdx === idx}/>
             }
           </div>
+        }
         )
       }
     </div>

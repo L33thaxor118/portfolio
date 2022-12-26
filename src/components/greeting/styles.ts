@@ -4,11 +4,17 @@ export const container = css`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 `
 
 export const textContainer = css`
   display: flex;
   flex-direction: column;
+  @media (max-width: 1000px) {
+    margin-bottom: 20px;
+  }
 `
 
 export const title = css`

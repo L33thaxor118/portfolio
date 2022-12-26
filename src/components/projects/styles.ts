@@ -11,8 +11,12 @@ export const projectPreviewContainer = css`
   flex-direction: row;
   align-items: center;
   margin-bottom: 100px;
-  width: 865px;
+  max-width: 865px;
   height: 350px;
+  @media (max-width: 900px) {
+    margin-bottom: 70px;
+    height: auto;
+  }
 `
 
 export const projectPreviewDetailsContainer = css`

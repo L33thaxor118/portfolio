@@ -5,6 +5,7 @@ import React from 'react'
 import { Text, TextStyle } from '../text'
 import Button from '../button'
 import Spacer from '../spacer'
+import { useMediaQuery } from 'react-responsive'
 
 interface Project {
   title: string,
@@ -17,13 +18,15 @@ interface PropTypes {
 }
 
 export default function Projects(props: PropTypes) {
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 900px)' })
+  
   return (
     <div css={Style.container}>
       <Text style={TextStyle.h1}>Stuff I've built</Text>
       <Spacer y={50}/>
       {
         props.projects.map((project, idx)=>
-          <ProjectPreview key={idx} project={project}/>
+          <ProjectPreview showImage={isLargeScreen} key={idx} project={project}/>
         )
       }
     </div>
@@ -32,6 +35,7 @@ export default function Projects(props: PropTypes) {
 
 interface PreviewPropTypes {
   project: Project
+  showImage: Boolean
 }
 
 function ProjectPreview(props: PreviewPropTypes) {
@@ -42,7 +46,7 @@ function ProjectPreview(props: PreviewPropTypes) {
         <Text css={{textAlign: 'center', padding: '8px 16px 24px 16px'}} style={TextStyle.body}>{props.project.summary}</Text>
         <Button>More Details</Button>
       </div>
-      <img css={Style.projectPreviewImage} src={props.project.imageUrl}/>
+      {props.showImage && <img css={Style.projectPreviewImage} src={props.project.imageUrl}/>}
     </div>
   )
 }

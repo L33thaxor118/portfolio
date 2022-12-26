@@ -5,10 +5,13 @@ export const container = css`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  overflow-x: scroll;
 `
 
 export const skillRow = css`
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
   margin-top: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
 `

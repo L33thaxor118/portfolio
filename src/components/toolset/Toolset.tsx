@@ -28,22 +28,22 @@ export default function Toolset(props: PropTypes) {
       <Text style={TextStyle.h1}>What I use</Text>
       <Spacer y={12}/>
       <Text style={TextStyle.body}>Frontend</Text>
-        <div css={Style.skillRow}>
-          {
-            props.tools.frontend.map((tool, idx)=>
-              <MiniCard key={idx} css={{margin: '6px'}} title={tool.name} imgSrc={tool.imgSrc}/>
-            )
-          }
-        </div>
-        <Spacer y={12}/>
-        <Text style={TextStyle.body}>Backend</Text>
-        <div css={Style.skillRow}>
-          {
-            props.tools.backend.map((tool, idx)=>
-              <MiniCard key={idx} css={{margin: '6px'}} title={tool.name} imgSrc={tool.imgSrc}/>
-            )
-          }
-        </div>
+      <div css={Style.skillRow}>
+        {
+          props.tools.frontend.map((tool, idx)=>
+            <MiniCard key={idx} css={{margin: '6px'}} title={tool.name} imgSrc={tool.imgSrc}/>
+          )
+        }
+      </div>
+      <Spacer y={12}/>
+      <Text style={TextStyle.body}>Backend</Text>
+      <div css={Style.skillRow}>
+        {
+          props.tools.backend.map((tool, idx)=>
+            <MiniCard key={idx} css={{margin: '6px'}} title={tool.name} imgSrc={tool.imgSrc}/>
+          )
+        }
+      </div>
     </div>
   )
 }
