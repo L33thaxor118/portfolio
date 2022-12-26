@@ -1,11 +1,12 @@
 :root {
   /* Creating a variable */
-  --theme-color-primary: #164461;
+  --theme-color-primary: #282A3E;
   --theme-color-secondary: #ffffff;
-  --theme-color-tertiary: #ffffff;
+  --theme-color-accent: #A785FF;
+  --theme-color-tertiary: #0D0E1D;
 
-  --font-family-primary: 'Roboto', sans-serif;
-  --font-family-secondary: 'Space Mono', monospace;
+  --font-family-primary: 'Quicksand', sans-serif;
+  --font-family-secondary: 'Cairo', sans-serif;
 
   --font-size-small: 16px;
   --font-size-medium: 24px;
@@ -26,8 +27,7 @@
   --default-padding-sides: 10%;
 
   --media-query-large-width: 1100px;
-  --media-query-small-width: 840px;
-  --media-query-x-small-width: 485px;
+  --media-query-small-width: 800px;
 
   --text-content-max-width: 52rem;
   --text-line-height: 1.7777778;

@@ -1,14 +1,19 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
 import * as React from 'react'
-import Content from './components/content'
-import Sidebar from './components/sidebar'
+import Home from './components/home'
+import Navbar from './components/navbar'
+import { Routes, Route } from 'react-router-dom';
+import Placeholder from './components/placeholder';
 
 export default function App() {
   return (
     <div css={style}>
-      <Sidebar/>
-      <Content/>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/*" element={<Placeholder/>}/>
+      </Routes>
     </div>
   )
 }

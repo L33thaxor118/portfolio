@@ -1,0 +1,191 @@
+{
+  "greeting": {
+    "intro": "Hi, I'm Azriel",
+    "title": "Software Developer",
+    "statement": "I’m a curious mobile and web developer that loves working with other humans to build usable software. I thrive in enterprise."
+  },
+  "timelineEvents": [
+    {
+      "title": "Colegio Nuestra Señora de los Angeles",
+      "description": "High school in Panama (I'm a dual citizen). This is where I took my first coding classes and discovered I wanted to code for a living.",
+      "imageUrl": "./consa.png"
+    },
+    {
+      "title": "Oakton Community College",
+      "description": "Came to the US after high school and studied here for two years with hopes of transferring to the University of Illinois @ Urbana Champaign.",
+      "imageUrl": "./oakton.jpg"
+    },
+    {
+      "title": "University of Illinois at Urbana-Champaign",
+      "description": "I managed to graduate with honors from one of the most competitive CS programs in the nation.",
+      "imageUrl": "./uofi.jpg"
+    },
+    {
+      "title": "Banco General",
+      "description": "Landed my first internship at this Panamenian bank. I worked on their hybrid mobile app.",
+      "imageUrl": "./bgeneral.jpeg"
+    },
+    {
+      "title": "City Scholars",
+      "description": "Participated in this awesome work-study program in Chicago where I had the opportunity to give a speech for some nice politicians.",
+      "imageUrl": "./cityscholars.jpeg"
+    },
+    {
+      "title": "Fulcrum GT",
+      "description": "Worked here as an intern during the City Scholars thing. Then got my first full-time gig with them as a native mobile dev.",
+      "imageUrl": "./fulcrumgt.png"
+    },
+    {
+      "title": "Callibrity",
+      "description": "My current employer. I'm working on a native mobile app for a fortune 500 bank.",
+      "imageUrl": "./callibrity.png"
+    }
+  ],
+  "tools": {
+    "frontend": [
+      {
+        "name": "Kotlin",
+        "imgSrc": "./kotlin.svg"
+      },
+      {
+        "name": "Swift",
+        "imgSrc": "./swift.svg"
+      },
+      {
+        "name": "ReactJS",
+        "imgSrc": "./react.svg"
+      },
+      {
+        "name": "Typescript",
+        "imgSrc": "./typescript.svg"
+      }
+    ],
+    "backend": [
+      {
+        "name": "AWS",
+        "imgSrc": "./aws.svg"
+      },
+      {
+        "name": "Firebase",
+        "imgSrc": "./firebase.svg"
+      },
+      {
+        "name": "NodeJS",
+        "imgSrc": "./nodejs.svg"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "This website",
+      "summary": "Built from scratch.",
+      "tags": ["React", "Webpack"],
+      "imageUrl": "portfolio.png",
+      "repoUrl": "https://github.com/L33thaxor118/portfolio",
+      "sections": [
+        {
+          "text": "The fabled Personal Website. I finally went through with it after about 4 years of procrastination. I used this project as an opportunity to challenge myself with some interesting UI components like the 'Cylinder' projects view (only visible on larger screens)."
+        },
+        {
+          "subtitle": "The Cylinder view",
+          "text": "One of my favorite parts of this site is the large-screen Cylinder view for my projects. I tried to make this component as flexible as possible.",
+          "imageUrls": ["/CylinderPreview.gif"]
+        },
+        {
+          "subtitle": "No more CRA",
+          "text": "I decided to take off the training wheels for this one. I built this site from scratch without create-react-app. Setting things up took a bit longer but its nice to have full control of my build."
+        },
+        {
+          "subtitle": "What I learned",
+          "list": [
+            "CSS box-sizing. I dreaded adding padding until I discovered this property.",
+            "CSS transforms are visual, not literal... See this: https://stackoverflow.com/questions/21248111/overflow-behavior-after-using-css3-transform",
+            "Media queries. First time making a responsive website."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Siphon",
+      "summary": "Configure ETL operations via UI. No scripting required.",
+      "tags": ["Electron", "React"],
+      "imageUrl": "siphon_1.png",
+      "demoUrl": "use this for video demo",
+      "repoUrl": null,
+      "sections": [
+        {
+          "subtitle": null,
+          "text": "Project I worked on for about 5 months as an intern at Fulcrum-GT. The intent was to create a tool which allowed for easy ETL configuration without the need for any coding knowledge so that our config teams could rely less on engineers for new client setup. Worked on this with only one other intern.",
+          "list": null,
+          "imageUrls": ["/siphon_1.png", "/siphon_2.png"]
+        },
+        {
+          "subtitle": "Features",
+          "text": "",
+          "list": [
+            "Type Safety: will check that transformation chains have compatible types from start to finish based on declared schema",
+            "Transform Library: implemented a variety of transforms",
+            "Mappings from a variety of sources: perform mappings based on database queries, etc",
+            "Performance: Leverage Electron's IPC to run transformations on a separate process running in a Node environment which allowed for easy file IO."
+          ],
+          "imageUrls": null
+        },
+        {
+          "subtitle": "What I learned",
+          "text": "",
+          "list": [
+            "React doesn't pick up on deeply nested state!",
+            "Test in real scenarios early on."
+          ],
+          "imageUrls": null
+        },
+        {
+          "subtitle": "Challenges",
+          "text": "",
+          "list": [
+            "CPU intensive operations and concurrency with javascript."
+          ],
+          "imageUrls": null
+        }
+      ]
+    },
+    {
+      "title": "Pixel Canvas",
+      "summary": "LED matrix controlled over the internet.",
+      "tags": ["NodeJs", "Arduino"],
+      "imageUrl": "pixel-canvas-alpha-demo.gif",
+      "sections": [
+        {
+          "subtitle": "More details coming soon...",
+          "text": "Here is a sneak peak in the meantime:",
+          "imageUrls": ["/pixel-canvas-alpha-demo.gif"]
+        }
+      ]
+    },
+    {
+      "title": "Composite build helper",
+      "summary": "IntelliJ plugin to assist with composing Gradle builds.",
+      "tags": ["IntelliJ Platform"],
+      "imageUrl": "composite-build-helper-screen.png",
+      "repoUrl": "https://github.com/L33thaxor118/composite-build-helper",
+      "sections": [
+        {
+          "text": "I once worked on a very large mobile banking app which consisted of a main app module which consumed over 15 library modules. Each library module was held in a separate repository and built independently. Integrating library module changes into the app was a painful process. I would often work on 3+ modules at a time to implement a large feature or refactor, each on a separate android studio window. Until I discovered composite Gradle builds.",
+          "imageUrls": ["/composite-build-helper-screen.png"]
+        },
+        {
+          "subtitle": "More details coming soon..."
+        }
+      ]
+    },
+    {
+      "title": "Cylinder codepen",
+      "summary": "A fun UI component built with React.",
+      "tags": ["React"],
+      "imageUrl": "CylinderPreview.gif",
+      "repoUrl": "",
+      "sections": [
+      ]
+    }
+  ]
+}
