@@ -5,6 +5,7 @@ export const container = css`
   flex-direction: column;
   align-items: center;
   padding: 20px 20px 60px 20px;
+  background: linear-gradient(var(--theme-color-tertiary), var(--theme-color-primary));
 `
 export const sectionContainer = css`
   width: 100%;
@@ -25,12 +26,13 @@ export const title = css`
   font-size: var(--font-size-xlarge);
 `
 export const subtitle = css`
-font-family: var(--font-family-secondary);
+  font-family: var(--font-family-secondary);
   color: white;
   font-size: var(--font-size-large);
   margin-bottom: 30px;
 `
 export const text = css`
+  font-family: var(--font-family-primary);
   color: white;
   font-size: 1.125rem;
   line-height: var(--text-line-height);

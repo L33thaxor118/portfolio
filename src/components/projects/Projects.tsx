@@ -6,6 +6,7 @@ import { Text, TextStyle } from '../text'
 import Button from '../button'
 import Spacer from '../spacer'
 import { useMediaQuery } from 'react-responsive'
+import { getProjectPathFromTitle } from '../../utils/stringutils'
 
 interface Project {
   title: string,
@@ -39,7 +40,7 @@ interface PreviewPropTypes {
 }
 
 function ProjectPreview(props: PreviewPropTypes) {
-  const projectPath = props.project.title.toLowerCase().replace(/\s/g, '-')
+  const projectPath = getProjectPathFromTitle(props.project.title)
   return (
     <div css={Style.projectPreviewContainer}>
       <div css={Style.projectPreviewDetailsContainer}>
