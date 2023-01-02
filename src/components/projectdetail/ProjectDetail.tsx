@@ -8,6 +8,9 @@ import Chip from '../chip'
 import { useParams } from 'react-router-dom'
 import contentJson from '../../assets/content.json'
 import { getProjectPathFromTitle } from '../../utils/stringutils'
+import Gallery from '../gallery/Gallery'
+import { Text, TextStyle } from '../text'
+import Spacer from '../spacer/Spacer'
 
 
 export default function ProjectDetail() {
@@ -16,40 +19,50 @@ export default function ProjectDetail() {
   const project = useMemo(()=>contentJson.projects.find((project)=> {
     return getProjectPathFromTitle(project.title) === projectPath
   }), [])
+
+  const galleryItems = project.galleryUrls?.map((url: string)=>{return {assetUrl: url, isVideo: false}})
   
   return (
     <div css={Style.container}>
-      <div css={Style.titleContainer}>
-        <h1 css={Style.title}>{project.title}</h1>
-        {
-          project?.repoUrl && 
-          <a style={{textDecoration: 'none'}} href={project?.repoUrl} target="_blank">
-            <Chip>
-              <DiGithubAlt css={Style.githubicon}/>
-              <p>Code</p>
-            </Chip>
-          </a>
-        }
+      <div css={Style.introContainer}>
+        <Text style={TextStyle.h1}>{project.title}</Text>
+        <Text style={TextStyle.body}>{project.intro}</Text>
       </div>
-      {
-        project.sections.map((section: any, idx: number)=><Section key={idx} section={section}/>)
-      }
+      <Spacer y={50}/>
+      <div css={Style.contentContainer}>
+        <AdditionalInfo/>
+        <div css={Style.sectionsContainer}>
+          {
+            project.sections.map((section: any, idx: number)=><Section key={idx} section={section}/>)
+          }
+        </div>
+      </div>
+      <Spacer y={50}/>
+      <Gallery items={galleryItems}/>
     </div>
   )
 }
 
+function AdditionalInfo() {
+  return (
+    <div css={Style.additionalInfoContainer}>
+      <Text style={TextStyle.h2}>Links</Text>
+      <Chip>hi</Chip>
+      <Chip>hi</Chip>
+      <Chip>hi</Chip>
+    </div>
+  )
+}
 
 interface SectionPropTypes {
   section: any
 }
 
 function Section(props: SectionPropTypes) {
-  let routeParams = useParams()
-
   return (
     <div css={Style.sectionContainer}>
-      {props.section.subtitle && <h1 css={Style.subtitle}>{props.section.subtitle}</h1>}
-      {props.section.text && <h3 css={Style.text}>{props.section.text}</h3>}
+      {props.section.subtitle && <Text style={TextStyle.h2}>{props.section.subtitle}</Text>}
+      {props.section.text && <Text style={TextStyle.h1}>{props.section.text}</Text>}
       {props.section.list && <div css={Style.list}>
         {
           props.section.list?.map((item: any, idx: number)=>
@@ -58,7 +71,6 @@ function Section(props: SectionPropTypes) {
         }
       </div>
       }
-      {props.section.imageUrls && <Carousel style={Style.carousel} imageUrls={props.section.imageUrls}/>}
     </div>
   )
 }

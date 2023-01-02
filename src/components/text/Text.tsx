@@ -13,7 +13,7 @@ export enum TextStyle {
 interface PropTypesText {
   style: TextStyle
   className?: string,
-  useAltColor?: Boolean,
+  useAltColor?: boolean,
   children?: ReactNode
 }
 

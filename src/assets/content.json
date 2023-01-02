@@ -79,13 +79,11 @@
     {
       "title": "This website",
       "summary": "Built from scratch.",
+      "intro": "The fabled Personal Website. I finally went through with it after about 4 years of procrastination. I used this project as an opportunity to challenge myself with some interesting UI components like the 'Cylinder' projects view (only visible on larger screens).",
       "tags": ["React", "Webpack"],
       "imageUrl": "portfolio.png",
       "repoUrl": "https://github.com/L33thaxor118/portfolio",
       "sections": [
-        {
-          "text": "The fabled Personal Website. I finally went through with it after about 4 years of procrastination. I used this project as an opportunity to challenge myself with some interesting UI components like the 'Cylinder' projects view (only visible on larger screens)."
-        },
         {
           "subtitle": "The Cylinder view",
           "text": "One of my favorite parts of this site is the large-screen Cylinder view for my projects. I tried to make this component as flexible as possible.",
@@ -108,17 +106,27 @@
     {
       "title": "Siphon",
       "summary": "Configure ETL operations via UI. No scripting required.",
+      "intro": "Project I worked on for about 5 months as an intern at Fulcrum-GT. The intent was to create a tool which allowed for easy ETL configuration without the need for any coding knowledge so that our config teams could rely less on engineers for new client setup. Worked on this with only one other intern.",
       "tags": ["Electron", "React"],
       "imageUrl": "siphon_1.png",
       "demoUrl": "use this for video demo",
+      "galleryUrls": ["/siphon_1.png", "/pixel-canvas-alpha-demo.gif", "/siphon_2.png", "/composite-build-helper-screen.png", "/CylinderPreview.gif"],
+      "links": [
+        {
+          "url": "www.google.com",
+          "displayName": "Google"
+        },
+        {
+          "url": "www.whatever.com",
+          "displayName": "whatever"
+        }
+      ],
+      "stack": [
+        "Electron",
+        "React"
+      ],
       "repoUrl": null,
       "sections": [
-        {
-          "subtitle": null,
-          "text": "Project I worked on for about 5 months as an intern at Fulcrum-GT. The intent was to create a tool which allowed for easy ETL configuration without the need for any coding knowledge so that our config teams could rely less on engineers for new client setup. Worked on this with only one other intern.",
-          "list": null,
-          "imageUrls": ["/siphon_1.png", "/siphon_2.png"]
-        },
         {
           "subtitle": "Features",
           "text": "",

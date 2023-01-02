@@ -36,7 +36,7 @@ export default function Projects(props: PropTypes) {
 
 interface PreviewPropTypes {
   project: Project
-  showImage: Boolean
+  showImage: boolean
 }
 
 function ProjectPreview(props: PreviewPropTypes) {
