@@ -3,14 +3,13 @@ import { jsx } from '@emotion/react'
 import React from 'react'
 import { AiOutlineLinkedin, AiOutlineMail } from 'react-icons/ai'
 import { VscGithub } from 'react-icons/vsc'
-import { Text, TextStyle } from '../text'
 import * as Style from './styles'
 
 export default function Contact() {
   return (
     <div css={Style.container}>
-      <Text style={TextStyle.body}>Have something cool for me to work on?</Text>
-      <Text style={TextStyle.h2}>Get in touch</Text>
+      <p>Have something cool for me to work on?</p>
+      <h2>Get in touch</h2>
       <div css={Style.iconsContainer}>
         <a href='https://www.linkedin.com/in/azriel-alvarado-105894182/' target="_blank">
           <AiOutlineLinkedin css={Style.icon1}/>
@@ -22,7 +21,7 @@ export default function Contact() {
           <AiOutlineMail css={Style.icon1}/>
         </a>
       </div>
-      <Text style={TextStyle.body} css={{marginBottom: '3vh'}}>773-968-4988</Text>
+      <p css={{marginBottom: '3vh'}}>773-968-4988</p>
     </div>
   )
 }

@@ -9,7 +9,6 @@ import { useParams } from 'react-router-dom'
 import contentJson from '../../assets/content.json'
 import { getProjectPathFromTitle } from '../../utils/stringutils'
 import Gallery from '../gallery/Gallery'
-import { Text, TextStyle } from '../text'
 import Spacer from '../spacer/Spacer'
 
 
@@ -25,8 +24,8 @@ export default function ProjectDetail() {
   return (
     <div css={Style.container}>
       <div css={Style.introContainer}>
-        <Text style={TextStyle.h1}>{project.title}</Text>
-        <Text style={TextStyle.body}>{project.intro}</Text>
+        <h1>{project.title}</h1>
+        <p>{project.intro}</p>
       </div>
       <Spacer y={50}/>
       <div css={Style.contentContainer}>
@@ -46,7 +45,7 @@ export default function ProjectDetail() {
 function AdditionalInfo() {
   return (
     <div css={Style.additionalInfoContainer}>
-      <Text style={TextStyle.h2}>Links</Text>
+      <h2>Links</h2>
       <Chip>hi</Chip>
       <Chip>hi</Chip>
       <Chip>hi</Chip>
@@ -61,8 +60,8 @@ interface SectionPropTypes {
 function Section(props: SectionPropTypes) {
   return (
     <div css={Style.sectionContainer}>
-      {props.section.subtitle && <Text style={TextStyle.h2}>{props.section.subtitle}</Text>}
-      {props.section.text && <Text style={TextStyle.h1}>{props.section.text}</Text>}
+      {props.section.subtitle && <h2>{props.section.subtitle}</h2>}
+      {props.section.text && <h1>{props.section.text}</h1>}
       {props.section.list && <div css={Style.list}>
         {
           props.section.list?.map((item: any, idx: number)=>

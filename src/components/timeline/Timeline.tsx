@@ -2,7 +2,6 @@
 import { jsx } from '@emotion/react'
 import * as Style from './styles'
 import React, {useState, ReactElement, ReactNode, useEffect, useRef, useLayoutEffect, forwardRef, ForwardedRef} from 'react'
-import { TextStyle, Text } from '../text'
 import Spacer from '../spacer'
 import useScrollPosition from '../../hooks/useScrollPosition'
 import { useMediaQuery } from 'react-responsive'
@@ -119,8 +118,8 @@ interface EventContentPropTypes {
 function EventContent(props: EventContentPropTypes) {
   return (
     <div css={Style.eventContentContainer(props.isFocused, props.isLeft)}>
-      <Text style={TextStyle.h2}>{props.event.title}</Text>
-      <Text style={TextStyle.body}>{props.event.description}</Text>
+      <h2>{props.event.title}</h2>
+      <p>{props.event.description}</p>
       <img css={Style.eventImage} src={props.event.imageUrl}/>
     </div>
   )

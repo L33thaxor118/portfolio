@@ -2,10 +2,9 @@
 import { jsx, SerializedStyles } from '@emotion/react'
 import { css } from '@emotion/react'
 import * as Style from './styles'
-import React, { ReactNode } from 'react'
+import React from 'react'
 import MiniCard from '../minicard'
 import Spacer from '../spacer'
-import { TextStyle, Text } from '../text'
 
 interface Tool {
   name: string,
@@ -25,9 +24,9 @@ interface PropTypes {
 export default function Toolset(props: PropTypes) {
   return (
     <div css={css`${Style.container}; ${props.style};`}>
-      <Text style={TextStyle.h1}>What I use</Text>
+      <h1>What I use</h1>
       <Spacer y={12}/>
-      <Text style={TextStyle.body}>Frontend</Text>
+      <p>Frontend</p>
       <div css={Style.skillRow}>
         {
           props.tools.frontend.map((tool, idx)=>
@@ -36,7 +35,7 @@ export default function Toolset(props: PropTypes) {
         }
       </div>
       <Spacer y={12}/>
-      <Text style={TextStyle.body}>Backend</Text>
+      <p>Backend</p>
       <div css={Style.skillRow}>
         {
           props.tools.backend.map((tool, idx)=>

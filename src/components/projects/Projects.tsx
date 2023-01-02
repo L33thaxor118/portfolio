@@ -2,7 +2,6 @@
 import { jsx } from '@emotion/react'
 import * as Style from './styles'
 import React from 'react'
-import { Text, TextStyle } from '../text'
 import Button from '../button'
 import Spacer from '../spacer'
 import { useMediaQuery } from 'react-responsive'
@@ -23,7 +22,7 @@ export default function Projects(props: PropTypes) {
   
   return (
     <div id={'projects'} css={Style.container}>
-      <Text style={TextStyle.h1}>Stuff I've built</Text>
+      <h1>Stuff I've built</h1>
       <Spacer y={50}/>
       {
         props.projects.map((project, idx)=>
@@ -44,8 +43,8 @@ function ProjectPreview(props: PreviewPropTypes) {
   return (
     <div css={Style.projectPreviewContainer}>
       <div css={Style.projectPreviewDetailsContainer}>
-        <Text style={TextStyle.h2}>{props.project.title}</Text>
-        <Text css={{textAlign: 'center', padding: '8px 16px 24px 16px'}} style={TextStyle.body}>{props.project.summary}</Text>
+        <h2>{props.project.title}</h2>
+        <p css={{textAlign: 'center', padding: '8px 16px 24px 16px'}}>{props.project.summary}</p>
         <Button url={`/${projectPath}`}>More Details</Button>
       </div>
       {props.showImage && <img css={Style.projectPreviewImage} src={props.project.imageUrl}/>}

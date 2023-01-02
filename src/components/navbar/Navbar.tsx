@@ -3,7 +3,6 @@ import { jsx } from '@emotion/react'
 import * as Style from './styles'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Text, TextStyle } from '../text'
 import { useMediaQuery } from 'react-responsive'
 import { HashLink } from 'react-router-hash-link'
 
@@ -17,7 +16,7 @@ export default function Navbar() {
         src={'/logo.svg'}
         onClick={()=>{}}
         />
-        {isLargeScreen && <Text css={Style.titleText} style={TextStyle.h1}>Azriel Alvarado</Text>}
+        {isLargeScreen && <h1 css={Style.titleText}>Azriel Alvarado</h1>}
     </div>
 
   const navLinks = [
