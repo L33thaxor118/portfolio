@@ -2,8 +2,6 @@
 import { css, jsx } from '@emotion/react'
 import * as Style from './styles'
 import React, { useMemo, useState } from 'react'
-import Carousel from '../carousel'
-import { DiGithubAlt } from 'react-icons/di'
 import Chip from '../chip'
 import { useParams } from 'react-router-dom'
 import contentJson from '../../assets/content.json'
@@ -29,7 +27,7 @@ export default function ProjectDetail() {
       </div>
       <Spacer y={50}/>
       <div css={Style.contentContainer}>
-        <AdditionalInfo/>
+        <AdditionalInfo project={project}/>
         <div css={Style.sectionsContainer}>
           {
             project.sections.map((section: any, idx: number)=><Section key={idx} section={section}/>)
@@ -42,13 +40,25 @@ export default function ProjectDetail() {
   )
 }
 
-function AdditionalInfo() {
+interface InfoPropTypes {
+  project: any
+}
+
+function AdditionalInfo(props: InfoPropTypes) {
   return (
     <div css={Style.additionalInfoContainer}>
       <h2>Links</h2>
-      <Chip>hi</Chip>
-      <Chip>hi</Chip>
-      <Chip>hi</Chip>
+        {
+          props.project.links.map((link: string, idx: number)=>
+            <Chip key={idx}>{link}</Chip>
+          )
+        }
+      <h2>Stack</h2>
+        {
+          props.project.tools.map((tool: string, idx: number)=>
+            <Chip key={idx}>{tool}</Chip>
+          )
+        }
     </div>
   )
 }
@@ -61,7 +71,7 @@ function Section(props: SectionPropTypes) {
   return (
     <div css={Style.sectionContainer}>
       {props.section.subtitle && <h2>{props.section.subtitle}</h2>}
-      {props.section.text && <h1>{props.section.text}</h1>}
+      {props.section.text && <p>{props.section.text}</p>}
       {props.section.list && <div css={Style.list}>
         {
           props.section.list?.map((item: any, idx: number)=>

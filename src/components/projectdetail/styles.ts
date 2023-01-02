@@ -23,15 +23,17 @@ export const contentContainer = css`
 export const additionalInfoContainer = css`
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex: 1;
   min-width: 200px;
+  margin-right: 50px;
 `
 
 export const sectionsContainer = css`
   display: flex;
   flex-direction: column;
   flex: 3;
-  min-width: 600px;
+  min-width: 500px;
 `
 
 export const sectionContainer = css`
@@ -39,7 +41,7 @@ export const sectionContainer = css`
   max-width: var(--text-content-max-width);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   margin-bottom: 30px;
 `
 
@@ -80,6 +82,7 @@ export const list = css`
   font-size: 1.125rem;
   line-height: var(--text-line-height);
   align-self: start;
+  padding-left: 24px;
 `
 
 export const githubLinkContainer = css`
