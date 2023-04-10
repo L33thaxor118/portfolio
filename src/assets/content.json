@@ -2,42 +2,42 @@
   "greeting": {
     "intro": "Hi, I'm Azriel",
     "title": "Software Developer",
-    "statement": "I’m a curious mobile and web developer that loves working with other humans to build usable software. I thrive in enterprise."
+    "statement": "I’m an experienced web and mobile developer with a passion for Android."
   },
   "timelineEvents": [
     {
       "title": "Colegio Nuestra Señora de los Angeles",
-      "description": "High school in Panama (I'm a dual citizen). This is where I took my first coding classes and discovered I wanted to code for a living.",
+      "description": "High school in Panama. Took my first coding classes there and decided I would build software for a living.",
       "imageUrl": "./consa.png"
     },
     {
       "title": "Oakton Community College",
-      "description": "Came to the US after high school and studied here for two years with hopes of transferring to the University of Illinois @ Urbana Champaign.",
+      "description": "Came to the US after high school and studied at Oakton for two years. Set my sights on the University of Illinois @ Urbana Champaign.",
       "imageUrl": "./oakton.jpg"
     },
     {
       "title": "University of Illinois at Urbana-Champaign",
-      "description": "I managed to graduate with honors from one of the most competitive CS programs in the nation.",
+      "description": "Managed to graduate with honors from one of the most competitive CS programs in the nation.",
       "imageUrl": "./uofi.jpg"
     },
     {
       "title": "Banco General",
-      "description": "Landed my first internship at this Panamenian bank. I worked on their hybrid mobile app.",
+      "description": "Began my journey into mobile development at a Panamanian bank. Worked on their hybrid banking app as an intern.",
       "imageUrl": "./bgeneral.jpeg"
     },
     {
-      "title": "City Scholars",
-      "description": "Participated in this awesome work-study program in Chicago where I had the opportunity to give a speech for some nice politicians.",
+      "title": "Engineering City Scholars",
+      "description": "Jump-started my career with an amazing work-study program in Chicago. I represented this program by speaking at a promotional event for the 78th Chicago neighborhood.",
       "imageUrl": "./cityscholars.jpeg"
     },
     {
       "title": "Fulcrum GT",
-      "description": "Worked here as an intern during the City Scholars thing. Then got my first full-time gig with them as a native mobile dev.",
+      "description": "Interned at Fulcrum as a City Scholar. Earned the full-time position and became a full-fledged native mobile developer.",
       "imageUrl": "./fulcrumgt.png"
     },
     {
       "title": "Callibrity",
-      "description": "My current employer. I'm working on a native mobile app for a fortune 500 bank.",
+      "description": "I am now a generalist at Callibrity. Currently working on a native mobile app for a Fortune 500 bank.",
       "imageUrl": "./callibrity.png"
     }
   ],

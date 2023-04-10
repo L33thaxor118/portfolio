@@ -22,7 +22,7 @@ export default function Projects(props: PropTypes) {
   
   return (
     <div id={'projects'} css={Style.container}>
-      <Text style={TextStyle.h1}>Stuff I've built</Text>
+      <Text style={TextStyle.h1}>Things I've built</Text>
       <Spacer y={50}/>
       {
         props.projects.map((project, idx)=>
