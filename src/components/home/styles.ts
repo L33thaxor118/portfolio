@@ -3,13 +3,13 @@ import { css } from '@emotion/react'
 export const container = css`
   display: flex;
   flex-direction: column;
+  background: linear-gradient(var(--theme-color-tertiary), var(--theme-color-primary));
 `
 
 export const body = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(var(--theme-color-tertiary), var(--theme-color-primary));
   font-family: var(--font-family-primary);
   padding: 0px 15%;
   @media (max-width: 1000px) {
