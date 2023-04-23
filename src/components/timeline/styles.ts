@@ -11,7 +11,7 @@ export const container = css`
 export const sectionContainer = css`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
 `
 
@@ -52,7 +52,6 @@ export const lineContainer = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   box-sizing: border-box;
 `
 

@@ -66,21 +66,22 @@ export default function Timeline(props: PropTypes) {
       {
         props.events.map((event, idx) => {
           const showOnLeftSide = isSmallScreen ? false : idx % 2 === 0
-          return <div key={idx} css={Style.sectionContainer}>
-            {
-              showOnLeftSide ? <EventContent isLeft event={event} isFocused={focusIdx === idx}/> : !isSmallScreen && <EventSpacer/>
-            }
-            <div css={Style.lineContainer}>
-              <Point ref={pointRefs[idx]} isSelected={idx == focusIdx}/>
-              <Spacer y={12}/>
-              <Line finished={focusIdx > idx} selected={idx == focusIdx } progress={scroll - pointRefs[idx].current?.offsetTop}/>
+          return (
+            <div key={idx} css={Style.sectionContainer}>
+              {
+                showOnLeftSide ? <EventContent isLeft event={event} isFocused={focusIdx === idx}/> : !isSmallScreen && <EventSpacer/>
+              }
+              <div css={Style.lineContainer}>
+                <Point ref={pointRefs[idx]} isSelected={idx == focusIdx}/>
+                <Spacer y={12}/>
+                <Line finished={focusIdx > idx} selected={idx == focusIdx } progress={scroll - pointRefs[idx].current?.offsetTop}/>
+              </div>
+              {
+                showOnLeftSide ? <EventSpacer/> : <EventContent event={event} isFocused={focusIdx === idx}/>
+              }
             </div>
-            {
-              showOnLeftSide ? <EventSpacer/> : <EventContent event={event} isFocused={focusIdx === idx}/>
-            }
-          </div>
-        }
-        )
+          )
+        })
       }
     </div>
   )
