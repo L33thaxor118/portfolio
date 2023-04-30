@@ -24,7 +24,7 @@ interface PropTypes {
 export default function Toolset(props: PropTypes) {
   return (
     <div css={css`${Style.container}; ${props.style};`}>
-      <Text style={TextStyle.h1}>Toolset</Text>
+      <h1>Toolset</h1>
       <Spacer y={12}/>
       <p>Frontend</p>
       <div css={Style.skillRow}>

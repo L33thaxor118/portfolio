@@ -20,7 +20,7 @@ export default function Home() {
         <Spacer y={100}/>
         <Toolset tools={contentJson.tools}/>
         <Spacer y={100}/>
-        <Text style={TextStyle.h1}>Career Timeline</Text>
+        <h1>Career Timeline</h1>
         <Spacer y={50}/>
         <Timeline events={contentJson.timelineEvents}/>
         <Spacer y={100}/>
