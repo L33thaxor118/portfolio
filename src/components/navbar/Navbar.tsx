@@ -16,7 +16,7 @@ export default function Navbar() {
         src={'/logo.svg'}
         onClick={()=>{}}
         />
-        {isLargeScreen && <h1 css={Style.titleText}>Azriel Alvarado</h1>}
+        {isLargeScreen && <Link to="/" css={Style.titleText}>Azriel Alvarado</Link>}
     </div>
 
   const navLinks = [

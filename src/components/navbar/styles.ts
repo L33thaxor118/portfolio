@@ -61,6 +61,8 @@ export const listItemContainer = css`
 
 export const titleText = css`
   font-size: 40px;
+  text-decoration: none;
+  color: white;
   margin-left: 10px;
   font-family: 'Swanky and Moo Moo', cursive;
 `
