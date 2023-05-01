@@ -24,7 +24,7 @@ export default function Greeting(props: PropTypes) {
         <h1>{props.data.title}</h1>
         <p>{props.data.statement}</p>
       </div>
-      <img src='./alien.jpeg' css={Style.img}/>
+      <img src='./head-5.png' css={Style.img}/>
     </div>
   )
 }

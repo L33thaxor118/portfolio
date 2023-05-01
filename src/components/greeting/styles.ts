@@ -15,6 +15,7 @@ export const textContainer = css`
   @media (max-width: 1000px) {
     margin-bottom: 20px;
   }
+  margin-right: 5%;
 `
 
 export const title = css`
@@ -38,7 +39,7 @@ export const body = css`
 
 export const img = css`
   border-radius: 100%;
-  margin-left: 5%;
-  width: 260px;
+  min-width: 250px;
+  width: 250px;
   height: 250px;
 `
