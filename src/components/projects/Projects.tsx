@@ -11,6 +11,7 @@ interface Project {
   title: string,
   summary: string,
   imageUrl: string,
+  siteUrl: string
 }
 
 interface PropTypes {
@@ -39,13 +40,12 @@ interface PreviewPropTypes {
 }
 
 function ProjectPreview(props: PreviewPropTypes) {
-  const projectPath = getProjectPathFromTitle(props.project.title)
   return (
     <div css={Style.projectPreviewContainer}>
       <div css={Style.projectPreviewDetailsContainer}>
         <h2>{props.project.title}</h2>
         <p css={{textAlign: 'center', padding: '8px 16px 24px 16px'}}>{props.project.summary}</p>
-        <Button url={`/${projectPath}`}>More Details</Button>
+        <Button url={props.project.siteUrl}>More Details</Button>
       </div>
       {props.showImage && <img css={Style.projectPreviewImage} src={props.project.imageUrl}/>}
     </div>

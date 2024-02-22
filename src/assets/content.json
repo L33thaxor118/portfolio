@@ -76,117 +76,41 @@
     ]
   },
   "projects": [
-    {
-      "title": "This website",
-      "summary": "Built from scratch.",
-      "intro": "The fabled Personal Website. I finally went through with it after about 4 years of procrastination. I used this project as an opportunity to challenge myself with some interesting UI components like the 'Cylinder' projects view (only visible on larger screens).",
-      "tools": ["React", "Webpack"],
-      "imageUrl": "portfolio.png",
-      "galleryUrls": [],
-      "links": ["https://github.com/L33thaxor118/portfolio"],
-      "sections": [
-        {
-          "subtitle": "The Cylinder view",
-          "text": "One of my favorite parts of this site is the large-screen Cylinder view for my projects. I tried to make this component as flexible as possible.",
-          "imageUrls": ["/CylinderPreview.gif"]
-        },
-        {
-          "subtitle": "No more CRA",
-          "text": "I decided to take off the training wheels for this one. I built this site from scratch without create-react-app. Setting things up took a bit longer but its nice to have full control of my build."
-        },
-        {
-          "subtitle": "What I learned",
-          "list": [
-            "CSS box-sizing. I dreaded adding padding until I discovered this property.",
-            "CSS transforms are visual, not literal... See this: https://stackoverflow.com/questions/21248111/overflow-behavior-after-using-css3-transform",
-            "Media queries. First time making a responsive website."
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Siphon",
-      "summary": "Configure ETL operations via UI. No scripting required.",
-      "intro": "Project I worked on for about 5 months as an intern at Fulcrum-GT. The intent was to create a tool which allowed for easy ETL configuration without the need for any coding knowledge so that our config teams could rely less on engineers for new client setup. Worked on this with only one other intern.",
-      "tools": ["Electron", "React"],
-      "imageUrl": "siphon_1.png",
-      "galleryUrls": ["/siphon_1.png", "/pixel-canvas-alpha-demo.gif", "/siphon_2.png", "/composite-build-helper-screen.png", "/CylinderPreview.gif"],
-      "links": [],
-      "sections": [
-        {
-          "subtitle": "Features",
-          "text": "",
-          "list": [
-            "Type Safety: will check that transformation chains have compatible types from start to finish based on declared schema",
-            "Transform Library: implemented a variety of transforms",
-            "Mappings from a variety of sources: perform mappings based on database queries, etc",
-            "Performance: Leverage Electron's IPC to run transformations on a separate process running in a Node environment which allowed for easy file IO."
-          ],
-          "imageUrls": null
-        },
-        {
-          "subtitle": "What I learned",
-          "text": "",
-          "list": [
-            "React doesn't pick up on deeply nested state!",
-            "Test in real scenarios early on."
-          ],
-          "imageUrls": null
-        },
-        {
-          "subtitle": "Challenges",
-          "text": "",
-          "list": [
-            "CPU intensive operations and concurrency with javascript."
-          ],
-          "imageUrls": null
-        }
-      ]
-    },
-    {
-      "title": "Pixel Canvas",
-      "summary": "LED matrix controlled over the internet.",
-      "intro": "",
-      "tools": ["NodeJs", "Arduino"],
-      "imageUrl": "pixel-canvas-alpha-demo.gif",
-      "galleryUrls": [],
-      "links": [],
-      "sections": [
-        {
-          "subtitle": "More details coming soon...",
-          "text": "Here is a sneak peak in the meantime:",
-          "imageUrls": ["/pixel-canvas-alpha-demo.gif"]
-        }
-      ]
-    },
-    {
-      "title": "Composite build helper",
-      "summary": "IntelliJ plugin to assist with composing Gradle builds.",
-      "intro": "",
-      "tools": ["IntelliJ Platform"],
-      "imageUrl": "composite-build-helper-screen.png",
-      "galleryUrls": [],
-      "links": ["https://github.com/L33thaxor118/composite-build-helper"],
-      "sections": [
-        {
-          "text": "I once worked on a very large mobile banking app which consisted of a main app module which consumed over 15 library modules. Each library module was held in a separate repository and built independently. Integrating library module changes into the app was a painful process. I would often work on 3+ modules at a time to implement a large feature or refactor, each on a separate android studio window. Until I discovered composite Gradle builds.",
-          "imageUrls": ["/composite-build-helper-screen.png"]
-        },
-        {
-          "subtitle": "More details coming soon..."
-        }
-      ]
-    },
-    {
-      "title": "Cylinder codepen",
-      "summary": "A fun UI component built with React.",
-      "intro": "",
-      "tools": ["React"],
-      "imageUrl": "CylinderPreview.gif",
-      "galleryUrls": [],
-      "links": [],
-      "sections": [
-      ]
-    }
+      {
+        "title": "This Website",
+        "siteUrl": "https://jealous-mass-574.notion.site/Portfolio-Website-a2117e4d041b4003b7553504f7835838?pvs=4",
+        "summary": "Built from scratch.",
+        "imageUrl": "portfolio.png"
+      },
+      {
+        "title": "MU-TH-UR-9000",
+        "siteUrl": "https://jealous-mass-574.notion.site/MU-TH-UR-9000-2638ac7fbc4f46cca1f033234790f967?pvs=4",
+        "summary": "Interface 2037 ready for inquiry.",
+        "imageUrl": "muthr.gif"
+      },
+      {
+        "title": "Pixel Canvas",
+        "siteUrl": "https://jealous-mass-574.notion.site/Pixel-Canvas-82246a59f35248f28a590898ba5d0510?pvs=4",
+        "summary": "LED matrix controlled over the internet.",
+        "imageUrl": "pixel-canvas-alpha-demo.gif"
+      },
+      {
+        "title": "Siphon",
+        "siteUrl": "https://jealous-mass-574.notion.site/Siphon-74b93b942fc54534909c5446c861f3db?pvs=4",
+        "summary": "Configure ETL operations via UI. No scripting required.",
+        "imageUrl": "siphon_1.png"
+      },
+      {
+        "title": "Composite Build Helper",
+        "siteUrl": "https://jealous-mass-574.notion.site/Composite-Build-Helper-7cdf3ec8ccdf49238875a40d15172438?pvs=4",
+        "summary": "IntelliJ plugin to assist with composing Gradle builds.",
+        "imageUrl": "composite-build-helper-screen.png"
+      },
+      {
+        "title": "Cylinder",
+        "siteUrl": "https://jealous-mass-574.notion.site/Cylinder-UI-1e94b1580a3c44d487e985c9e6b19e5e?pvs=4",
+        "summary": "Fun UI component built with React.",
+        "imageUrl": "CylinderPreview.gif"
+      }
   ]
 }

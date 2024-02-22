@@ -5,7 +5,6 @@ import Home from './components/home'
 import Navbar from './components/navbar'
 import { Routes, Route } from 'react-router-dom'
 import Placeholder from './components/placeholder'
-import ProjectDetail from './components/projectdetail/ProjectDetail'
 
 export default function App() {
   return (
@@ -13,7 +12,6 @@ export default function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/*" element={<ProjectDetail/>}/>
       </Routes>
     </div>
   )
