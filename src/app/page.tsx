@@ -18,7 +18,7 @@ export default function Portfolio() {
       <div className="container mx-auto p-6 font-sans text-gray-900">
         {/* Hero Section */}
         <section className="text-center py-20">
-          <h1 className="text-5xl font-bold mb-4">Hi, I'm Azriel</h1>
+          <h1 className="text-5xl font-bold mb-4">Hi, I&apos;m Azriel</h1>
           <p className="text-xl text-gray-700">Senior Software Engineer | Full-Stack & Native Mobile Developer</p>
         </section>
 
@@ -55,7 +55,7 @@ export default function Portfolio() {
 
         {/* Contact Section */}
         <section className="mt-12 text-center py-12">
-          <h2 className="text-3xl font-semibold mb-4">Let's Connect</h2>
+          <h2 className="text-3xl font-semibold mb-4">Let&apos;s Connect</h2>
           <p className="text-gray-700 mb-4">Whether you have a question or just want to say hi, feel free to reach out!</p>
           <div className="flex justify-center gap-4">
             <a href="https://github.com/azriel" target="_blank" rel="noopener noreferrer">
