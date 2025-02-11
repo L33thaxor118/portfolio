@@ -19,3 +19,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.fancy-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-300 to-red-700;
+}
