@@ -1,8 +1,8 @@
 'use client'
 import { FaGithub, FaLinkedin } from "react-icons/fa"
-import { FaFileAlt } from "react-icons/fa";
+import { FaFileAlt } from "react-icons/fa"
 import { Avatar } from "@/components/avatar"
-import {Button, buttonVariants} from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import {
     Card,
     CardDescription,
@@ -115,7 +115,7 @@ export default function Portfolio() {
             {/* Contact Section */}
             <section className="mt-12 text-center py-12">
                 <h2 className="text-3xl font-semibold mb-4">Let&apos;s Connect</h2>
-                <p className="text-gray-500 mb-4">I'm on the lookout for fun challenges</p>
+                <p className="text-gray-500 mb-4">I&apos;m on the lookout for fun challenges</p>
                 <div className="flex justify-center gap-4">
                     <Link href="https://github.com/L33thaxor118" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
                         <FaGithub size={18}/> GitHub

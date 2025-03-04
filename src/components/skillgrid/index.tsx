@@ -62,5 +62,5 @@ export const SkillGrid = () => {
                 }
             </div>
         </div>
-    );
+    )
 }
