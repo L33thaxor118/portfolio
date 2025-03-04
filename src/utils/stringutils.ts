@@ -1,1 +1,0 @@
-export const getProjectPathFromTitle = (projectTitle: string) => projectTitle.toLowerCase().replace(/\s/g, '-')
