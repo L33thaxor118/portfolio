@@ -9,11 +9,11 @@ export const SkillGrid = () => {
     const skills: Array<Skill> = [
         {
             name: "Android",
-            level: 5,
+            level: 10,
         },
         {
             name: "iOS",
-            level: 3,
+            level: 4,
         },
         {
             name: "AWS",
@@ -21,11 +21,11 @@ export const SkillGrid = () => {
         },
         {
             name: "KotlinMP",
-            level: 2,
+            level: 3,
         },
         {
             name: "React",
-            level: 4,
+            level: 6,
         },
         {
             name: "Terraform",
@@ -37,13 +37,13 @@ export const SkillGrid = () => {
         },
         {
             name: "NodeJS",
-            level: 3,
+            level: 4,
         }
     ]
 
     return (
-        <div className="w-full max-w-xl">
-            <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] gap-3">
+        <div className="w-auto">
+            <div className="grid grid-cols-[3fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] gap-2">
                 {
                     skills.flatMap((skill) => {
                         const items = []
@@ -52,9 +52,12 @@ export const SkillGrid = () => {
                                 <div>{skill.name}</div>
                             </div>
                         )
-                        for (let i = 1; i <= 5; i++) {
+                        for (let i = 1; i <= 10; i++) {
                             items.push(
-                                <div key={skill.name + i} className={`rounded ${skill.level >= i ? "bg-white" : "bg-transparent"}`}/>,
+                                <div
+                                    key={skill.name + i}
+                                    className={`rounded h-[20px] sm:h-[25px] aspect-square ${skill.level >= i ? "bg-white" : "bg-transparent"}`}
+                                />
                             )
                         }
                         return items
@@ -62,5 +65,6 @@ export const SkillGrid = () => {
                 }
             </div>
         </div>
+
     )
 }
