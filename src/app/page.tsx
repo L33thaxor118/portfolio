@@ -22,7 +22,7 @@ const projects = [
     },
     {
         name: "Siphon",
-        description: "No-code Extract Transform Load operations",
+        description: "No-code Extract Transform Load tool",
         link: "https://jealous-mass-574.notion.site/Siphon-74b93b942fc54534909c5446c861f3db",
         tech: ["React"]
     },
@@ -70,7 +70,7 @@ const projects = [
     },
     {
         name: "Dojo Haim",
-        description: "Website I made for a martial arts academy in Panama",
+        description: "Martial arts academy website",
         link: "https://jealous-mass-574.notion.site/DojoHaim-44234b3a71934b1a8890893a7aae7fd1?pvs=4",
         tech: []
     },
@@ -85,8 +85,10 @@ export default function Portfolio() {
                     <h1 className="text-5xl font-bold mb-4 mt-3 pt-6">Azriel Alvarado</h1>
                     <p className="text-xl mb-4">Senior Software Engineer | Full-Stack & Native Mobile
                         Developer</p>
-                    <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "secondary" })}>
-                        <FaFileAlt /> Resume
+
+                    <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
+                        className={buttonVariants({variant: "secondary"})}>
+                        <FaFileAlt/> Resume
                     </Link>
                 </div>
             </section>
@@ -95,7 +97,6 @@ export default function Portfolio() {
             </section>
             <section className="mt-12 text-center py-12">
                 <h2 className="text-5xl font-bold mb-4 mt-3" >Projects</h2>
-                <h1 className="text-gray-500 mb-4">I like hands-on learning</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 max-w-3xl m-auto">
                     {
                         projects.map((project) =>
@@ -115,7 +116,7 @@ export default function Portfolio() {
             {/* Contact Section */}
             <section className="mt-12 text-center py-12">
                 <h2 className="text-3xl font-semibold mb-4">Let&apos;s Connect</h2>
-                <p className="text-gray-500 mb-4">I&apos;m on the lookout for fun challenges</p>
+                <p className="text-gray-500 mb-4">I&apos;m looking for a challenge</p>
                 <div className="flex justify-center gap-4">
                     <Link href="https://github.com/L33thaxor118" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
                         <FaGithub size={18}/> GitHub
