@@ -87,7 +87,7 @@ export default function Portfolio() {
                         Developer</p>
 
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
-                          className={buttonVariants({variant: "secondary"})}>
+                        className={buttonVariants({variant: "secondary"})}>
                         <FaFileAlt/> Resume
                     </Link>
                 </div>
