@@ -1,7 +1,7 @@
 'use client'
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
-import { Avatar } from "@/components/avatar"
+import LogoDotsShader from "../components/logoshader"
 import { buttonVariants } from "@/components/ui/button"
 import {
     Card,
@@ -76,28 +76,64 @@ const projects = [
     },
 ]
 
+const svgMask = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 270 30" fill="none">
+    <style>
+    .text {
+      font: 30px monospace;
+    }
+  </style>
+<text x="0" y="20" class="text" fill="#F97316">Azriel Alvarado</text>
+</svg>
+`
+
+const svgMaskSmallScreen = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 270 30" fill="none">
+    <style>
+    .text {
+      font: 30px monospace;
+    }
+  </style>
+<text x="0" y="20" class="text" fill="#F97316">Azriel</text>
+<text x="0" y="40" class="text" fill="#F97316">Alvarado</text>
+</svg>
+`
+
+
 export default function Portfolio() {
     return (
         <div className="container text-center mx-auto p-6 font-sans">
-            <section className="py-20">
+            <section className="pt-10 pb-20">
                 <div className="flex flex-col items-center">
-                    <Avatar/>
-                    <h1 className="text-5xl font-bold mb-4 mt-3 pt-6">Azriel Alvarado</h1>
+                    <LogoDotsShader
+                        opacities={[0.4, 0.4, 0.6, 0.6, 0.6, 0.8, 0.8, 0.8, 0.9, 1]}
+                        colors={[
+                            [255, 255, 255],
+                        ]}
+                        svgMask={svgMask}
+                        totalSize={2}
+                        dotSize={1}
+                        maxFps={30}
+                    />
                     <p className="text-xl mb-4">Senior Software Engineer | Full-Stack & Native Mobile
                         Developer</p>
+                    <img src={"me.jpeg"} alt={"idk"} width={175} height={175} className={"rounded-full mt-4"}/>
 
+                    <h2 className="text-5xl font-bold mb-4 mt-8">About</h2>
+                    <p className="text-gray-400 mb-4 max-w-[600]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
-                        className={buttonVariants({variant: "secondary"})}>
+                          className={buttonVariants({variant: "secondary"})}>
                         <FaFileAlt/> Resume
                     </Link>
                 </div>
             </section>
             <section className="flex flex-col items-center w-full">
+                <h2 className="text-5xl font-bold mb-10">Mastery</h2>
                 <SkillGrid/>
             </section>
             <section className="mt-12 text-center py-12">
-                <h2 className="text-5xl font-bold mb-4 mt-3" >Projects</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 max-w-3xl m-auto">
+                <h2 className="text-5xl font-bold mb-8 mt-2" >Projects</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 max-w-3xl m-auto">
                     {
                         projects.map((project) =>
                             <a href={project.link} key={project.name} target="_blank" rel="noopener noreferrer">

@@ -5,6 +5,11 @@ type Skill = {
     level: number
 }
 
+const getGrayShade = (index: number) => {
+    const lightness = 30 + (index * 7)
+    return `hsl(0, 0%, ${lightness}%)`
+}
+
 export const SkillGrid = () => {
     const skills: Array<Skill> = [
         {
@@ -49,14 +54,17 @@ export const SkillGrid = () => {
                         const items = []
                         items.push(
                             <div key={skill.name} className="flex flex-row justify-end items-center">
-                                <div>{skill.name}</div>
+                                <div className={"mr-1"}>{skill.name}</div>
                             </div>
                         )
                         for (let i = 1; i <= 10; i++) {
                             items.push(
                                 <div
                                     key={skill.name + i}
-                                    className={`rounded h-[20px] sm:h-[25px] aspect-square ${skill.level >= i ? "bg-white" : "bg-transparent"}`}
+                                    className={`rounded h-[20px] sm:h-[25px] aspect-square`}
+                                    style={{
+                                        backgroundColor: skill.level >= i ? getGrayShade(i) : "transparent",
+                                    }}
                                 />
                             )
                         }
