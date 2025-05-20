@@ -120,9 +120,10 @@ export default function Portfolio() {
                     <img src={"me.jpeg"} alt={"idk"} width={175} height={175} className={"rounded-full mt-4"}/>
 
                     <h2 className="text-5xl font-bold mb-4 mt-8">About</h2>
-                    <p className="text-gray-400 mb-4 max-w-[600]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p className="text-gray-400 mb-4 max-w-[600]">I'm a Panamanian–American 🇵🇦🇺🇸 software engineer who cares deeply about building software that’s beautiful—inside and out. I bring this quality to my work by solving problems with elegance: using the right tools, iterating quickly, and paying close attention to the details.</p>
+                    <p className="text-gray-400 mb-4 max-w-[600]">I'm a jack of all trades, but if you're working on native mobile, I’ll be especially excited to help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.</p>
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
-                          className={buttonVariants({variant: "secondary"})}>
+                          className={buttonVariants({variant: "outline"})}>
                         <FaFileAlt/> Resume
                     </Link>
                 </div>
@@ -132,7 +133,7 @@ export default function Portfolio() {
                 <SkillGrid/>
             </section>
             <section className="mt-12 text-center py-12">
-                <h2 className="text-5xl font-bold mb-8 mt-2" >Projects</h2>
+                <h2 className="text-5xl font-bold mb-8 mt-2">Projects</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 max-w-3xl m-auto">
                     {
                         projects.map((project) =>
@@ -152,7 +153,7 @@ export default function Portfolio() {
             {/* Contact Section */}
             <section className="mt-12 text-center py-12">
                 <h2 className="text-3xl font-semibold mb-4">Let&apos;s Connect</h2>
-                <p className="text-gray-500 mb-4">I&apos;m looking for a challenge</p>
+                <p className="text-gray-500 mb-4">Give me a complicated problem to solve</p>
                 <div className="flex justify-center gap-4">
                     <Link href="https://github.com/L33thaxor118" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
                         <FaGithub size={18}/> GitHub
