@@ -7,6 +7,8 @@ export interface LogoDotsShaderProps {
     dotSize?: number;
     maxFps?: any;
     svgMask?: string;
+    height: number;
+    width: number;
 }
 
 function createShader(
@@ -439,7 +441,7 @@ const LogoDotsShader = (props: LogoDotsShaderProps) => {
         };
     }, [fragmentSource, uniforms, maxFps, svgMask]);
 
-    return <canvas height={100} ref={canvasRef} />;
+    return <canvas height={props.height} width={props.width} ref={canvasRef} />;
 };
 
 export default LogoDotsShader;

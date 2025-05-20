@@ -88,14 +88,14 @@ const svgMask = `
 `
 
 const svgMaskSmallScreen = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 270 30" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100" fill="none">
     <style>
     .text {
-      font: 30px monospace;
+      font: 50px monospace;
     }
   </style>
-<text x="0" y="20" class="text" fill="#F97316">Azriel</text>
-<text x="0" y="40" class="text" fill="#F97316">Alvarado</text>
+<text x="85" y="50" class="text" fill="#F97316">Azriel</text>
+<text x="55" y="100" class="text" fill="#F97316">Alvarado</text>
 </svg>
 `
 
@@ -110,18 +110,26 @@ export default function Portfolio() {
                         colors={[
                             [255, 255, 255],
                         ]}
-                        svgMask={svgMask}
+                        svgMask={svgMaskSmallScreen}
                         totalSize={2}
                         dotSize={1}
                         maxFps={30}
+                        height={50}
+                        width={175}
                     />
-                    <p className="text-xl mb-4">Senior Software Engineer | Full-Stack & Native Mobile
+                    <p className="text-xl mb-4 mt-10">Senior Software Engineer | Full-Stack & Native Mobile
                         Developer</p>
                     <img src={"me.jpeg"} alt={"idk"} width={175} height={175} className={"rounded-full mt-4"}/>
 
                     <h2 className="text-5xl font-bold mb-4 mt-8">About</h2>
-                    <p className="text-gray-400 mb-4 max-w-[600]">I'm a Panamanian–American 🇵🇦🇺🇸 software engineer who cares deeply about building software that’s beautiful—inside and out. I bring this quality to my work by solving problems with elegance: using the right tools, iterating quickly, and paying close attention to the details.</p>
-                    <p className="text-gray-400 mb-4 max-w-[600]">I'm a jack of all trades, but if you're working on native mobile, I’ll be especially excited to help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.</p>
+                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">I'm a Panamanian–American 🇵🇦🇺🇸 software engineer who
+                        cares deeply about building software that’s beautiful—inside and out. I bring this quality to my
+                        work by solving problems with elegance: using the right tools, iterating quickly, and paying
+                        close attention to the details.</p>
+                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">
+                        I'm a jack of all trades, but if you're working on native mobile, I’ll be especially excited to
+                        help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.
+                    </p>
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
                           className={buttonVariants({variant: "outline"})}>
                         <FaFileAlt/> Resume
@@ -133,7 +141,7 @@ export default function Portfolio() {
                 <SkillGrid/>
             </section>
             <section className="mt-12 text-center py-12">
-                <h2 className="text-5xl font-bold mb-8 mt-2">Projects</h2>
+            <h2 className="text-5xl font-bold mb-8 mt-2">Projects</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 max-w-3xl m-auto">
                     {
                         projects.map((project) =>
