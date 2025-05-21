@@ -1,7 +1,7 @@
 'use client'
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
-import { Avatar } from "@/components/avatar"
+import LogoDotsShader from "../components/logoshader"
 import { buttonVariants } from "@/components/ui/button"
 import {
     Card,
@@ -76,28 +76,62 @@ const projects = [
     },
 ]
 
+const svgMaskSmallScreen = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100" fill="none">
+    <style>
+    .text {
+      font: 50px monospace;
+    }
+  </style>
+<text x="85" y="50" class="text" fill="#F97316">Azriel</text>
+<text x="55" y="100" class="text" fill="#F97316">Alvarado</text>
+</svg>
+`
+
+
 export default function Portfolio() {
     return (
         <div className="container text-center mx-auto p-6 font-sans">
-            <section className="py-20">
+            <section className="pt-10 pb-20">
                 <div className="flex flex-col items-center">
-                    <Avatar/>
-                    <h1 className="text-5xl font-bold mb-4 mt-3 pt-6">Azriel Alvarado</h1>
-                    <p className="text-xl mb-4">Senior Software Engineer | Full-Stack & Native Mobile
+                    <div className="w-[350px] h-[100px]">
+                        <LogoDotsShader
+                            opacities={[0.4, 0.4, 0.6, 0.6, 0.6, 0.8, 0.9, 0.9, 0.9, 1]}
+                            colors={[
+                                [255, 255, 255],
+                            ]}
+                            svgMask={svgMaskSmallScreen}
+                            totalSize={2}
+                            dotSize={1}
+                            maxFps={30}
+                            height={50}
+                            width={175}
+                        />
+                    </div>
+                    <p className="text-xl mb-4 mt-10">Senior Software Engineer | Full-Stack & Native Mobile
                         Developer</p>
+                    <img src={"me.jpeg"} alt={"idk"} width={175} height={175} className={"rounded-full mt-4"}/>
 
+                    <h2 className="text-4xl font-bold mb-4 mt-8">About</h2>
+                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">I&apos;m a Panamanian–American 🇵🇦🇺🇸 software engineer who
+                        cares deeply about building software that’s beautiful—inside and out. This means my code and design are clear, useful and simple.</p>
+                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">
+                        I&apos;m a jack of all trades, but if you&apos;re working on native mobile, I’ll be especially excited to
+                        help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.
+                    </p>
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
-                        className={buttonVariants({variant: "secondary"})}>
+                        className={buttonVariants({variant: "outline"})}>
                         <FaFileAlt/> Resume
                     </Link>
                 </div>
             </section>
             <section className="flex flex-col items-center w-full">
+                <h2 className="text-4xl font-bold mb-10">Mastery</h2>
                 <SkillGrid/>
             </section>
             <section className="mt-12 text-center py-12">
-                <h2 className="text-5xl font-bold mb-4 mt-3" >Projects</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 max-w-3xl m-auto">
+                <h2 className="text-4xl font-bold mb-8 mt-2">Projects</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 max-w-3xl m-auto">
                     {
                         projects.map((project) =>
                             <a href={project.link} key={project.name} target="_blank" rel="noopener noreferrer">
@@ -116,7 +150,7 @@ export default function Portfolio() {
             {/* Contact Section */}
             <section className="mt-12 text-center py-12">
                 <h2 className="text-3xl font-semibold mb-4">Let&apos;s Connect</h2>
-                <p className="text-gray-500 mb-4">I&apos;m looking for a challenge</p>
+                <p className="text-gray-500 mb-4">Give me a complicated problem to solve</p>
                 <div className="flex justify-center gap-4">
                     <Link href="https://github.com/L33thaxor118" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
                         <FaGithub size={18}/> GitHub
