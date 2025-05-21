@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef } from 'react';
+/* eslint-disable */
+import { useEffect, useMemo, useRef } from 'react'
 
 export interface LogoDotsShaderProps {
     opacities?: number[];
@@ -16,34 +17,34 @@ function createShader(
     type: number,
     source: string
 ) {
-    let shader = gl.createShader(type);
+    const shader = gl.createShader(type)
     if (!shader) {
-        return console.error('Failed to create shader');
+        return console.error('Failed to create shader')
     }
 
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
+    gl.shaderSource(shader, source)
+    gl.compileShader(shader)
 
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error('Failed to create shader: ' + gl.getShaderInfoLog(shader));
-        gl.deleteShader(shader);
-        return null;
+        console.error('Failed to create shader: ' + gl.getShaderInfoLog(shader))
+        gl.deleteShader(shader)
+        return null
     }
 
-    return shader;
+    return shader
 }
 
 function createBuffer(gl: WebGL2RenderingContext, arr: any) {
-    let buffer = gl.createBuffer();
-    let bufferType =
+    const buffer = gl.createBuffer()
+    const bufferType =
         arr instanceof Uint16Array || arr instanceof Uint32Array
             ? gl.ELEMENT_ARRAY_BUFFER
-            : gl.ARRAY_BUFFER;
+            : gl.ARRAY_BUFFER
 
-    gl.bindBuffer(bufferType, buffer);
-    gl.bufferData(bufferType, arr, gl.STATIC_DRAW);
+    gl.bindBuffer(bufferType, buffer)
+    gl.bufferData(bufferType, arr, gl.STATIC_DRAW)
 
-    return buffer;
+    return buffer
 }
 
 function createMaskTexture(
@@ -52,46 +53,46 @@ function createMaskTexture(
     width: number,
     height: number
 ): Promise<WebGLTexture | null> {
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = width;
-    tempCanvas.height = height;
-    const ctx = tempCanvas.getContext('2d');
+    const tempCanvas = document.createElement('canvas')
+    tempCanvas.width = width
+    tempCanvas.height = height
+    const ctx = tempCanvas.getContext('2d')
 
-    if (!ctx) return Promise.resolve(null);
+    if (!ctx) return Promise.resolve(null)
 
-    const img = new Image();
+    const img = new Image()
     const svgContent = svgString.includes('xmlns')
         ? svgString
-        : svgString.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+        : svgString.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"')
 
-    const svgBlob = new Blob([svgContent], { type: 'image/svg+xml' });
-    const url = URL.createObjectURL(svgBlob);
+    const svgBlob = new Blob([svgContent], { type: 'image/svg+xml' })
+    const url = URL.createObjectURL(svgBlob)
 
     return new Promise<WebGLTexture | null>(resolve => {
         img.onload = () => {
             // Clear canvas to black (mask transparent)
 
-            ctx.fillStyle = 'black';
-            ctx.fillRect(0, 0, width, height);
+            ctx.fillStyle = 'black'
+            ctx.fillRect(0, 0, width, height)
 
             // Calculate aspect ratio and position to center
-            const svgWidth = parseFloat(img.width.toString());
-            const svgHeight = parseFloat(img.height.toString());
-            const scale = Math.min(width / svgWidth, height / svgHeight);
-            const scaledWidth = svgWidth * scale;
-            const scaledHeight = svgHeight * scale;
-            const offsetX = (width - scaledWidth) / 2;
-            const offsetY = (height - scaledHeight) / 2;
+            const svgWidth = parseFloat(img.width.toString())
+            const svgHeight = parseFloat(img.height.toString())
+            const scale = Math.min(width / svgWidth, height / svgHeight)
+            const scaledWidth = svgWidth * scale
+            const scaledHeight = svgHeight * scale
+            const offsetX = (width - scaledWidth) / 2
+            const offsetY = (height - scaledHeight) / 2
 
             // Draw SVG centered and maintaining aspect ratio
-            ctx.save();
-            ctx.translate(offsetX, offsetY);
-            ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
-            ctx.restore();
+            ctx.save()
+            ctx.translate(offsetX, offsetY)
+            ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight)
+            ctx.restore()
 
             // Create texture
-            const texture = gl.createTexture();
-            gl.bindTexture(gl.TEXTURE_2D, texture);
+            const texture = gl.createTexture()
+            gl.bindTexture(gl.TEXTURE_2D, texture)
             gl.texImage2D(
                 gl.TEXTURE_2D,
                 0,
@@ -99,31 +100,31 @@ function createMaskTexture(
                 gl.RGBA,
                 gl.UNSIGNED_BYTE,
                 tempCanvas
-            );
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+            )
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
 
-            URL.revokeObjectURL(url);
-            resolve(texture);
-        };
+            URL.revokeObjectURL(url)
+            resolve(texture)
+        }
 
         img.onerror = e => {
-            console.error('Error loading SVG:', e);
-            URL.revokeObjectURL(url);
-            resolve(null);
-        };
+            console.error('Error loading SVG:', e)
+            URL.revokeObjectURL(url)
+            resolve(null)
+        }
 
-        img.src = url;
-    });
+        img.src = url
+    })
 }
 
 const DEFAULT_SHADER_SOURCE = `
 float intro_offset = distance(u_resolution / 2.0 / u_total_size, st2) * 0.01 + (random(st2) * 0.15);
 opacity *= step(intro_offset, u_time);
 opacity *= clamp((1.0 - step(intro_offset + 0.1, u_time)) * 1.25, 1.0, 1.25);
-`;
+`
 
 const LogoDotsShader = (props: LogoDotsShaderProps) => {
     const {
@@ -137,10 +138,10 @@ const LogoDotsShader = (props: LogoDotsShaderProps) => {
         dotSize = 1,
         maxFps = 30,
         svgMask,
-    } = props;
-    const source = DEFAULT_SHADER_SOURCE;
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const center = ['x', 'y'];
+    } = props
+    const source = DEFAULT_SHADER_SOURCE
+    const canvasRef = useRef<HTMLCanvasElement>(null)
+    const center = ['x', 'y']
 
     // Modified fragment shader to include mask sampling
     const fragmentSource = `#version 300 es
@@ -185,15 +186,15 @@ const LogoDotsShader = (props: LogoDotsShaderProps) => {
         .concat(
             source,
             '\n\n  if (u_use_mask) {\n    vec2 maskCoord = fragCoord / u_resolution;\n    float maskValue = texture(u_mask_texture, maskCoord).r;\n    opacity *= maskValue;\n  }\n\n  fragColor = vec4(color, opacity);\n  fragColor.rgb *= fragColor.a;\n}\n'
-        );
+        )
 
     const uniforms = useMemo(() => {
-        let e =
+        const e =
             colors.length === 2
                 ? [colors[0], colors[0], colors[0], colors[1], colors[1], colors[1]]
                 : colors.length === 3
                     ? [colors[0], colors[0], colors[1], colors[1], colors[2], colors[2]]
-                    : [colors[0], colors[0], colors[0], colors[0], colors[0], colors[0]];
+                    : [colors[0], colors[0], colors[0], colors[0], colors[0], colors[0]]
 
         return {
             u_colors: {
@@ -216,26 +217,26 @@ const LogoDotsShader = (props: LogoDotsShaderProps) => {
                 value: !!svgMask,
                 type: 'uniform1i',
             },
-        };
-    }, [colors, opacities, totalSize, dotSize, svgMask]);
+        }
+    }, [colors, opacities, totalSize, dotSize, svgMask])
 
     useEffect(() => {
-        const windowDpr = window.devicePixelRatio;
-        const canvas = canvasRef.current!;
-        const glCanvas = document.createElement('canvas');
-        const dpr = Math.max(1, Math.min(windowDpr ?? 1, 2));
-        let raf: any;
+        const windowDpr = window.devicePixelRatio
+        const canvas = canvasRef.current!
+        const glCanvas = document.createElement('canvas')
+        const dpr = Math.max(1, Math.min(windowDpr ?? 1, 2))
+        let raf: any
 
-        canvas.width = canvas.offsetWidth * dpr;
-        canvas.height = canvas.offsetHeight * dpr;
-        glCanvas.width = canvas.offsetWidth * dpr;
-        glCanvas.height = canvas.offsetHeight * dpr;
+        canvas.width = canvas.offsetWidth * dpr
+        canvas.height = canvas.offsetHeight * dpr
+        glCanvas.width = canvas.offsetWidth * dpr
+        glCanvas.height = canvas.offsetHeight * dpr
 
-        const gl = glCanvas.getContext('webgl2');
-        const ctx2d = canvas.getContext('2d');
+        const gl = glCanvas.getContext('webgl2')
+        const ctx2d = canvas.getContext('2d')
 
         if (!gl || !ctx2d) {
-            return;
+            return
         }
 
         const vertexShader = createShader(
@@ -257,64 +258,64 @@ const LogoDotsShader = (props: LogoDotsShaderProps) => {
         fragCoord.y = u_resolution.y - fragCoord.y;
       }
       `
-        );
-        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentSource);
+        )
+        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentSource)
 
         if (!vertexShader || !fragmentShader) {
-            return;
+            return
         }
 
-        const glProgram = gl.createProgram()!;
-        gl.attachShader(glProgram, vertexShader);
-        gl.attachShader(glProgram, fragmentShader);
+        const glProgram = gl.createProgram()!
+        gl.attachShader(glProgram, vertexShader)
+        gl.attachShader(glProgram, fragmentShader)
 
-        gl.linkProgram(glProgram);
+        gl.linkProgram(glProgram)
 
         if (!gl.getProgramParameter(glProgram, gl.LINK_STATUS)) {
             throw `Failed to compile WebGL program: \n\n${gl.getProgramInfoLog(
                 glProgram
-            )}`;
+            )}`
         }
-        gl.useProgram(glProgram);
+        gl.useProgram(glProgram)
 
-        const positions = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
-        const positionsBuffer = createBuffer(gl, positions);
+        const positions = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1])
+        const positionsBuffer = createBuffer(gl, positions)
 
-        let coordinatesAttrLocation = gl.getAttribLocation(
+        const coordinatesAttrLocation = gl.getAttribLocation(
             glProgram,
             'coordinates'
-        );
-        gl.enableVertexAttribArray(coordinatesAttrLocation);
-        gl.vertexAttribPointer(coordinatesAttrLocation, 2, gl.FLOAT, false, 0, 0);
+        )
+        gl.enableVertexAttribArray(coordinatesAttrLocation)
+        gl.vertexAttribPointer(coordinatesAttrLocation, 2, gl.FLOAT, false, 0, 0)
 
         const resolutionAttrLocation = gl.getUniformLocation(
             glProgram,
             'u_resolution'
-        );
-        const timeAttrLocation = gl.getUniformLocation(glProgram, 'u_time');
-        const scrollAttrLocation = gl.getUniformLocation(glProgram, 'u_scroll');
+        )
+        const timeAttrLocation = gl.getUniformLocation(glProgram, 'u_time')
+        const scrollAttrLocation = gl.getUniformLocation(glProgram, 'u_scroll')
         const maskTextureLocation = gl.getUniformLocation(
             glProgram,
             'u_mask_texture'
-        );
+        )
 
         // Set up texture for mask if provided
-        let maskTexture: WebGLTexture | null = null;
+        let maskTexture: WebGLTexture | null = null
         if (svgMask) {
             createMaskTexture(gl, svgMask, canvas.width, canvas.height)?.then(
                 texture => {
-                    maskTexture = texture;
+                    maskTexture = texture
 
-                    gl.activeTexture(gl.TEXTURE0);
-                    gl.bindTexture(gl.TEXTURE_2D, maskTexture);
-                    gl.uniform1i(maskTextureLocation, 0);
+                    gl.activeTexture(gl.TEXTURE0)
+                    gl.bindTexture(gl.TEXTURE_2D, maskTexture)
+                    gl.uniform1i(maskTextureLocation, 0)
                 }
-            );
+            )
         } else {
             // Create a default white texture (no masking)
-            maskTexture = gl.createTexture();
-            gl.activeTexture(gl.TEXTURE0);
-            gl.bindTexture(gl.TEXTURE_2D, maskTexture);
+            maskTexture = gl.createTexture()
+            gl.activeTexture(gl.TEXTURE0)
+            gl.bindTexture(gl.TEXTURE_2D, maskTexture)
             gl.texImage2D(
                 gl.TEXTURE_2D,
                 0,
@@ -325,34 +326,34 @@ const LogoDotsShader = (props: LogoDotsShaderProps) => {
                 gl.RGBA,
                 gl.UNSIGNED_BYTE,
                 new Uint8Array([255, 255, 255, 255])
-            );
-            gl.uniform1i(maskTextureLocation, 0);
+            )
+            gl.uniform1i(maskTextureLocation, 0)
         }
 
-        for (let key in uniforms) {
-            const uniformLocation = gl.getUniformLocation(glProgram, key);
+        for (const key in uniforms) {
+            const uniformLocation = gl.getUniformLocation(glProgram, key)
             //@ts-ignore
-            const uniform = uniforms[key];
+            const uniform = uniforms[key]
 
             switch (uniform.type) {
-                case 'uniform1f':
-                    gl.uniform1f(uniformLocation, uniform.value);
-                    break;
-                case 'uniform3f':
-                    // @ts-ignore
-                    gl.uniform3f(uniformLocation, ...uniform.value);
-                    break;
-                case 'uniform1fv':
-                    gl.uniform1fv(uniformLocation, uniform.value);
-                    break;
-                case 'uniform3fv':
-                    gl.uniform3fv(uniformLocation, uniform.value.flat());
-                    break;
-                case 'uniform1i':
-                    gl.uniform1i(uniformLocation, uniform.value ? 1 : 0);
-                    break;
-                default:
-                    return uniform;
+            case 'uniform1f':
+                gl.uniform1f(uniformLocation, uniform.value)
+                break
+            case 'uniform3f':
+                // @ts-ignore
+                gl.uniform3f(uniformLocation, ...uniform.value)
+                break
+            case 'uniform1fv':
+                gl.uniform1fv(uniformLocation, uniform.value)
+                break
+            case 'uniform3fv':
+                gl.uniform3fv(uniformLocation, uniform.value.flat())
+                break
+            case 'uniform1i':
+                gl.uniform1i(uniformLocation, uniform.value ? 1 : 0)
+                break
+            default:
+                return uniform
             }
         }
 
@@ -360,88 +361,88 @@ const LogoDotsShader = (props: LogoDotsShaderProps) => {
             resolutionAttrLocation,
             canvas.width / dpr,
             canvas.height / dpr
-        );
-        gl.enable(gl.BLEND);
-        gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
-        gl.disable(gl.DEPTH_TEST);
+        )
+        gl.enable(gl.BLEND)
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE)
+        gl.disable(gl.DEPTH_TEST)
 
-        let lastSecondPassed: number | null = null;
-        let timePassed = 0;
+        let lastSecondPassed: number | null = null
+        let timePassed = 0
 
         function run(e: number) {
             if (!gl) {
-                return;
+                return
             }
 
-            let secondsPassed = e / 1e3;
+            const secondsPassed = e / 1e3
 
             if (lastSecondPassed === null) {
-                lastSecondPassed = secondsPassed;
+                lastSecondPassed = secondsPassed
             }
 
             if (maxFps !== Infinity) {
                 if (e - timePassed < 1000 / maxFps) {
-                    raf = window.requestAnimationFrame(run);
-                    return;
+                    raf = window.requestAnimationFrame(run)
+                    return
                 }
-                timePassed = e;
+                timePassed = e
             }
 
-            const time = secondsPassed - lastSecondPassed;
-            gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-            gl.uniform1f(timeAttrLocation, time);
-            gl.uniform1f(scrollAttrLocation, window.scrollY);
-            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-            ctx2d!.clearRect(0, 0, canvas.width, canvas.height);
-            ctx2d!.drawImage(glCanvas, 0, 0);
-            raf = window.requestAnimationFrame(run);
+            const time = secondsPassed - lastSecondPassed
+            gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
+            gl.uniform1f(timeAttrLocation, time)
+            gl.uniform1f(scrollAttrLocation, window.scrollY)
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+            ctx2d!.clearRect(0, 0, canvas.width, canvas.height)
+            ctx2d!.drawImage(glCanvas, 0, 0)
+            raf = window.requestAnimationFrame(run)
         }
 
-        raf = window.requestAnimationFrame(run);
+        raf = window.requestAnimationFrame(run)
 
         canvas.style.width  = canvas.offsetWidth  + 'px'
         canvas.style.height = canvas.offsetHeight + 'px'
 
         const resizeObserver = new window.ResizeObserver(() => {
-            canvas.width = canvas.offsetWidth * dpr;
-            canvas.height = canvas.offsetHeight * dpr;
-            glCanvas.width = canvas.offsetWidth * dpr;
-            glCanvas.height = canvas.offsetHeight * dpr;
+            canvas.width = canvas.offsetWidth * dpr
+            canvas.height = canvas.offsetHeight * dpr
+            glCanvas.width = canvas.offsetWidth * dpr
+            glCanvas.height = canvas.offsetHeight * dpr
             gl.uniform2f(
                 resolutionAttrLocation,
                 canvas.width / dpr,
                 canvas.height / dpr
-            );
+            )
 
             // Update mask texture on resize if needed
             if (svgMask && maskTexture) {
                 createMaskTexture(gl, svgMask, canvas.width, canvas.height)?.then(
                     texture => {
-                        maskTexture = texture;
-                        gl.activeTexture(gl.TEXTURE0);
-                        gl.bindTexture(gl.TEXTURE_2D, maskTexture);
+                        maskTexture = texture
+                        gl.activeTexture(gl.TEXTURE0)
+                        gl.bindTexture(gl.TEXTURE_2D, maskTexture)
                     }
-                );
+                )
             }
-        });
+        })
 
-        resizeObserver.observe(canvas);
+        resizeObserver.observe(canvas)
 
         return () => {
-            window.cancelAnimationFrame(raf);
-            resizeObserver.disconnect();
+            window.cancelAnimationFrame(raf)
+            resizeObserver.disconnect()
             if (gl) {
-                gl.deleteShader(vertexShader);
-                gl.deleteShader(fragmentShader);
-                gl.deleteProgram(glProgram);
-                gl.deleteBuffer(positionsBuffer);
-                if (maskTexture) gl.deleteTexture(maskTexture);
+                gl.deleteShader(vertexShader)
+                gl.deleteShader(fragmentShader)
+                gl.deleteProgram(glProgram)
+                gl.deleteBuffer(positionsBuffer)
+                if (maskTexture) gl.deleteTexture(maskTexture)
             }
-        };
-    }, [fragmentSource, uniforms, maxFps, svgMask]);
+        }
+    }, [fragmentSource, uniforms, maxFps, svgMask])
 
-    return <canvas height={props.height} width={props.width} ref={canvasRef} />;
-};
+    return <canvas height={props.height} width={props.width} ref={canvasRef} />
+}
 
-export default LogoDotsShader;
+export default LogoDotsShader

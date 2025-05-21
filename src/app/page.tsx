@@ -76,17 +76,6 @@ const projects = [
     },
 ]
 
-const svgMask = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 270 30" fill="none">
-    <style>
-    .text {
-      font: 30px monospace;
-    }
-  </style>
-<text x="0" y="20" class="text" fill="#F97316">Azriel Alvarado</text>
-</svg>
-`
-
 const svgMaskSmallScreen = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100" fill="none">
     <style>
@@ -124,14 +113,14 @@ export default function Portfolio() {
                     <img src={"me.jpeg"} alt={"idk"} width={175} height={175} className={"rounded-full mt-4"}/>
 
                     <h2 className="text-4xl font-bold mb-4 mt-8">About</h2>
-                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">I'm a Panamanian–American 🇵🇦🇺🇸 software engineer who
+                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">I&apos;m a Panamanian–American 🇵🇦🇺🇸 software engineer who
                         cares deeply about building software that’s beautiful—inside and out. This means my code and design are clear, useful and simple.</p>
                     <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">
-                        I'm a jack of all trades, but if you're working on native mobile, I’ll be especially excited to
+                        I&apos;m a jack of all trades, but if you&apos;re working on native mobile, I’ll be especially excited to
                         help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.
                     </p>
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
-                          className={buttonVariants({variant: "outline"})}>
+                        className={buttonVariants({variant: "outline"})}>
                         <FaFileAlt/> Resume
                     </Link>
                 </div>
@@ -141,7 +130,7 @@ export default function Portfolio() {
                 <SkillGrid/>
             </section>
             <section className="mt-12 text-center py-12">
-            <h2 className="text-4xl font-bold mb-8 mt-2">Projects</h2>
+                <h2 className="text-4xl font-bold mb-8 mt-2">Projects</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 max-w-3xl m-auto">
                     {
                         projects.map((project) =>
