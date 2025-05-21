@@ -105,27 +105,27 @@ export default function Portfolio() {
         <div className="container text-center mx-auto p-6 font-sans">
             <section className="pt-10 pb-20">
                 <div className="flex flex-col items-center">
-                    <LogoDotsShader
-                        opacities={[0.4, 0.4, 0.6, 0.6, 0.6, 0.8, 0.8, 0.8, 0.9, 1]}
-                        colors={[
-                            [255, 255, 255],
-                        ]}
-                        svgMask={svgMaskSmallScreen}
-                        totalSize={2}
-                        dotSize={1}
-                        maxFps={30}
-                        height={50}
-                        width={175}
-                    />
+                    <div className="w-[350px] h-[100px]">
+                        <LogoDotsShader
+                            opacities={[0.4, 0.4, 0.6, 0.6, 0.6, 0.8, 0.9, 0.9, 0.9, 1]}
+                            colors={[
+                                [255, 255, 255],
+                            ]}
+                            svgMask={svgMaskSmallScreen}
+                            totalSize={2}
+                            dotSize={1}
+                            maxFps={30}
+                            height={50}
+                            width={175}
+                        />
+                    </div>
                     <p className="text-xl mb-4 mt-10">Senior Software Engineer | Full-Stack & Native Mobile
                         Developer</p>
                     <img src={"me.jpeg"} alt={"idk"} width={175} height={175} className={"rounded-full mt-4"}/>
 
-                    <h2 className="text-5xl font-bold mb-4 mt-8">About</h2>
+                    <h2 className="text-4xl font-bold mb-4 mt-8">About</h2>
                     <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">I'm a Panamanian–American 🇵🇦🇺🇸 software engineer who
-                        cares deeply about building software that’s beautiful—inside and out. I bring this quality to my
-                        work by solving problems with elegance: using the right tools, iterating quickly, and paying
-                        close attention to the details.</p>
+                        cares deeply about building software that’s beautiful—inside and out. This means my code and design are clear, useful and simple.</p>
                     <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">
                         I'm a jack of all trades, but if you're working on native mobile, I’ll be especially excited to
                         help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.
@@ -137,11 +137,11 @@ export default function Portfolio() {
                 </div>
             </section>
             <section className="flex flex-col items-center w-full">
-                <h2 className="text-5xl font-bold mb-10">Mastery</h2>
+                <h2 className="text-4xl font-bold mb-10">Mastery</h2>
                 <SkillGrid/>
             </section>
             <section className="mt-12 text-center py-12">
-            <h2 className="text-5xl font-bold mb-8 mt-2">Projects</h2>
+            <h2 className="text-4xl font-bold mb-8 mt-2">Projects</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 max-w-3xl m-auto">
                     {
                         projects.map((project) =>
