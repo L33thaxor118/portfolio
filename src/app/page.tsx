@@ -27,22 +27,10 @@ const projects = [
         tech: ["React"]
     },
     {
-        name: "Old portfolio",
-        description: "Built from scratch",
-        link: "https://azrielalvarado.com",
-        tech: ["React"]
-    },
-    {
         name: "Lyrical",
         description: "CLI tool for semantic song search",
         link: "https://jealous-mass-574.notion.site/Lyrical-1393dbb661f880639838c3045d2659bd?pvs=74",
         tech: ["NodeJS"]
-    },
-    {
-        name: "This website",
-        description: "I actually did it myself",
-        link: "https://azrl.dev",
-        tech: ["NextJS", "React"]
     },
     {
         name: "Composite Build Helper",
@@ -96,7 +84,7 @@ export default function Portfolio() {
                 <div className="flex flex-col items-center">
                     <div className="w-[350px] h-[100px]">
                         <LogoDotsShader
-                            opacities={[0.4, 0.4, 0.6, 0.6, 0.6, 0.8, 0.9, 0.9, 0.9, 1]}
+                            opacities={[0.5, 0.6, 0.8, 0.8, 0.8, 0.8, 0.9, 0.9, 0.9, 1]}
                             colors={[
                                 [255, 255, 255],
                             ]}
@@ -150,7 +138,7 @@ export default function Portfolio() {
             {/* Contact Section */}
             <section className="mt-12 text-center py-12">
                 <h2 className="text-3xl font-semibold mb-4">Let&apos;s Connect</h2>
-                <p className="text-gray-500 mb-4">Give me a complicated problem to solve</p>
+                <p className="text-gray-500 mb-4">Give me a difficult problem to solve</p>
                 <div className="flex justify-center gap-4">
                     <Link href="https://github.com/L33thaxor118" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
                         <FaGithub size={18}/> GitHub
