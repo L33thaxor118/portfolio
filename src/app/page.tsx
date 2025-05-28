@@ -104,7 +104,7 @@ export default function Portfolio() {
                     <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">I&apos;m a Panamanian–American 🇵🇦🇺🇸 software engineer who
                         cares deeply about building software that’s beautiful—inside and out. This means my code and design are clear, useful and simple.</p>
                     <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">
-                        I&apos;m a jack of all trades, but if you&apos;re working on native mobile, I’ll be especially excited to
+                        I&apos;m a versatile developer, and if you&apos;re working on native mobile, I’ll be especially excited to
                         help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.
                     </p>
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
@@ -138,7 +138,7 @@ export default function Portfolio() {
             {/* Contact Section */}
             <section className="mt-12 text-center py-12">
                 <h2 className="text-3xl font-semibold mb-4">Let&apos;s Connect</h2>
-                <p className="text-gray-500 mb-4">Give me a difficult problem to solve</p>
+                <p className="text-gray-500 mb-4">Open to freelance, consulting, or creative projects</p>
                 <div className="flex justify-center gap-4">
                     <Link href="https://github.com/L33thaxor118" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
                         <FaGithub size={18}/> GitHub
