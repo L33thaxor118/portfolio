@@ -1,8 +1,8 @@
 'use client'
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
-import LogoDotsShader from "../components/logoshader"
 import { buttonVariants } from "@/components/ui/button"
+import { Raleway } from "next/font/google"
 import {
     Card,
     CardDescription,
@@ -12,6 +12,10 @@ import {
 import {SkillGrid} from "@/components/skillgrid"
 import Link from "next/link"
 import React from "react"
+
+const raleway = Raleway({
+    subsets: ["latin"],
+})
 
 const projects = [
     {
@@ -62,19 +66,13 @@ const projects = [
         link: "https://jealous-mass-574.notion.site/DojoHaim-44234b3a71934b1a8890893a7aae7fd1?pvs=4",
         tech: []
     },
+    {
+        name: "Mobile Cat Detection",
+        description: "On-device cat classifier",
+        link: "https://jealous-mass-574.notion.site/Mobile-Cat-Detection-22b3dbb661f88088b562c6307b299ab4?source=copy_link",
+        tech: []
+    },
 ]
-
-const svgMaskSmallScreen = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100" fill="none">
-    <style>
-    .text {
-      font: 50px monospace;
-    }
-  </style>
-<text x="85" y="50" class="text" fill="#F97316">Azriel</text>
-<text x="55" y="100" class="text" fill="#F97316">Alvarado</text>
-</svg>
-`
 
 
 export default function Portfolio() {
@@ -83,29 +81,21 @@ export default function Portfolio() {
             <section className="pt-10 pb-20">
                 <div className="flex flex-col items-center">
                     <div className="w-[350px] h-[100px]">
-                        <LogoDotsShader
-                            opacities={[0.5, 0.6, 0.8, 0.8, 0.8, 0.8, 0.9, 0.9, 0.9, 1]}
-                            colors={[
-                                [255, 255, 255],
-                            ]}
-                            svgMask={svgMaskSmallScreen}
-                            totalSize={2}
-                            dotSize={1}
-                            maxFps={30}
-                            height={50}
-                            width={175}
-                        />
+                        <h1 className={`${raleway.className} text-5xl`}>
+                            Azriel Alvarado
+                        </h1>
                     </div>
-                    <p className="text-xl mb-4 mt-10">Senior Software Engineer | Full-Stack & Native Mobile
+                    <p className="text-xl mb-4 text-gray-400">Senior Software Engineer | Full-Stack & Native Mobile
                         Developer</p>
                     <img src={"me.jpeg"} alt={"idk"} width={175} height={175} className={"rounded-full mt-4"}/>
 
                     <h2 className="text-4xl font-bold mb-4 mt-8">About</h2>
-                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">I&apos;m a Panamanian–American 🇵🇦🇺🇸 software engineer who
-                        cares deeply about building software that’s beautiful—inside and out. This means my code and design are clear, useful and simple.</p>
                     <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">
-                        I&apos;m a versatile developer, and if you&apos;re working on native mobile, I’ll be especially excited to
-                        help. Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.
+                        I&apos;m a Panamanian–American 🇵🇦🇺🇸 software engineer.
+                        Native mobile is what I do best, but my passion for solving problems with technology is platform-agnostic.
+                    </p>
+                    <p className="text-gray-400 mb-4 max-w-[600px] leading-relaxed">
+                        Curiosity and thoughtfulness are my greatest strengths—and they shape everything I build.
                     </p>
                     <Link href={"resume.pdf"} target="_blank" rel="noopener noreferrer"
                         className={buttonVariants({variant: "outline"})}>
