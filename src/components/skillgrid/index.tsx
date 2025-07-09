@@ -18,11 +18,11 @@ export const SkillGrid = () => {
         },
         {
             name: "iOS",
-            level: 4,
+            level: 5,
         },
         {
             name: "AWS",
-            level: 3,
+            level: 4,
         },
         {
             name: "KotlinMP",
@@ -33,12 +33,8 @@ export const SkillGrid = () => {
             level: 6,
         },
         {
-            name: "Terraform",
-            level: 1,
-        },
-        {
             name: "NextJS",
-            level: 2,
+            level: 3,
         },
         {
             name: "NodeJS",
