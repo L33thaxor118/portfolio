@@ -2,6 +2,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
 import { buttonVariants } from "@/components/ui/button"
+import Image from 'next/image'
 import { Raleway } from "next/font/google"
 import {
     Card,
@@ -80,10 +81,13 @@ export default function Portfolio() {
         <div className="container text-center mx-auto p-6 font-sans">
             <section className="pt-10 pb-20">
                 <div className="flex flex-col items-center">
-                    <div className="w-[350px] h-[100px]">
-                        <h1 className={`${raleway.className} text-5xl`}>
-                            Azriel Alvarado
-                        </h1>
+                    <div className="w-auto h-[130px]">
+                        <Image
+                            src="/logo.svg"
+                            alt="Logo"
+                            width={250}
+                            height={250}
+                        />
                     </div>
                     <p className="text-xl mb-4 text-gray-400">Senior Software Engineer | Full-Stack & Native Mobile
                         Developer</p>
