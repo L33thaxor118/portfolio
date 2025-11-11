@@ -3,7 +3,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
 import { buttonVariants } from "@/components/ui/button"
 import Image from 'next/image'
-import { Raleway } from "next/font/google"
 import {
     Card,
     CardDescription,
@@ -13,10 +12,6 @@ import {
 import {SkillGrid} from "@/components/skillgrid"
 import Link from "next/link"
 import React from "react"
-
-const raleway = Raleway({
-    subsets: ["latin"],
-})
 
 const projects = [
     {
