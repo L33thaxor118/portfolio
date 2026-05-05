@@ -1,5 +1,5 @@
 'use client'
-import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
 import { buttonVariants } from "@/components/ui/button"
 import Image from 'next/image'
@@ -135,12 +135,15 @@ export default function Portfolio() {
                     <Link href="https://linkedin.com/in/azriel-alvarado-105894182" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
                         <FaLinkedin size={18}/> LinkedIn
                     </Link>
+                    <Link href="https://medium.com/@alvarado_118" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" })}>
+                        <FaMedium size={18}/> Medium
+                    </Link>
                 </div>
             </section>
 
             {/* Footer */}
             <footer className="text-center py-6 text-gray-500">
-              © 2025 Azriel Alvarado. All rights reserved.
+              © 2026 Azriel Alvarado. All rights reserved.
             </footer>
         </div>
     )
