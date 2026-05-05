@@ -39,6 +39,10 @@ export const SkillGrid = () => {
         {
             name: "NodeJS",
             level: 4,
+        },
+        {
+            name: "LangGraph",
+            level: 5,
         }
     ]
 
